@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/SellerOrder/OrderItem.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/SellerOrder/Order.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/ExpressCompanyRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/Role.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Seller/Seller.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Product/ProductCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Buyer/Buyer.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/BuyerRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/SupplierRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/DeliverymanRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/EcoSystem.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/SellerRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/UserAccount/UserAccount.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Buyer/BuyerDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/BuyerOrder/MasterOrderCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/SellerOrder/MasterOrderCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/BuyerOrder/OrderItem.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Deliveryman/DeliverymanDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/ExpressCompany/ExpressCompanyDir.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Supplier/SupplierDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Deliveryman/Deliveryman.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/BuyerOrder/Evaluate.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/UserAccount/UserAccountDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/ExpressCompany/ExpressCompany.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Seller/SellerDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Product/Product.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/BuyerOrder/Order.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Role/SystemAdminRole.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/ConfigureASystem.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/Supplier/Supplier.java</file>
+            <file>file:/Users/jiaohongmei/NetBeansProjects8.2/Final/src/Business/DB4OUtil/DB4OUtil.java</file>
+        </group>
+    </open-files>
+</project-private>
