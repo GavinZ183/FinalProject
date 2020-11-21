@@ -5,6 +5,9 @@
  */
 package Business.Seller;
 
+import Business.Seller.InventorManage.InventoryManageDir;
+import Business.Seller.PurchaseManage.PurchaseManageDir;
+import Business.Seller.SalesManage.SalesManageDir;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -12,8 +15,10 @@ import Business.UserAccount.UserAccount;
  * @author jiaohongmei
  */
 public class Seller {
-    public String name;
-    public String telephone;
-    
-    public UserAccount userAccount;
+    private String name;
+    private String telephone; 
+    private UserAccount userAccount;
+    private InventoryManageDir inventoryManageDir;
+    private PurchaseManageDir purchaseManageDir;
+    private SalesManageDir salesManageDir;
 }

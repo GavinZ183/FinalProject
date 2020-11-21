@@ -16,10 +16,20 @@ public abstract class Role {
     
     public enum RoleType{
         Buyer("Buyer"),
+        
         Seller("Seller"),
+        StorageManager("StorageManager"),
+        PurchaseManager("PurchaseManager"),
+        SalesManager("SalesManager"),
+        
         Supplier("Supplier"),
+       
+        ExpressCompany("ExpressCompany"),
+        Driver("Driver"),
         Deliveryman("Deliveryman"),
-        ExpressCompany("ExpressCompany"), 
+        
+        Service("Service"),
+        
         SysAdmin("Sysadmin");
         
         private String value;

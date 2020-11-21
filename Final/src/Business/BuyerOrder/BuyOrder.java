@@ -13,24 +13,24 @@ import java.util.ArrayList;
  *
  * @author jiaohongmei
  */
-public class Order {
-    private ArrayList<OrderItem> orderItemList;
+public class BuyOrder {
+    private ArrayList<BuyOrderItem> orderItemList;
     private int orderNumber;
     private static int count=0;
     
-    public Order()
+    public BuyOrder()
     {
         count ++;
         orderNumber = count;
-        orderItemList=new ArrayList<OrderItem>();
+        orderItemList=new ArrayList<BuyOrderItem>();
         
     }
 
-    public ArrayList<OrderItem> getOrderItemList() {
+    public ArrayList<BuyOrderItem> getOrderItemList() {
         return orderItemList;
     }
 
-    public void setOrderItemList(ArrayList<OrderItem> orderItemList) {
+    public void setOrderItemList(ArrayList<BuyOrderItem> orderItemList) {
         this.orderItemList = orderItemList;
     }
 
@@ -42,8 +42,8 @@ public class Order {
         this.orderNumber = orderNumber;
     }
     
-     public OrderItem addOrderItem(Product p,int q,double price){
-        OrderItem o=new OrderItem ();
+     public BuyOrderItem addOrderItem(Product p,int q,double price){
+        BuyOrderItem o=new BuyOrderItem ();
 //       o.setProduct(p);
 //       o.setQuantity(q);
 //       o.setSalesprice(price);
@@ -51,7 +51,7 @@ public class Order {
         return o;
     }
      
-     public void  removeOrderItem(OrderItem o){
+     public void  removeOrderItem(BuyOrderItem o){
          orderItemList.remove(o);
         
      }
