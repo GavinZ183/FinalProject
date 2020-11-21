@@ -5,16 +5,20 @@
  */
 package Business.ExpressCompany;
 
-import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 
 /**
  *
  * @author jiaohongmei
  */
-public class ExpressCompany {
-    private String name;
-    public UserAccount userAccount;
-    private DriverDir driverDir;
-    private DeliverymanDirectory deliverymanDirectory;
-    
+public class DriverDir {
+     private ArrayList<Driver>DriverList;
+
+    public  DriverDir() {
+        DriverList = new ArrayList();
+    }
+
+    public ArrayList<Driver> getDriverList() {
+        return DriverList;
+    }
 }

@@ -5,16 +5,10 @@
  */
 package Business.ExpressCompany;
 
-import Business.UserAccount.UserAccount;
-
 /**
  *
  * @author jiaohongmei
  */
-public class ExpressCompany {
-    private String name;
-    public UserAccount userAccount;
-    private DriverDir driverDir;
-    private DeliverymanDirectory deliverymanDirectory;
+public class Driver {
     
 }

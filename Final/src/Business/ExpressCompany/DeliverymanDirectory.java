@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Deliveryman;
+package Business.ExpressCompany;
+
 
 import java.util.ArrayList;
 

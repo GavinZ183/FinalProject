@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Deliveryman;
+package Business.Seller.SalesManage;
 
-import Business.UserAccount.UserAccount;
+import Business.BuyerOrder.MasterBuyOrderCatalog;
+
 
 /**
  *
  * @author jiaohongmei
  */
-public class Deliveryman {
-    private String telephone;
-    private String position;
-    public UserAccount userAccount;
+public class SalesManage {//销售管理员
+    private MasterBuyOrderCatalog  masterBuyOrderCatalog;
 }

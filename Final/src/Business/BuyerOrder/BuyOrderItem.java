@@ -12,7 +12,8 @@ import Business.Product.Product;
  *
  * @author jiaohongmei
  */
-public class OrderItem {
+public class BuyOrderItem {
+    
     private int quantity;
     private double salesprice;
     private Product product;

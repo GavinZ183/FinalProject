@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Supplier;
+package Business.ExpressCompany;
 
-import Business.Product.ProductCatalog;
+
 import Business.UserAccount.UserAccount;
 
 /**
  *
  * @author jiaohongmei
  */
-public class Supplier {
-    private String type;
+public class Deliveryman {
+    private String telephone;
     private String position;
-    private UserAccount userAccount;
-    private ProductCatalog productCatalog;
-    
+    public UserAccount userAccount;
 }

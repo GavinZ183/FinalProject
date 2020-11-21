@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.SellerOrder;
+package Business.BuyerOrder;
 
 import java.util.ArrayList;
 
@@ -11,22 +11,22 @@ import java.util.ArrayList;
  *
  * @author jiaohongmei
  */
-public class MasterOrderCatalog {
-    private ArrayList<Order> orderCatalog;
+public class MasterBuyOrderCatalog {
+    private ArrayList<BuyOrder> orderCatalog;
     
-    public MasterOrderCatalog()
+    public MasterBuyOrderCatalog()
     {
-        orderCatalog=new ArrayList<Order> ();
+        orderCatalog=new ArrayList<BuyOrder> ();
     }
 
-    public ArrayList<Order> getOrderCatalog() {
+    public ArrayList<BuyOrder> getOrderCatalog() {
         return orderCatalog;
     }
 
-    public void setOrderCatalog(ArrayList<Order> orderCatalog) {
+    public void setOrderCatalog(ArrayList<BuyOrder> orderCatalog) {
         this.orderCatalog = orderCatalog;
     }
-    public Order addOrder(Order o){
+    public BuyOrder addOrder(BuyOrder o){
       
         orderCatalog.add(o);
         return o;
