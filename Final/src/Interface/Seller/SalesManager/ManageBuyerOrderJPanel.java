@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interface.Seller;
+package Interface.Seller.SalesManager;
 
 /**
  *
@@ -29,7 +29,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
         txtBuyer = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        btnAddToCart = new javax.swing.JButton();
+        btnhooseDeliveryCompany = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtPosition = new javax.swing.JTextField();
@@ -50,7 +50,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Buyer:");
 
-        btnAddToCart.setText("Choose Delivery Company");
+        btnhooseDeliveryCompany.setText("Choose Delivery Company");
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Buyer Order Screen");
@@ -128,7 +128,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddToCart))
+                        .addComponent(btnhooseDeliveryCompany))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(296, 296, 296)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,7 +197,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 .addComponent(btnSearch)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddToCart)
+                    .addComponent(btnhooseDeliveryCompany)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(46, 46, 46)
@@ -208,10 +208,10 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddToCart;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnFreshTable;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnhooseDeliveryCompany;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

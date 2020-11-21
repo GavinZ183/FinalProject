@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interface.SystemAdmin;
+package Interface.DeliveryCompany;
 
 /**
  *
  * @author TT1
  */
-public class ManageDeliveryManJPanel extends javax.swing.JPanel {
+public class ManageDriverJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageDeliveryManJPanel
+     * Creates new form ManageDriverJPanel
      */
-    public ManageDeliveryManJPanel() {
+    public ManageDriverJPanel() {
         initComponents();
     }
 
@@ -27,13 +27,12 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtTelephone = new javax.swing.JTextField();
-        txtUsername1 = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
-        txtPosition1 = new javax.swing.JTextField();
+        txtPassword1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        txtTelephone1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
@@ -49,18 +48,20 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtTelephone = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtUsername1 = new javax.swing.JTextField();
         txtPosition = new javax.swing.JTextField();
-        txtPassword1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        txtTelephone1 = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        txtPosition1 = new javax.swing.JTextField();
 
-        jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Delivery Man");
+        jLabel4.setText("Position:");
 
         jLabel7.setText("Telephone:");
+
+        jLabel10.setText("Password:");
 
         jLabel11.setText("Telephone:");
 
@@ -104,25 +105,24 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         btnBack.setText("< back");
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
-        jLabel3.setText("Delete Delivery Man:");
+        jLabel3.setText("Delete Driver:");
 
         btnFreshTable.setText("Fresh table");
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
-        jLabel8.setText("Update Delivery Man:");
+        jLabel8.setText("Update Driver:");
 
         btnDelete.setText("Delete");
 
         btnUpdate.setText("Update");
 
-        jLabel2.setText("Delivery Man list:");
+        jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel1.setText("Manage Driver");
+
+        jLabel2.setText("Driver list:");
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
-        jLabel9.setText("Create new Delivery Man:");
-
-        jLabel4.setText("Position:");
-
-        jLabel10.setText("Password:");
+        jLabel9.setText("Create new Driver:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -203,7 +203,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(281, 281, 281)
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
