@@ -5,12 +5,12 @@
  */
 package Business.Network;
 
-import Business.Seller.SellerDirectory;
 import Business.Buyer.BuyerDirectory;
-import Business.ExpressCompany.ExpressCompanyDir;
-import Business.Supplier.SupplierDirectory;
-import Business.Service.ServiceDir;
 
+import Business.ExpressCompany.ExpressCompanyDir;
+import Business.Seller.SellerDirectory;
+import Business.Service.ServiceDir;
+import Business.Supplier.SupplierDirectory;
 
 /**
  *
@@ -21,17 +21,16 @@ public class Network {
     private SellerDirectory sellerDirectory;
     private BuyerDirectory buyerDirectory;
     private ExpressCompanyDir expressCompanyDir;
-
-   
-    private SupplierDirectory supplierDirectory;
     private ServiceDir serviceDir;
+    private SupplierDirectory supplierDirectory;
+    
     
     public Network(){
         sellerDirectory=new SellerDirectory();
-        buyerDirectory=new BuyerDirectory();
+        buyerDirectory =new BuyerDirectory();
         expressCompanyDir=new ExpressCompanyDir();
-        supplierDirectory=new SupplierDirectory();
-        serviceDir=new ServiceDir();
+        serviceDir =new ServiceDir();
+        supplierDirectory =new SupplierDirectory();
     }
     public String getName() {
         return name;
@@ -53,13 +52,15 @@ public class Network {
         return expressCompanyDir;
     }
 
+    public ServiceDir getServiceDir() {
+        return serviceDir;
+    }
+
     public SupplierDirectory getSupplierDirectory() {
         return supplierDirectory;
     }
 
-    public ServiceDir getServiceDir() {
-        return serviceDir;
-    }
+    
     
     @Override
     public String toString(){

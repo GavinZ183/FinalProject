@@ -7,7 +7,6 @@ package Business;
 
 import Business.Network.Network;
 
-
 import Business.UserAccount.UserAccountDirectory;
 import java.util.ArrayList;
 
@@ -15,12 +14,11 @@ import java.util.ArrayList;
  *
  * @author MyPC1
  */
-public class EcoSystem{
-    private UserAccountDirectory userAccountDirectory;
-
+public class EcoSystem {
     
     private static EcoSystem business;
     private ArrayList<Network> networkList;
+    private UserAccountDirectory userAccountDirectory;
     public static EcoSystem getInstance(){
         if(business==null){
             business=new EcoSystem();
@@ -33,22 +31,27 @@ public class EcoSystem{
         networkList.add(network);
         return network;
     }
-    
+//    @Override
+//    public ArrayList<Role> getSupportedRole() {
+//        ArrayList<Role> roleList=new ArrayList<Role>();
+//        roleList.add(new SystemAdminRole());
+//        return roleList;
+//    }
     private EcoSystem(){
-        
+       // super(null);
         networkList=new ArrayList<Network>();
     }
-    
-   public UserAccountDirectory getUserAccountDirectory() {
-        return userAccountDirectory;
-    }
-   
+
     public ArrayList<Network> getNetworkList() {
         return networkList;
     }
 
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
+    }
+
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
     }
     
     public boolean checkIfUserIsUnique(String userName){
