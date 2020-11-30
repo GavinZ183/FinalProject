@@ -11,6 +11,7 @@ import Business.ExpressCompany.ExpressCompanyDir;
 import Business.Seller.SellerDirectory;
 import Business.Service.ServiceDir;
 import Business.Supplier.SupplierDirectory;
+import Business.UserAccount.UserAccountDirectory;
 
 /**
  *
@@ -24,8 +25,11 @@ public class Network {
     private ServiceDir serviceDir;
     private SupplierDirectory supplierDirectory;
     
+    private UserAccountDirectory userAccountDirectory;
+    
     
     public Network(){
+        userAccountDirectory=new UserAccountDirectory();
         sellerDirectory=new SellerDirectory();
         buyerDirectory =new BuyerDirectory();
         expressCompanyDir=new ExpressCompanyDir();
@@ -59,9 +63,17 @@ public class Network {
     public SupplierDirectory getSupplierDirectory() {
         return supplierDirectory;
     }
-
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
+    }
     
-    
+     public boolean checkIfUserIsUnique(String userName){
+        
+        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
+            return false;
+        }
+        return true;
+    }
     @Override
     public String toString(){
         return name;

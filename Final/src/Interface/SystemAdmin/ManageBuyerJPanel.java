@@ -5,6 +5,11 @@
  */
 package Interface.SystemAdmin;
 
+import Business.Buyer.Buyer;
+import Business.Network.Network;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author TT1
@@ -14,10 +19,34 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageBuyerJPanel
      */
-    public ManageBuyerJPanel() {
-        initComponents();
-    }
+    JPanel userProcessContainer;
+    Network network;
+   
 
+    ManageBuyerJPanel(JPanel userProcessContainer, Network network) {
+        initComponents();
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        populateTable();
+    }
+    public void populateTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(Buyer buyer:network.getBuyerDirectory().getBuyerList()){
+            
+                Object row[] = new Object[4];
+                row[0] = buyer;
+                row[1] =buyer.getUserAccount().getUsername();
+                row[2] =buyer.getUserAccount().getPassword();
+                row[3] =buyer.getTelephone();
+                        
+                
+                model.addRow(row);
+                }
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

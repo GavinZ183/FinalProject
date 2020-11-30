@@ -5,6 +5,9 @@
  */
 package Interface.SystemAdmin;
 
+import Business.Network.Network;
+import javax.swing.JPanel;
+
 /**
  *
  * @author TT1
@@ -16,6 +19,10 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
      */
     public ManageDeliveryCompanyJPanel() {
         initComponents();
+    }
+
+    ManageDeliveryCompanyJPanel(JPanel userProcessContainer, Network network) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

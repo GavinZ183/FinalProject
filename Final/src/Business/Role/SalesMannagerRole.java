@@ -5,7 +5,10 @@
 package Business.Role;
 
 
+import Business.EcoSystem;
+import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import Interface.Seller.SalesManager.ManageBuyerOrderJPanel;
 
 import javax.swing.JPanel;
 
@@ -15,10 +18,10 @@ import javax.swing.JPanel;
  */
 public class SalesMannagerRole extends Role{
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-//        return new AdminWorkAreaJPanel(userProcessContainer,account,business);
-//    }
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
+        return new ManageBuyerOrderJPanel(userProcessContainer,account,network);
+    }
    @Override
     public String getType() {
         return RoleType.Buyer.getValue();

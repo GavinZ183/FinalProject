@@ -5,6 +5,16 @@
  */
 package Interface.SystemAdmin;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author TT1
@@ -14,9 +24,72 @@ public class SystemMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemMainJPanel
      */
-    public SystemMainJPanel() {
-        initComponents();
+   JPanel userProcessContainer;
+    EcoSystem system;
+        
+    
+
+    public SystemMainJPanel(JPanel userProcessContainer, EcoSystem system) {
+       initComponents();
+       this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        populateTable();
+        //populateTree();
     }
+
+    
+    public void populateTable(){
+        int rowCount = table.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(Network network:system.getNetworkList()){
+            
+                Object row[] = new Object[1];
+                row[0] = network;
+                
+                
+                model.addRow(row);
+                }
+            }
+//    public void populateTree(){
+//        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
+//       // Add the code for draw your system structure shown by JTree
+//       ArrayList<Customer> customerList=ecosystem.getCustomerDirectory().getCustomerList();
+//       ArrayList<DeliveryMan> deliveryList=ecosystem.getDeliveryManDirectory().getDeliveryManList();
+//       ArrayList<Restaurant> restaurantList=ecosystem.getRestaurantDirectory().getRestaurantList();
+//       
+// 
+//        DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+//        root.removeAllChildren();
+//        
+//        DefaultMutableTreeNode cus=new DefaultMutableTreeNode("Customers");
+//        root.insert(cus, 0);        
+//        for(int i=0;i<customerList.size();i++){
+//            Customer customer=customerList.get(i);
+//            DefaultMutableTreeNode customerNode=new DefaultMutableTreeNode(customer.getUserAccount().getUsername());
+//            cus.insert(customerNode, i);
+//          }
+//          
+//        
+//        DefaultMutableTreeNode del=new DefaultMutableTreeNode("DeliveryMen");      
+//        root.insert(del, 1);
+//        for(int i=0;i<deliveryList.size();i++){
+//            DeliveryMan delivery=deliveryList.get(i);
+//            DefaultMutableTreeNode deliveryNode=new DefaultMutableTreeNode(delivery.getUserAccount().getUsername());
+//            del.insert(deliveryNode, i);
+//          }
+//          
+//       DefaultMutableTreeNode res=new DefaultMutableTreeNode("Restaursnts");
+//        root.insert(res, 2); 
+//        for(int i=0;i<restaurantList.size();i++){
+//            Restaurant restaurant=restaurantList.get(i);
+//            DefaultMutableTreeNode restaurantNode=new DefaultMutableTreeNode(restaurant.getUserAccount().getUsername());
+//            res.insert(restaurantNode, i);
+//          }
+//        model.reload();
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,8 +109,8 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         btnCreateNetwork = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        txtUsername = new javax.swing.JTextField();
+        table = new javax.swing.JTable();
+        txtNetwork = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jTree1);
@@ -59,14 +132,24 @@ public class SystemMainJPanel extends javax.swing.JPanel {
 
         btnEnterNetwork.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnEnterNetwork.setText("Enter Network");
+        btnEnterNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterNetworkActionPerformed(evt);
+            }
+        });
 
         btnCreateNetwork.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnCreateNetwork.setText("Create Network");
+        btnCreateNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateNetworkActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Systemadmin Main Screen");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -82,7 +165,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(table);
 
         jLabel5.setText("Network:");
 
@@ -99,7 +182,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(216, 216, 216))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +206,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,6 +228,27 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreateNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNetworkActionPerformed
+        // TODO add your handling code here:
+        system.createAndAddNetwork(txtNetwork.getText());
+        populateTable();
+        txtNetwork.setText("");
+    }//GEN-LAST:event_btnCreateNetworkActionPerformed
+
+    private void btnEnterNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterNetworkActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Network network = (Network)table.getValueAt(selectedRow, 0);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new NetworkMainJPanel(userProcessContainer,network));
+                layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnEnterNetworkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateNetwork;
@@ -156,8 +260,8 @@ public class SystemMainJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTree jTree1;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField txtNetwork;
     // End of variables declaration//GEN-END:variables
 }

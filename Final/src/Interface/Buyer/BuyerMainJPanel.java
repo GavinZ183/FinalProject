@@ -5,6 +5,11 @@
  */
 package Interface.Buyer;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author TT1
@@ -14,8 +19,16 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form BuyerMainJPanel
      */
-    public BuyerMainJPanel() {
-        initComponents();
+    JPanel userProcessContainer; 
+    UserAccount account;
+    Network network;
+    
+
+    public BuyerMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+         initComponents();
+         this.userProcessContainer=userProcessContainer;
+         this.account=account;
+         this.network=network;
     }
 
     /**
