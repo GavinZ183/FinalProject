@@ -6,6 +6,7 @@
 package Interface.SystemAdmin;
 
 import Business.Network.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,13 +18,12 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDeliveryCompanyJPanel
      */
-    public ManageDeliveryCompanyJPanel() {
+    JPanel userProcessContainer;
+    public ManageDeliveryCompanyJPanel(JPanel userProcessContainer, Network network) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
     }
 
-    ManageDeliveryCompanyJPanel(JPanel userProcessContainer, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +61,11 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnFreshTable.setText("Fresh table");
 
@@ -237,6 +242,13 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

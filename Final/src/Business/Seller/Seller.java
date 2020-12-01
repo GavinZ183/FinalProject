@@ -5,6 +5,7 @@
  */
 package Business.Seller;
 
+import Business.Product.ProductCatalog;
 import Business.Seller.InventorManage.InventoryManageDir;
 import Business.Seller.PurchaseManage.PurchaseManageDir;
 import Business.Seller.SalesManage.SalesManageDir;
@@ -17,8 +18,79 @@ import Business.UserAccount.UserAccount;
 public class Seller {
     private String name;
     private String telephone; 
+    private String address;
     private UserAccount userAccount;
+    private ProductCatalog sellerProductCatalog;
     private InventoryManageDir inventoryManageDir;
     private PurchaseManageDir purchaseManageDir;
     private SalesManageDir salesManageDir;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public ProductCatalog getSellerProductCatalog() {
+        return sellerProductCatalog;
+    }
+
+    public void setSellerProductCatalog(ProductCatalog sellerProductCatalog) {
+        this.sellerProductCatalog = sellerProductCatalog;
+    }
+
+    public InventoryManageDir getInventoryManageDir() {
+        return inventoryManageDir;
+    }
+
+    public void setInventoryManageDir(InventoryManageDir inventoryManageDir) {
+        this.inventoryManageDir = inventoryManageDir;
+    }
+
+    public PurchaseManageDir getPurchaseManageDir() {
+        return purchaseManageDir;
+    }
+
+    public void setPurchaseManageDir(PurchaseManageDir purchaseManageDir) {
+        this.purchaseManageDir = purchaseManageDir;
+    }
+
+    public SalesManageDir getSalesManageDir() {
+        return salesManageDir;
+    }
+
+    public void setSalesManageDir(SalesManageDir salesManageDir) {
+        this.salesManageDir = salesManageDir;
+    }
+    
+    @Override
+    public String toString() {
+        return name;
+    }
 }

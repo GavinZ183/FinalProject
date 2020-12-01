@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.BuyerOrder;
+package Business.Product;
 
 /**
  *
- * @author jiaohongmei
+ * @author TT1
  */
-public class Evaluate {
+public class Comment {
     private int score;//打分(0-10)
     private String word;
-    //private file picture;//可以插入图片,返图
 
     public int getScore() {
         return score;
@@ -29,5 +28,6 @@ public class Evaluate {
     public void setWord(String word) {
         this.word = word;
     }
+    
     
 }

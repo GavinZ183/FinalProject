@@ -50,7 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        btnNewUser = new javax.swing.JButton();
         rightPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,10 +77,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("New User");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnNewUser.setText("New User");
+        btnNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnNewUserActionPerformed(evt);
             }
         });
 
@@ -112,7 +112,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButton2)
+                .addComponent(btnNewUser)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         leftPanelLayout.setVerticalGroup(
@@ -133,7 +133,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnLogout)
                 .addGap(39, 39, 39)
-                .addComponent(jButton2)
+                .addComponent(btnNewUser)
                 .addContainerGap(268, Short.MAX_VALUE))
         );
 
@@ -149,7 +149,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,12 +182,13 @@ public class MainJFrame extends javax.swing.JFrame {
     layout.next(rightPanel);
        
        
-       
+       jLabel1.setText(jLabel1.getText()+username);
       
       btnLogout.setEnabled(true);
       txtUsername.setEnabled(false);
       txtPassword.setEnabled(false);
-      btnLogin.setEnabled(false);        // TODO add your handling code here:
+      btnLogin.setEnabled(false);
+      btnNewUser.setEnabled(false);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -196,6 +197,7 @@ public class MainJFrame extends javax.swing.JFrame {
       txtUsername.setEnabled(true);
       txtPassword.setEnabled(true);
       btnLogin.setEnabled(true);
+      btnNewUser.setEnabled(true);
 
         txtUsername.setText("");
         txtPassword.setText("");
@@ -208,12 +210,12 @@ public class MainJFrame extends javax.swing.JFrame {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewUserActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)rightPanel.getLayout();
                rightPanel.add(new RegisterBuyerJPanel(rightPanel,system));
                 layout.next(rightPanel);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnNewUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,7 +255,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnNewUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

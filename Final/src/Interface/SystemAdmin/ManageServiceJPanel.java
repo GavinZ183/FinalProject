@@ -7,6 +7,7 @@ package Interface.SystemAdmin;
 
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -18,17 +19,12 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageBuyerJPanel
      */
-    public ManageServiceJPanel() {
+    JPanel userProcessContainer;
+    public ManageServiceJPanel(JPanel userProcessContainer, Network network) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
     }
 
-    ManageServiceJPanel(JPanel userProcessContainer, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public ManageServiceJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +66,11 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel3.setText("Delete Service:");
@@ -271,6 +272,13 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

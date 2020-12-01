@@ -6,6 +6,7 @@
 package Interface.SystemAdmin;
 
 import Business.Network.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,12 +18,10 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSellerJPanel
      */
-    public ManageSellerJPanel() {
+    JPanel userProcessContainer;
+    public ManageSellerJPanel(JPanel userProcessContainer, Network network) {
         initComponents();
-    }
-
-    ManageSellerJPanel(JPanel userProcessContainer, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userProcessContainer=userProcessContainer;
     }
 
     /**
@@ -130,6 +129,11 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         btnCreate.setText("Create");
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -259,6 +263,13 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

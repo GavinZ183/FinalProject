@@ -6,6 +6,7 @@
 package Interface.SystemAdmin;
 
 import Business.Network.Network;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -17,13 +18,12 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSupplierJPanel
      */
-    public ManageSupplierJPanel() {
+    JPanel userProcessContainer;
+    public ManageSupplierJPanel(JPanel userProcessContainer, Network network) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
     }
 
-    ManageSupplierJPanel(JPanel userProcessContainer, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,6 +96,11 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel3.setText("Delete Supplier:");
@@ -266,6 +271,13 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
