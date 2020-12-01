@@ -41,6 +41,7 @@ public class Seller {
         this.telephone = telephone;
     }
 
+<<<<<<< HEAD
     public String getAddress() {
         return address;
     }
@@ -49,6 +50,8 @@ public class Seller {
         this.address = address;
     }
 
+=======
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     public UserAccount getUserAccount() {
         return userAccount;
     }
@@ -57,6 +60,7 @@ public class Seller {
         this.userAccount = userAccount;
     }
 
+<<<<<<< HEAD
     public ProductCatalog getSellerProductCatalog() {
         return sellerProductCatalog;
     }
@@ -65,6 +69,8 @@ public class Seller {
         this.sellerProductCatalog = sellerProductCatalog;
     }
 
+=======
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     public InventoryManageDir getInventoryManageDir() {
         return inventoryManageDir;
     }
@@ -89,8 +95,11 @@ public class Seller {
         this.salesManageDir = salesManageDir;
     }
     
+<<<<<<< HEAD
     @Override
     public String toString() {
         return name;
     }
+=======
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 }

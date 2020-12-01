@@ -5,8 +5,10 @@
  */
 package Interface.SystemAdmin;
 
+import Business.EcoSystem;
 import Business.Network.Network;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -22,14 +24,18 @@ import javax.swing.JPanel;
      */
    
         JPanel userProcessContainer;
+        EcoSystem system;
         Network network;
-    NetworkMainJPanel(JPanel userProcessContainer, Network network) {
+    NetworkMainJPanel(JPanel userProcessContainer, EcoSystem system,Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.network=network;
+        this.system=system;
         label.setText(network.getName());
         
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,7 +127,12 @@ import javax.swing.JPanel;
         jLabel3.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel3.setText("Network:");
 
+<<<<<<< HEAD
         btnBack.setText("< back");
+=======
+        btnBack.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnBack.setText("<<Back");
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -133,6 +144,7 @@ import javax.swing.JPanel;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(189, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnManageService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -153,6 +165,27 @@ import javax.swing.JPanel;
                         .addContainerGap()
                         .addComponent(btnBack)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnManageService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageBuyer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageSeller, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageDeliveryCompany, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(175, 175, 175))))
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,13 +202,20 @@ import javax.swing.JPanel;
                 .addComponent(btnManageSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(btnManageDeliveryCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(43, 43, 43)
                 .addComponent(btnManageSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
+<<<<<<< HEAD
                 .addComponent(btnManageService, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
+=======
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnManageService, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(316, Short.MAX_VALUE))
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -195,42 +235,51 @@ import javax.swing.JPanel;
     private void btnManageBuyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBuyerActionPerformed
         // TODO add your handling code here:
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageBuyerJPanel(userProcessContainer,network));
+               userProcessContainer.add(new ManageBuyerJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageBuyerActionPerformed
 
     private void btnManageSellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSellerActionPerformed
         // TODO add your handling code here:
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageSellerJPanel(userProcessContainer,network));
+               userProcessContainer.add(new ManageSellerJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSellerActionPerformed
 
     private void btnManageDeliveryCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDeliveryCompanyActionPerformed
         // TODO add your handling code here:
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageDeliveryCompanyJPanel(userProcessContainer,network));
+               userProcessContainer.add(new ManageDeliveryCompanyJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDeliveryCompanyActionPerformed
 
     private void btnManageSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSupplierActionPerformed
         // TODO add your handling code here:
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageSupplierJPanel(userProcessContainer,network));
+               userProcessContainer.add(new ManageSupplierJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSupplierActionPerformed
 
     private void btnManageServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageServiceActionPerformed
         // TODO add your handling code here:
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageServiceJPanel(userProcessContainer,network));
+               userProcessContainer.add(new ManageServiceJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageServiceActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.remove(this);
+=======
+          userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemMainJPanel dwjp = (SystemMainJPanel) component;
+        dwjp.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 

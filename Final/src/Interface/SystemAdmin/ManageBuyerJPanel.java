@@ -6,8 +6,17 @@
 package Interface.SystemAdmin;
 
 import Business.Buyer.Buyer;
+import Business.EcoSystem;
 import Business.Network.Network;
+<<<<<<< HEAD
 import java.awt.CardLayout;
+=======
+import Business.Role.BuyerRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,14 +31,19 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Network network;
+    EcoSystem system;
    
 
-    ManageBuyerJPanel(JPanel userProcessContainer, Network network) {
+    ManageBuyerJPanel(JPanel userProcessContainer, EcoSystem system,Network network) {
         initComponents();
         this.network=network;
         this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        btnSave.setEnabled(false);
         populateTable();
     }
+
+    
     public void populateTable(){
         int rowCount = jTable1.getRowCount();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
@@ -101,6 +115,11 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         jLabel8.setText("Update Buyer:");
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Buyer:");
@@ -114,12 +133,22 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         jLabel5.setText("Username:");
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Address:");
 
         jLabel13.setText("Username:");
 
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Password:");
 
@@ -151,6 +180,11 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         btnFreshTable.setText("Fresh table");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Buyer list:");
 
@@ -297,11 +331,103 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.remove(this);
         layout.previous(userProcessContainer);
+=======
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Buyer buyer = ( Buyer)jTable1.getValueAt(selectedRow, 0);
+      network.getBuyerDirectory().getBuyerList().remove(buyer);
+      
+       
+       UserAccount us=new UserAccount();
+       us=buyer.getUserAccount();
+       system.getUserAccountDirectory().getUserAccountList().remove(us);
+          populateTable();
+         JOptionPane.showMessageDialog(null, "Delete the buyer successfully!");
+                                                     // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Buyer buyer = ( Buyer)jTable1.getValueAt(selectedRow, 0);
+      txtAddress.setText(buyer.getAddress());
+      txtUsername.setText(buyer.getUserAccount().getUsername());
+      txtPassword.setText(buyer.getUserAccount().getPassword());
+      txtTelephone.setText(buyer.getTelephone());
+      
+       btnSave.setEnabled(true);
+       btnUpdate.setEnabled(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Buyer buyer = (Buyer)jTable1.getValueAt(selectedRow, 0);
+      
+     
+      
+      buyer.setAddress(txtAddress.getText());
+      buyer.setTelephone(txtTelephone.getText());
+      buyer.getUserAccount().setPassword(txtPassword.getText());
+      buyer.getUserAccount().setUsername(txtUsername.getText());
+       populateTable();
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        String username=txtUsername1.getText();
+        String password=txtPassword1.getText();
+        String address=txtAddress1.getText();
+        String telePhone=txtTelephone1.getText();
+        
+        
+        Buyer buyer=new Buyer();
+        UserAccount userAccount=new UserAccount();
+        BuyerRole role=new BuyerRole();
+        
+        userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
+        buyer.setAddress(address);
+        buyer.setTelephone(telePhone);
+        network.getBuyerDirectory().getBuyerList().add(buyer);
+        buyer.setUserAccount(userAccount);
+       
+        
+       
+        txtUsername1.setText("");
+        txtPassword1.setText("");
+        txtTelephone1.setText("");
+        txtAddress1.setText("");
+         populateTable();
+                // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        userProcessContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);        // TODO add your handling code here:
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     }//GEN-LAST:event_btnBackActionPerformed
 
 

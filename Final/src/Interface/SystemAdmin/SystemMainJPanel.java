@@ -245,7 +245,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         }
         Network network = (Network)table.getValueAt(selectedRow, 0);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new NetworkMainJPanel(userProcessContainer,network));
+               userProcessContainer.add(new NetworkMainJPanel(userProcessContainer,system,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnEnterNetworkActionPerformed
 

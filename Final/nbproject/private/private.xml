@@ -3,7 +3,83 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/gitnew/FinalProject/Final/src/Interface/MainJFrame.java</file>
+=======
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/SellerOrder/SellOrder.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Seller/SellerMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/EcoSystem.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Seller/PurchaseManager/PurchaseGoodJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/ManageBuyerJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/ManageDeliveryCompanyJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/PurchaseMannagerRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/Seller.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/SellerOrder/SellOrderItem.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Service/ServiceDir.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/BuyerOrder/BuyOrder.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/SellerRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Network/Network.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/SystemAdminRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/ManageDeliveryManJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Seller/InventoryManager/ManageProductPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Product/ProductCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/DeliverymanDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/ManageSellerJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Buyer/BuyerDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/Role.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Supplier/Supplier.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/SalesManage/SalesManage.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/DB4OUtil/DB4OUtil.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/SupplierRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/UserAccount/UserAccount.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/DeliveryMan/ConfirmDeliveryOrderJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/BuyerRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/DeliveryMan/DeliveryManProcessJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/ServiceRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ConfigureASystem.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Supplier/SupplierMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/SalesMannagerRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/InventorManage/InventoryManage.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/ExpressCompanyDir.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/SellerDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/SellerOrder/MasterSellOrderCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/ExpressCompany.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/ManageServiceJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Buyer/BuyerHistoryOrderJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/PurchaseManage/PurchaseManageDir.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Buyer/ShoppingJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Service/Service.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/StorageMannagerRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/Driver.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/UserAccount/UserAccountDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/RegisterBuyerJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Buyer/BuyerMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/DriverRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/DeliverymanRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Role/ExpressCompanyRole.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/ManageDriverJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/ManageExpressOrderJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/BuyerOrder/MasterBuyOrderCatalog.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/SalesManage/SalesManageDir.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/ManageSupplierJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/NetworkMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/PurchaseManage/PurchaseManage.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/BuyerOrder/Evaluate.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Supplier/SupplierDirectory.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Product/Product.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Seller/ManageSellerInformationJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/Deliveryman.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/BuyerOrder/BuyOrderItem.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Supplier/ManageSellerOrderJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/ExpressCompany/DriverDir.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Buyer/Buyer.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Supplier/ManageGoodJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/SystemAdmin/SystemMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/MainJFrame.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/Supplier/ManageSupplierInformationJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Interface/DeliveryCompany/DeliveryCompanyMainJPanel.java</file>
+            <file>file:/Users/jiaohongmei/NEU/FinalProject/Final/src/Business/Seller/InventorManage/InventoryManageDir.java</file>
+>>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
         </group>
     </open-files>
 </project-private>

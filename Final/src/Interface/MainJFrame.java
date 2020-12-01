@@ -175,6 +175,7 @@ public class MainJFrame extends javax.swing.JFrame {
     for(Network ne:system.getNetworkList()){
         if(ne.getUserAccountDirectory().getUserAccountList().equals(user))
             network=ne;
+        
     }
     
     CardLayout layout = (CardLayout)rightPanel.getLayout();
