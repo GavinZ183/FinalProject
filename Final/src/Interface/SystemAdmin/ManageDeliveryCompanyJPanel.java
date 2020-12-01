@@ -5,8 +5,16 @@
  */
 package Interface.SystemAdmin;
 
+
+import Business.EcoSystem;
+import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
+import Business.Role.ExpressCompanyRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,13 +25,37 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDeliveryCompanyJPanel
      */
-    public ManageDeliveryCompanyJPanel() {
-        initComponents();
-    }
+     JPanel userProcessContainer;
+    Network network;
+    EcoSystem system;
+    
 
-    ManageDeliveryCompanyJPanel(JPanel userProcessContainer, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+
+    ManageDeliveryCompanyJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
+         initComponents();
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        btnSave.setEnabled(false);
+        populateTable();
     }
+    public void populateTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(ExpressCompany expressCompany:network.getExpressCompanyDir().getExpressCompanyList()){
+            
+                Object row[] = new Object[3];
+                row[0] = expressCompany;
+                row[1] =expressCompany.getUserAccount().getUsername();
+                row[2] =expressCompany.getUserAccount().getPassword();
+               
+                model.addRow(row);
+                }
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,10 +93,20 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnFreshTable.setText("Fresh table");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Express Company list:");
 
@@ -80,6 +122,11 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         jLabel8.setText("Update Express Company:");
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Express Company:");
@@ -91,10 +138,20 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         jLabel12.setText("Name:");
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Username:");
 
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Password:");
 
@@ -237,6 +294,96 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);  
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      ExpressCompany expressCompany = ( ExpressCompany)jTable1.getValueAt(selectedRow, 0);
+      network.getExpressCompanyDir().getExpressCompanyList().remove(expressCompany);
+       
+       UserAccount us=new UserAccount();
+       us=expressCompany.getUserAccount();
+       system.getUserAccountDirectory().getUserAccountList().remove(us);
+          populateTable();
+         JOptionPane.showMessageDialog(null, "Delete the buyer successfully!");
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       ExpressCompany expressCompany = ( ExpressCompany)jTable1.getValueAt(selectedRow, 0);
+      txtName.setText(expressCompany.getName());
+      txtUsername.setText(expressCompany.getUserAccount().getUsername());
+      txtPassword.setText(expressCompany.getUserAccount().getPassword());
+      
+      
+       btnSave.setEnabled(true);
+       btnUpdate.setEnabled(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+     ExpressCompany expressCompany = ( ExpressCompany)jTable1.getValueAt(selectedRow, 0);
+      
+     
+      
+     
+      expressCompany.setName(txtName.getText());
+      expressCompany.getUserAccount().setPassword(txtPassword.getText());
+      expressCompany.getUserAccount().setUsername(txtUsername.getText());
+       populateTable();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+         String username=txtUsername1.getText();
+        String password=txtPassword1.getText();
+        String name=txtName1.getText();
+        
+        
+        
+        ExpressCompany expressCompany=new ExpressCompany();
+        UserAccount userAccount=new UserAccount();
+        ExpressCompanyRole role=new ExpressCompanyRole();
+        
+        userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
+        
+        expressCompany.setName(name);
+        network.getExpressCompanyDir().getExpressCompanyList().add(expressCompany);
+        expressCompany.setUserAccount(userAccount);
+       
+        
+       
+        txtUsername1.setText("");
+        txtPassword1.setText("");
+        txtName1.setText("");
+        
+         populateTable();
+    }//GEN-LAST:event_btnCreateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

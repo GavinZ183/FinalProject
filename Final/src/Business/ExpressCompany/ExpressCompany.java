@@ -16,5 +16,38 @@ public class ExpressCompany {
     public UserAccount userAccount;
     private DriverDir driverDir;
     private DeliverymanDirectory deliverymanDirectory;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public DriverDir getDriverDir() {
+        return driverDir;
+    }
+
+    public void setDriverDir(DriverDir driverDir) {
+        this.driverDir = driverDir;
+    }
+
+    public DeliverymanDirectory getDeliverymanDirectory() {
+        return deliverymanDirectory;
+    }
+
+    public void setDeliverymanDirectory(DeliverymanDirectory deliverymanDirectory) {
+        this.deliverymanDirectory = deliverymanDirectory;
+    }
+    
     
 }

@@ -18,12 +18,16 @@ public class SellerMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SellerMainJPanel
      */
-    public SellerMainJPanel() {
-        initComponents();
-    }
-
+   
+    
+    JPanel userProcessContainer;
+    UserAccount account;
+    Network network;
     public SellerMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userProcessContainer=userProcessContainer;
+         this.account=account;
+         this.network=network;
+          initComponents();
     }
 
     /**

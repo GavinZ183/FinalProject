@@ -19,7 +19,7 @@ public class ServiceRole extends Role{
 
   @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new ManageServiceJPanel(userProcessContainer,account,network);
+        return new ServiceJPanel(userProcessContainer,account,network);
     }
    @Override
     public String getType() {
