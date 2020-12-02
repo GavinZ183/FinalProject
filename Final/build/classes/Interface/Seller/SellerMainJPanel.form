@@ -20,12 +20,12 @@
               <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnManageBuyerOrder" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnManageProduct" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnPurchaseGood" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnInventoryManager" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnPurchaseManager" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSalesManager" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnManageInformaton" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="280" max="32767" attributes="0"/>
+              <EmptySpace pref="265" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -35,11 +35,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-              <Component id="btnManageBuyerOrder" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="btnInventoryManager" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="btnManageProduct" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="btnPurchaseManager" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="btnPurchaseGood" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="btnSalesManager" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="btnManageInformaton" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace pref="248" max="32767" attributes="0"/>
@@ -56,28 +56,28 @@
         <Property name="text" type="java.lang.String" value="Seller Main Screen"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnManageBuyerOrder">
+    <Component class="javax.swing.JButton" name="btnInventoryManager">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Buyer Order"/>
+        <Property name="text" type="java.lang.String" value="Manage Inventory Manager"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnManageProduct">
+    <Component class="javax.swing.JButton" name="btnPurchaseManager">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Product"/>
+        <Property name="text" type="java.lang.String" value="Manage Purchase Manager"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPurchaseGood">
+    <Component class="javax.swing.JButton" name="btnSalesManager">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Purchase Good"/>
+        <Property name="text" type="java.lang.String" value="Manage Sales Manager"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnManageInformaton">

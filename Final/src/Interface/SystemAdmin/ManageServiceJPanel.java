@@ -29,7 +29,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
     EcoSystem system;
     
 
-    ManageServiceJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
+    public ManageServiceJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
         initComponents();
         this.network=network;
         this.userProcessContainer=userProcessContainer;
