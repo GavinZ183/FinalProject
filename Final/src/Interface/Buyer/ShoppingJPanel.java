@@ -7,8 +7,8 @@ package Interface.Buyer;
 
 import Business.Buyer.Buyer;
 import Business.BuyerOrder.BuyOrderItem;
+import Business.Goods.Good;
 import Business.Network.Network;
-import Business.Product.Product;
 import Business.Seller.Seller;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -32,7 +32,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer; 
     UserAccount account;
     Network network;
-    ArrayList<Product> productList = new ArrayList<Product>();
+    ArrayList<Good> goodList = new ArrayList<Good>();
     ArrayList<BuyOrderItem> cart = new ArrayList<BuyOrderItem>();
     
     public ShoppingJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
@@ -40,44 +40,44 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         this.network=network;
-        populateProductTable();
+        populateGoodTable();
         cartTable(cart);
     }
     
-    public void populateProductTable(){
-        int rowCount = productTable.getRowCount();
-        DefaultTableModel model = (DefaultTableModel)productTable.getModel();
+    public void populateGoodTable(){
+        int rowCount = goodTable.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)goodTable.getModel();
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
         for(Seller seller: network.getSellerDirectory().getSellerList()){
-            for(Product product: seller.getSellerProductCatalog().getProductcatalog()){
+            for(Good good: seller.getSellerGoodCatalog().getGoodCatalog()){
                 Object row[] = new Object[5];
-                row[0] = product;
-                row[1] = product.getPrice();
+                row[0] = good;
+                row[1] = good.getPrice();
                 row[2] = seller;
-                row[3] = seller.getAddress();
-                row[4] = product.getQuantity();
+                row[3] = seller.getPosition();
+                row[4] = good.getQuantity();
                 
                 model.addRow(row);
-                productList.add(product);
+                goodList.add(good);
             }
         }   
     }
     
-    public void searchProductTable(ArrayList<Product> productList){
-        int rowCount = productTable.getRowCount();
-        DefaultTableModel model = (DefaultTableModel)productTable.getModel();
+    public void searchGoodTable(ArrayList<Good> goodList){
+        int rowCount = goodTable.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)goodTable.getModel();
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
-        for(Product product: productList){
+        for(Good good: goodList){
             Object row[] = new Object[5];
-            row[0] = product;
-            row[1] = product.getPrice();
-            row[2] = product.getSeller();
-            row[3] = product.getSeller().getAddress();
-            row[4] = product.getQuantity();
+            row[0] = good;
+            row[1] = good.getPrice();
+            row[2] = good.getSeller();
+            row[3] = good.getSeller().getPosition();
+            row[4] = good.getQuantity();
 
             model.addRow(row);
         } 
@@ -92,9 +92,9 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         for(BuyOrderItem item: cart){
             Object row[] = new Object[5];
             row[0] = item;
-            row[1] = item.getProduct().getPrice();
-            row[2] = item.getProduct().getSeller();
-            row[3] = item.getProduct().getSeller().getAddress();
+            row[1] = item.getGood().getPrice();
+            row[2] = item.getGood().getSeller();
+            row[3] = item.getGood().getSeller().getPosition();
             row[4] = item.getQuantity();
 
             model.addRow(row);
@@ -112,7 +112,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        productTable = new javax.swing.JTable();
+        goodTable = new javax.swing.JTable();
         btnFreshTable = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -126,7 +126,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtProduct = new javax.swing.JTextField();
+        txtGood = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtSeller = new javax.swing.JTextField();
@@ -139,12 +139,12 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Shopping Screen");
 
-        productTable.setModel(new javax.swing.table.DefaultTableModel(
+        goodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product", "Price", "Seller", "Seller Position", "Inventory"
+                "Good", "Price", "Seller", "Seller Position", "Inventory"
             }
         ) {
             Class[] types = new Class [] {
@@ -162,7 +162,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(productTable);
+        jScrollPane1.setViewportView(goodTable);
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -178,14 +178,14 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Product list:");
+        jLabel2.setText("Good list:");
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product", "Price", "Seller", "Seller Position", "Quantity"
+                "Good", "Price", "Seller", "Seller Position", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
@@ -228,7 +228,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete product");
+        btnDelete.setText("Delete good");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -242,7 +242,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Product:");
+        jLabel4.setText("Good：");
 
         jLabel5.setText("Price:");
 
@@ -294,15 +294,20 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCommit))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearch))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(638, 638, 638)))
+                        .addGap(638, 638, 638))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtGood, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSearch)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -312,9 +317,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(27, 27, 27)
-                        .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
+                        .addGap(233, 233, 233)
                         .addComponent(jLabel5)
                         .addGap(27, 27, 27)
                         .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,7 +341,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
@@ -374,12 +377,12 @@ public class ShoppingJPanel extends javax.swing.JPanel {
 
     private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
         // TODO add your handling code here:
-        populateProductTable();
+        populateGoodTable();
     }//GEN-LAST:event_btnFreshTableActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        String prudname = txtProduct.getText();
+        String prudname = txtGood.getText();
         int price = 0;
         try{
             price = Integer.parseInt(txtPrice.getText());
@@ -394,77 +397,77 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         String position = txtPosition.getText();
         
         //star to filter no-empty requirement
-        ArrayList<Product> productList1 = new ArrayList<Product>();
+        ArrayList<Good> goodList1 = new ArrayList<Good>();
         if(prudname.length()>0){
-            for(Product p: productList){
+            for(Good p: goodList){
                 if(p.getProdName().equals(prudname)){
-                    productList1.add(p);
+                    goodList1.add(p);
                 }
             }
         }
         else{
-            productList1 = productList;
+            goodList1 = goodList;
         }
-        ArrayList<Product> productList2 = new ArrayList<Product>();
+        ArrayList<Good> goodList2 = new ArrayList<Good>();
         if(price!=0){
-            for(Product p: productList1){
+            for(Good p: goodList1){
                 if(p.getPrice()==(price)){
-                    productList2.add(p);
+                    goodList2.add(p);
                 }
             }
         }
         else{
-            productList2 = productList1;
+            goodList2 = goodList1;
         }
-        ArrayList<Product> productList3 = new ArrayList<Product>();
+        ArrayList<Good> goodList3 = new ArrayList<Good>();
         if(sellername.length()>0){
-            for(Product p: productList2){
+            for(Good p: goodList2){
                 if(p.getSeller().getName().equals(sellername)){
-                    productList3.add(p);
+                    goodList3.add(p);
                 }
             }
         }
         else{
-            productList3 = productList2;
+            goodList3 = goodList2;
         }
-        ArrayList<Product> productList4 = new ArrayList<Product>();
+        ArrayList<Good> goodList4 = new ArrayList<Good>();
         if(position.length()>0){
-            for(Product p: productList){
-                if(p.getSeller().getAddress().equals(position)){
-                    productList4.add(p);
+            for(Good p: goodList3){
+                if(p.getSeller().getPosition().equals(position)){
+                    goodList4.add(p);
                 }
             }
         }
         else{
-            productList4 = productList3;
+            goodList4 = goodList3;
         }
         
-        searchProductTable(productList4);
+        searchGoodTable(goodList4);
         txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
         // TODO add your handling code here:
-        int selectedRow = productTable.getSelectedRow();
+        int selectedRow = goodTable.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Product product = (Product)productTable.getValueAt(selectedRow, 0);
+        Good good = (Good)goodTable.getValueAt(selectedRow, 0);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new ViewDetailsJPanel(userProcessContainer,product));
+        userProcessContainer.add(new ViewDetailsJPanel(userProcessContainer,good));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnDetailsActionPerformed
 
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
         // TODO add your handling code here:
-        int selectedRow = productTable.getSelectedRow();
+        int selectedRow = goodTable.getSelectedRow();
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Product product = (Product)productTable.getValueAt(selectedRow, 0);
+        Good good = (Good)goodTable.getValueAt(selectedRow, 0);
         
         int quantity = (Integer)jSpinner1.getValue();
         if(quantity <=0){
@@ -472,7 +475,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             return;
         }
         BuyOrderItem item = new BuyOrderItem();
-        item.setProduct(product);
+        item.setGood(good);
         item.setQuantity(quantity);
         cart.add(item);
         cartTable(cart);
@@ -485,7 +488,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        BuyOrderItem item = (BuyOrderItem)productTable.getValueAt(selectedRow, 0);
+        BuyOrderItem item = (BuyOrderItem)goodTable.getValueAt(selectedRow, 0);
         cart.remove(item);
         cartTable(cart);
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -497,7 +500,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        BuyOrderItem item = (BuyOrderItem)productTable.getValueAt(selectedRow, 0);
+        BuyOrderItem item = (BuyOrderItem)goodTable.getValueAt(selectedRow, 0);
         
         int quantity = (Integer)jSpinner2.getValue();
         if(quantity <=0){
@@ -517,8 +520,8 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                     item.setCreateTime(date);
                     item.setStatus("pending");
                     buyer.getBuyOrder().getOrderItemList().add(item);
-                    int newInventory = item.getProduct().getQuantity() - item.getQuantity();
-                    item.getProduct().setQuantity(newInventory);
+                    int newInventory = item.getGood().getQuantity() - item.getQuantity();
+                    item.getGood().setQuantity(newInventory);
                 }
             }
         }
@@ -542,6 +545,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnModifyQuantity;
     private javax.swing.JButton btnSearch;
     private javax.swing.JTable cartTable;
+    private javax.swing.JTable goodTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -553,10 +557,9 @@ public class ShoppingJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTable productTable;
+    private javax.swing.JTextField txtGood;
     private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtSeller;
     // End of variables declaration//GEN-END:variables
 }

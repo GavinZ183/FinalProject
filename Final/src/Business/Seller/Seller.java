@@ -5,6 +5,8 @@
  */
 package Business.Seller;
 
+import Business.Goods.Good;
+import Business.Goods.GoodCatalog;
 import Business.Product.ProductCatalog;
 import Business.Seller.InventorManage.InventoryManageDir;
 import Business.Seller.PurchaseManage.PurchaseManageDir;
@@ -22,7 +24,7 @@ public class Seller {
     private String address;
     private String position;
     private UserAccount userAccount;
-    private ProductCatalog sellerProductCatalog;
+    private GoodCatalog sellerGoodCatalog;
     private InventoryManageDir inventoryManageDir;
     private PurchaseManageDir purchaseManageDir;
     private SalesManageDir salesManageDir;
@@ -68,12 +70,12 @@ public class Seller {
         this.userAccount = userAccount;
     }
 
-    public ProductCatalog getSellerProductCatalog() {
-        return sellerProductCatalog;
+    public GoodCatalog getSellerGoodCatalog() {
+        return sellerGoodCatalog;
     }
 
-    public void setSellerProductCatalog(ProductCatalog sellerProductCatalog) {
-        this.sellerProductCatalog = sellerProductCatalog;
+    public void setSellerGoodCatalog(GoodCatalog sellerGoodCatalog) {
+        this.sellerGoodCatalog = sellerGoodCatalog;
     }
 
     public InventoryManageDir getInventoryManageDir() {

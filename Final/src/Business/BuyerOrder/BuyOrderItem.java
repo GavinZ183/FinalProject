@@ -6,8 +6,9 @@
 package Business.BuyerOrder;
 
 
-import Business.Product.Product;
+import Business.Goods.Good;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,18 +18,18 @@ import java.util.Date;
 public class BuyOrderItem {
     
     private int quantity;
-    private double salesprice;
-    private Product product;
+    private Good good;
     private String status;//订单状态(商家已接单、商家已取消、商品已发货、商品已送达、确认收货)(pending,recieved)
     private Evaluate evaluate;//评价
     private Date createTime;
+    private ArrayList<String> messages;//message's format: 'time username: message'
     
    
     
     @Override
     public String toString()
     {
-       return product.getProdName();
+       return good.getProdName();
     }
 
     public int getQuantity() {
@@ -39,12 +40,12 @@ public class BuyOrderItem {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
+    public Good getGood() {
+        return good;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setGood(Good good) {
+        this.good = good;
     }
 
     public String getStatus() {
@@ -80,4 +81,12 @@ public class BuyOrderItem {
         this.createTime = date;
     }
 */
+
+    public ArrayList<String> getMessages() {
+        if(messages == null){
+            messages = new ArrayList<String>();
+        }
+        return messages;
+    }
+    
 }

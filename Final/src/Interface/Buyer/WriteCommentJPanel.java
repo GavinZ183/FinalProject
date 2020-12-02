@@ -6,7 +6,7 @@
 package Interface.Buyer;
 
 import Business.BuyerOrder.BuyOrderItem;
-import Business.Product.Comment;
+import Business.Goods.Comment;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -137,7 +137,7 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         Comment c = new Comment();
         c.setScore(score);
         c.setWord(word);
-        item.getProduct().getComments().getCommentList().add(c);
+        item.getGood().getComments().getCommentList().add(c);
         JOptionPane.showMessageDialog(null, "Write comment successfully!");
     }//GEN-LAST:event_btnCommitActionPerformed
 

@@ -8,7 +8,6 @@ package Interface.Buyer;
 import Business.Buyer.Buyer;
 import Business.BuyerOrder.BuyOrderItem;
 import Business.Network.Network;
-import Business.Product.Product;
 import Business.Seller.Seller;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -59,8 +58,8 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         for(BuyOrderItem item: b.getBuyOrder().getOrderItemList()){
             Object row[] = new Object[7];
             row[0] = item;
-            row[1] = item.getProduct().getPrice();
-            row[2] = item.getProduct().getSeller();
+            row[1] = item.getGood().getPrice();
+            row[2] = item.getGood().getSeller();
             row[3] = item.getQuantity();
             row[4] = item.getEvaluate();
             row[5] = item.getCreateTime();
@@ -80,8 +79,8 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         for(BuyOrderItem item: orderItemList){
             Object row[] = new Object[7];
             row[0] = item;
-            row[1] = item.getProduct().getPrice();
-            row[2] = item.getProduct().getSeller();
+            row[1] = item.getGood().getPrice();
+            row[2] = item.getGood().getSeller();
             row[3] = item.getQuantity();
             row[4] = item.getEvaluate();
             row[5] = item.getCreateTime();
@@ -111,11 +110,12 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         btnFreshTable = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtProduct = new javax.swing.JTextField();
+        txtGood = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnConnect = new javax.swing.JButton();
 
         jLabel7.setText("Time:");
 
@@ -135,7 +135,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Price", "Seller", "Quantity", "Comment", "Time", "Status"
+                "Good", "Price", "Seller", "Quantity", "Comment", "Time", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -171,7 +171,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Order list:");
 
-        jLabel4.setText("Product:");
+        jLabel4.setText("Good:");
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Buyer Order Screen");
@@ -190,6 +190,13 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnConnect.setText("Connect Service");
+        btnConnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConnectActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,6 +204,9 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -211,7 +221,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtGood)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -222,19 +232,18 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                                 .addComponent(txtSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTime))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnWriteComment))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnCancel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSearch)))
-                        .addGap(6, 6, 6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btnSearch))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnConnect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnWriteComment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(6, 6, 6))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +259,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
@@ -263,7 +272,9 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                     .addComponent(btnCancel))
                 .addGap(27, 27, 27)
                 .addComponent(btnWriteComment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(btnConnect)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );
@@ -289,7 +300,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        String prudname = txtProduct.getText();
+        String prudname = txtGood.getText();
         int price = 0;
         try{
             price = Integer.parseInt(txtPrice.getText());
@@ -318,7 +329,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         ArrayList<BuyOrderItem> orderItemList = new ArrayList<BuyOrderItem>();
         if(prudname.length()>0){
             for(BuyOrderItem item: b.getBuyOrder().getOrderItemList()){
-                if(item.getProduct().getProdName().equals(prudname)){
+                if(item.getGood().getProdName().equals(prudname)){
                     orderItemList.add(item);
                 }
             }
@@ -329,7 +340,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         ArrayList<BuyOrderItem> orderItemList1 = new ArrayList<BuyOrderItem>();
         if(price!=0){
             for(BuyOrderItem item: orderItemList){
-                if(item.getProduct().getPrice()==(price)){
+                if(item.getGood().getPrice()==(price)){
                     orderItemList1.add(item);
                 }
             }
@@ -340,7 +351,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         ArrayList<BuyOrderItem> orderItemList2 = new ArrayList<BuyOrderItem>();
         if(sellername.length()>0){
             for(BuyOrderItem item: orderItemList1){
-                if(item.getProduct().getSeller().getName().equals(sellername)){
+                if(item.getGood().getSeller().getName().equals(sellername)){
                     orderItemList2.add(item);
                 }
             }
@@ -396,13 +407,29 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         userProcessContainer.remove(this);
+        //userProcessContainer.removeAll();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = orderListTable.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        BuyOrderItem item = (BuyOrderItem)orderListTable.getValueAt(selectedRow, 0);
+ 
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ConnectServiceJPanel(userProcessContainer,account,item));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnConnectActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnConnect;
     private javax.swing.JButton btnFreshTable;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnWriteComment;
@@ -414,8 +441,8 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderListTable;
+    private javax.swing.JTextField txtGood;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtSeller;
     private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
