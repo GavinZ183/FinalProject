@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Product;
+package Business.Goods;
 
+import Business.Product.*;
 import java.util.ArrayList;
 
 /**

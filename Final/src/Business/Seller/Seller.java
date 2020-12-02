@@ -9,6 +9,7 @@ import Business.Product.ProductCatalog;
 import Business.Seller.InventorManage.InventoryManageDir;
 import Business.Seller.PurchaseManage.PurchaseManageDir;
 import Business.Seller.SalesManage.SalesManageDir;
+import Business.SellerOrder.SellOrder;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -19,12 +20,22 @@ public class Seller {
     private String name;
     private String telephone; 
     private String address;
+    private String position;
     private UserAccount userAccount;
     private ProductCatalog sellerProductCatalog;
     private InventoryManageDir inventoryManageDir;
     private PurchaseManageDir purchaseManageDir;
     private SalesManageDir salesManageDir;
+    private SellOrder sellOrder;
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+    
     public String getName() {
         return name;
     }
@@ -87,6 +98,14 @@ public class Seller {
 
     public void setSalesManageDir(SalesManageDir salesManageDir) {
         this.salesManageDir = salesManageDir;
+    }
+
+    public SellOrder getSellOrder() {
+        return sellOrder;
+    }
+
+    public void setSellOrder(SellOrder sellOrder) {
+        this.sellOrder = sellOrder;
     }
     
     @Override
