@@ -8,15 +8,11 @@ package Interface.SystemAdmin;
 import Business.Buyer.Buyer;
 import Business.EcoSystem;
 import Business.Network.Network;
-<<<<<<< HEAD
-import java.awt.CardLayout;
-=======
 import Business.Role.BuyerRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -331,13 +327,6 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-=======
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int selectedRow = jTable1.getSelectedRow();
         
@@ -427,7 +416,6 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);        // TODO add your handling code here:
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     }//GEN-LAST:event_btnBackActionPerformed
 
 

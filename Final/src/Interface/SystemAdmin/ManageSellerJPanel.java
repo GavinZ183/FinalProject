@@ -7,15 +7,11 @@ package Interface.SystemAdmin;
 
 import Business.EcoSystem;
 import Business.Network.Network;
-<<<<<<< HEAD
-import java.awt.CardLayout;
-=======
 import Business.Role.SellerRole;
 import Business.Seller.Seller;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,14 +24,6 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSellerJPanel
      */
-<<<<<<< HEAD
-    JPanel userProcessContainer;
-    public ManageSellerJPanel(JPanel userProcessContainer, Network network) {
-        initComponents();
-        this.userProcessContainer=userProcessContainer;
-    }
-
-=======
      JPanel userProcessContainer;
     Network network;
     EcoSystem system;
@@ -67,7 +55,6 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                 }
             }
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -328,13 +315,6 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-=======
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
@@ -423,7 +403,6 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);  
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
     }//GEN-LAST:event_btnBackActionPerformed
 
 

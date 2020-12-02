@@ -19,9 +19,9 @@ public class ServiceRole extends Role{
 
   @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new ManageServiceJPanel(userProcessContainer,network);
+        return new ManageServiceJPanel(userProcessContainer,system,network);
         //还未创建service的interface
-        return new ServiceJPanel(userProcessContainer,account,network);
+        //return new ServiceJPanel(userProcessContainer,account,network);
     }
    @Override
     public String getType() {

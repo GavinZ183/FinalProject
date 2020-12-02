@@ -11,10 +11,7 @@ import Business.Role.ServiceRole;
 import Business.Service.Service;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
-<<<<<<< HEAD
-=======
 import javax.swing.JOptionPane;
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,13 +25,6 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
      * Creates new form ManageBuyerJPanel
      */
     JPanel userProcessContainer;
-<<<<<<< HEAD
-    public ManageServiceJPanel(JPanel userProcessContainer, Network network) {
-        initComponents();
-        this.userProcessContainer=userProcessContainer;
-    }
-
-=======
     Network network;
     EcoSystem system;
     
@@ -47,7 +37,6 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         btnSave.setEnabled(false);
         populateTable();
     }
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 
     
  public void populateTable(){
@@ -316,15 +305,6 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-=======
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
          String username=txtUsername1.getText();
@@ -416,7 +396,6 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

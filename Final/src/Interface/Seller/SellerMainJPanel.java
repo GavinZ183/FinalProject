@@ -40,22 +40,22 @@ public class SellerMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnManageBuyerOrder = new javax.swing.JButton();
-        btnManageProduct = new javax.swing.JButton();
-        btnPurchaseGood = new javax.swing.JButton();
+        btnInventoryManager = new javax.swing.JButton();
+        btnPurchaseManager = new javax.swing.JButton();
+        btnSalesManager = new javax.swing.JButton();
         btnManageInformaton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Seller Main Screen");
 
-        btnManageBuyerOrder.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnManageBuyerOrder.setText("Manage Buyer Order");
+        btnInventoryManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnInventoryManager.setText("Manage Inventory Manager");
 
-        btnManageProduct.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnManageProduct.setText("Manage Product");
+        btnPurchaseManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnPurchaseManager.setText("Manage Purchase Manager");
 
-        btnPurchaseGood.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnPurchaseGood.setText("Purchase Good");
+        btnSalesManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnSalesManager.setText("Manage Sales Manager");
 
         btnManageInformaton.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageInformaton.setText("Manage Informaton");
@@ -68,11 +68,11 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 .addGap(256, 256, 256)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageBuyerOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPurchaseGood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInventoryManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPurchaseManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalesManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageInformaton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,11 +80,11 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(122, 122, 122)
-                .addComponent(btnManageBuyerOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInventoryManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(btnManageProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPurchaseManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(btnPurchaseGood, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalesManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(btnManageInformaton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(248, Short.MAX_VALUE))
@@ -93,10 +93,10 @@ public class SellerMainJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnManageBuyerOrder;
+    private javax.swing.JButton btnInventoryManager;
     private javax.swing.JButton btnManageInformaton;
-    private javax.swing.JButton btnManageProduct;
-    private javax.swing.JButton btnPurchaseGood;
+    private javax.swing.JButton btnPurchaseManager;
+    private javax.swing.JButton btnSalesManager;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

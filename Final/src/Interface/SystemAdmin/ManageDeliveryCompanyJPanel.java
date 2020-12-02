@@ -9,14 +9,10 @@ package Interface.SystemAdmin;
 import Business.EcoSystem;
 import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
-<<<<<<< HEAD
-import java.awt.CardLayout;
-=======
 import Business.Role.ExpressCompanyRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,14 +25,6 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDeliveryCompanyJPanel
      */
-<<<<<<< HEAD
-    JPanel userProcessContainer;
-    public ManageDeliveryCompanyJPanel(JPanel userProcessContainer, Network network) {
-        initComponents();
-        this.userProcessContainer=userProcessContainer;
-    }
-
-=======
      JPanel userProcessContainer;
     Network network;
     EcoSystem system;
@@ -68,7 +56,6 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                 }
             }
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -310,13 +297,6 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
-=======
          userProcessContainer.remove(this);
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -405,7 +385,6 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
          populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 
->>>>>>> 99c20ec45c82b739fe3d1251f9c331d65308b6da
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
