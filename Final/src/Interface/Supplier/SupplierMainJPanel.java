@@ -6,7 +6,9 @@
 package Interface.Supplier;
 
 import Business.Network.Network;
+import Business.Supplier.Supplier;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -18,12 +20,23 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SupplierMainJPanel
      */
-    public SupplierMainJPanel() {
-        initComponents();
-    }
+    JPanel userProcessContainer;
+    UserAccount account;
+    Network network;
+    Supplier supplier;
+   
 
     public SupplierMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.network=network;
+        this.account=account;
+        for(Supplier s:network.getSupplierDirectory().getsupplierList()){
+            if(s.getUserAccount().equals(account))
+                supplier=s;
+        }
+       
+        
     }
 
     /**
@@ -45,12 +58,27 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
 
         btnManageSellerOrder.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageSellerOrder.setText("Manage Seller Order");
+        btnManageSellerOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageSellerOrderActionPerformed(evt);
+            }
+        });
 
         btnManageGood.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageGood.setText("Manage Good");
+        btnManageGood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageGoodActionPerformed(evt);
+            }
+        });
 
         btnManageInformaton.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageInformaton.setText("Manage Informaton");
+        btnManageInformaton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageInformatonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,6 +107,27 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
                 .addContainerGap(213, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageSellerOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSellerOrderActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new ManageSupplierInformationJPanel(userProcessContainer,supplier,network));
+                layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageSellerOrderActionPerformed
+
+    private void btnManageGoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageGoodActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new ManageGoodJPanel(userProcessContainer,supplier,network));
+                layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageGoodActionPerformed
+
+    private void btnManageInformatonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInformatonActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new ManageSellerOrderJPanel(userProcessContainer,supplier,network));
+                layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageInformatonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

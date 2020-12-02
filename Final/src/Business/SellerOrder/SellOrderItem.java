@@ -6,6 +6,8 @@
 package Business.SellerOrder;
 
 import Business.Product.Product;
+import Business.Seller.Seller;
+import Business.Supplier.Supplier;
 
 /**
  *
@@ -15,6 +17,33 @@ public class SellOrderItem {
     private int quantity;
     private double salesprice;
     private Product product;
+    private Seller seller;
+    private Supplier supplier;
+    private String status;
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
     public int getQuantity() {
         return quantity;

@@ -5,6 +5,10 @@
  */
 package Interface.Supplier;
 
+import Business.Network.Network;
+import Business.Supplier.Supplier;
+import javax.swing.JPanel;
+
 /**
  *
  * @author TT1
@@ -14,8 +18,19 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSupplierInformationJPanel
      */
-    public ManageSupplierInformationJPanel() {
-        initComponents();
+    JPanel userProcessContainer;
+    Supplier supplier;
+    Network network;
+    
+
+    ManageSupplierInformationJPanel(JPanel userProcessContainer, Supplier supplier, Network network) {
+         initComponents();
+         this.userProcessContainer=userProcessContainer;
+         this.supplier=supplier;
+         this.network=network;
+         
+       txtName.setText(supplier.getName());
+       txtType.setText(supplier.getType());
     }
 
     /**
@@ -29,20 +44,35 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
 
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtPosition = new javax.swing.JTextField();
+        txtType = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
-        txtBuyer = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel6.setText("Supplier name:");
 
-        jLabel7.setText("Position:");
+        jLabel7.setText("Type:");
+
+        txtType.setEnabled(false);
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnSave.setText("Save");
+        btnSave.setEnabled(false);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        txtName.setEnabled(false);
 
         btnBack.setText("< back");
 
@@ -62,12 +92,12 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
@@ -83,11 +113,11 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(btnUpdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -98,6 +128,25 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        txtName.setEnabled(true);
+        txtType.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnSave.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        supplier.setName(txtName.getText());
+        supplier.setType(txtType.getText());
+        
+         txtName.setEnabled(false);
+        txtType.setEnabled(false);
+        btnUpdate.setEnabled(true);
+        btnSave.setEnabled(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -106,7 +155,7 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txtBuyer;
-    private javax.swing.JTextField txtPosition;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 }

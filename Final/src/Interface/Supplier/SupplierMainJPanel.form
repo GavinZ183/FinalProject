@@ -60,6 +60,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Seller Order"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageSellerOrderActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnManageGood">
       <Properties>
@@ -68,6 +71,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Good"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageGoodActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnManageInformaton">
       <Properties>
@@ -76,6 +82,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Informaton"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageInformatonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -28,6 +28,7 @@ public class Network {
     private UserAccountDirectory userAccountDirectory;
     
     
+    
     public Network(){
         userAccountDirectory=new UserAccountDirectory();
         sellerDirectory=new SellerDirectory();
@@ -35,7 +36,10 @@ public class Network {
         expressCompanyDir=new ExpressCompanyDir();
         serviceDir =new ServiceDir();
         supplierDirectory =new SupplierDirectory();
+        
     }
+
+
     public String getName() {
         return name;
     }

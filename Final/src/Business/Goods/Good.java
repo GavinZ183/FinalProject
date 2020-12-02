@@ -3,28 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Product;
+package Business.Goods;
 
+import Business.Goods.Comments;
 import Business.Seller.Seller;
-import Business.Supplier.Supplier;
 
 /**
  *
- * @author jiaohongmei
+ * @author TT1
  */
-public class Product {
+public class Good {
     private String prodName;
     private int price;
     private int modelNumber;
     private int avail;
     private String discribe;
     private int quantity;
-    private Supplier supplier;
+    private Seller seller;
     private String imagePath;
+    private Comments comments;
     
     private static int count =0;
 
-    public Product() {
+    public Good() {
         this.modelNumber = count;
         count++;
     }
@@ -69,12 +70,12 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public Seller getSeller() {
+        return seller;
     }
 
-    public void setSupplierr(Supplier supplierr) {
-        this.supplier = supplierr;
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 
     public String getImagePath() {
@@ -85,6 +86,9 @@ public class Product {
         this.imagePath = imagePath;
     }
 
+    public Comments getComments() {
+        return comments;
+    }
     
     @Override
     public String toString() {
