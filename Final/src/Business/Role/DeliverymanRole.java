@@ -5,7 +5,10 @@
 package Business.Role;
 
 
+import Business.EcoSystem;
+import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import Interface.DeliveryCompany.DeliveryMan.ConfirmDeliveryOrderJPanel;
 
 import javax.swing.JPanel;
 
@@ -15,10 +18,10 @@ import javax.swing.JPanel;
  */
 public class DeliverymanRole extends Role{
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-//        return new AdminWorkAreaJPanel(userProcessContainer,account,business);
-//    }
+@Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
+        return new ConfirmDeliveryOrderJPanel(userProcessContainer,account,network);
+    }
    @Override
     public String getType() {
         return RoleType.Deliveryman.getValue();

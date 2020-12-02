@@ -7,6 +7,8 @@ package Business.BuyerOrder;
 
 
 import Business.Product.Product;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +20,7 @@ public class BuyOrder {
     private int orderNumber;
     private static int count=0;
     
+    
     public BuyOrder()
     {
         count ++;
@@ -27,6 +30,9 @@ public class BuyOrder {
     }
 
     public ArrayList<BuyOrderItem> getOrderItemList() {
+        if(orderItemList == null){
+            orderItemList = new ArrayList<BuyOrderItem>();
+        }
         return orderItemList;
     }
 
@@ -41,7 +47,7 @@ public class BuyOrder {
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
-    
+
      public BuyOrderItem addOrderItem(Product p,int q,double price){
         BuyOrderItem o=new BuyOrderItem ();
 //       o.setProduct(p);

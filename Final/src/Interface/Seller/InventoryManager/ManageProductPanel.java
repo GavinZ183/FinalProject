@@ -5,6 +5,10 @@
  */
 package Interface.Seller.InventoryManager;
 
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author TT1
@@ -16,6 +20,10 @@ public class ManageProductPanel extends javax.swing.JPanel {
      */
     public ManageProductPanel() {
         initComponents();
+    }
+
+    public ManageProductPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

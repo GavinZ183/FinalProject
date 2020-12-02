@@ -5,6 +5,12 @@
  */
 package Interface.Buyer;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author TT1
@@ -14,8 +20,16 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form BuyerMainJPanel
      */
-    public BuyerMainJPanel() {
-        initComponents();
+    JPanel userProcessContainer; 
+    UserAccount account;
+    Network network;
+    
+
+    public BuyerMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+         initComponents();
+         this.userProcessContainer=userProcessContainer;
+         this.account=account;
+         this.network=network;
     }
 
     /**
@@ -36,9 +50,19 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
 
         btnshopping.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnshopping.setText("Shopping");
+        btnshopping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnshoppingActionPerformed(evt);
+            }
+        });
 
         btnHistoryOrder.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnHistoryOrder.setText("History order");
+        btnHistoryOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistoryOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,6 +88,20 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 .addContainerGap(412, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnshoppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshoppingActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ShoppingJPanel(userProcessContainer,account,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnshoppingActionPerformed
+
+    private void btnHistoryOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryOrderActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ShoppingJPanel(userProcessContainer,account,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnHistoryOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

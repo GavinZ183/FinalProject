@@ -21,8 +21,8 @@ public class ConfigureASystem {
         //create user account
         
                
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin",new SystemAdminRole());
-        
+       UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin",new SystemAdminRole());
+        system.createAndAddNetwork("USA");
         return system;
     }
     

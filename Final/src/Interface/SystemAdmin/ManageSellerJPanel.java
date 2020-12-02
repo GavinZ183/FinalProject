@@ -5,6 +5,16 @@
  */
 package Interface.SystemAdmin;
 
+import Business.EcoSystem;
+import Business.Network.Network;
+import Business.Role.SellerRole;
+import Business.Seller.Seller;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author TT1
@@ -14,10 +24,37 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageSellerJPanel
      */
-    public ManageSellerJPanel() {
-        initComponents();
-    }
+     JPanel userProcessContainer;
+    Network network;
+    EcoSystem system;
+    
 
+    ManageSellerJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
+       initComponents();
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        btnSave.setEnabled(false);
+        populateTable();
+    }
+ public void populateTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(Seller seller:network.getSellerDirectory().getSellerList()){
+            
+                Object row[] = new Object[4];
+                row[0] = seller;
+                row[1] =seller.getUserAccount().getUsername();
+                row[2] =seller.getUserAccount().getPassword();
+                row[3] =seller.getTelephone();
+                        
+                
+                model.addRow(row);
+                }
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,6 +99,11 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         jLabel5.setText("Username:");
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Password:");
 
@@ -93,6 +135,11 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         btnFreshTable.setText("Fresh table");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Seller list:");
 
@@ -108,6 +155,11 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         jLabel8.setText("Update seller:");
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new seller:");
@@ -121,8 +173,18 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         jLabel13.setText("Username:");
 
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -252,6 +314,96 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Seller seller = ( Seller)jTable1.getValueAt(selectedRow, 0);
+      network.getSellerDirectory().getSellerList().remove(seller);
+       
+       UserAccount us=new UserAccount();
+       us=seller.getUserAccount();
+       system.getUserAccountDirectory().getUserAccountList().remove(us);
+          populateTable();
+         JOptionPane.showMessageDialog(null, "Delete the seller successfully!");
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Seller seller = ( Seller)jTable1.getValueAt(selectedRow, 0);
+      txtName.setText(seller.getName());
+      txtUsername.setText(seller.getUserAccount().getUsername());
+      txtPassword.setText(seller.getUserAccount().getPassword());
+      txtTelephone.setText(seller.getTelephone());
+      
+       btnSave.setEnabled(true);
+       btnUpdate.setEnabled(false);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+      Seller seller = ( Seller)jTable1.getValueAt(selectedRow, 0);
+      
+     
+      
+      seller.setName( txtName.getText());
+      seller.setTelephone(txtTelephone.getText());
+      seller.getUserAccount().setPassword(txtPassword.getText());
+      seller.getUserAccount().setUsername(txtUsername.getText());
+       populateTable();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+         String username=txtUsername1.getText();
+        String password=txtPassword1.getText();
+        String name=txtName1.getText();
+        String telePhone=txtTelephone1.getText();
+        
+        
+        Seller Seller=new Seller();
+        UserAccount userAccount=new UserAccount();
+        SellerRole role=new SellerRole();
+        
+        userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
+        Seller.setName(name);
+        Seller.setTelephone(telePhone);
+        network.getSellerDirectory().getSellerList().add(Seller);
+        Seller.setUserAccount(userAccount);
+       
+        
+       
+        txtUsername1.setText("");
+        txtPassword1.setText("");
+        txtTelephone1.setText("");
+        txtName1.setText("");
+         populateTable();
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);  
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

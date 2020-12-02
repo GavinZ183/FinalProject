@@ -26,8 +26,9 @@ public class EcoSystem {
         return business;
     }
     
-    public Network createAndAddNetwork(){
+    public Network createAndAddNetwork(String name){
         Network network=new Network();
+        network.setName(name);
         networkList.add(network);
         return network;
     }
@@ -40,6 +41,7 @@ public class EcoSystem {
     private EcoSystem(){
        // super(null);
         networkList=new ArrayList<Network>();
+        userAccountDirectory=new UserAccountDirectory();
     }
 
     public ArrayList<Network> getNetworkList() {
@@ -54,13 +56,4 @@ public class EcoSystem {
         return userAccountDirectory;
     }
     
-    public boolean checkIfUserIsUnique(String userName){
-        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
-            return false;
-        }
-        for(Network network:networkList){
-            
-        }
-        return true;
-    }
 }

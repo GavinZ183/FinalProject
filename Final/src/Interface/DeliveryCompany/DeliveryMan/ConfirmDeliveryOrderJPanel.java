@@ -5,7 +5,10 @@
  */
 package Interface.DeliveryCompany.DeliveryMan;
 
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
 import Interface.DeliveryCompany.DeliveryMan.*;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,6 +21,10 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
      */
     public ConfirmDeliveryOrderJPanel() {
         initComponents();
+    }
+
+    public ConfirmDeliveryOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

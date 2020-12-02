@@ -5,6 +5,8 @@
  */
 package Business.Product;
 
+import Business.Seller.Seller;
+
 /**
  *
  * @author jiaohongmei
@@ -15,6 +17,80 @@ public class Product {
     private int modelNumber;
     private int avail;
     private String discribe;
+    private int quantity;
+    private Seller seller;
+    private String imagePath;
+    private Comments comments;
     
     private static int count =0;
+
+    public Product() {
+        this.modelNumber = count;
+        count++;
+    }
+
+    public String getProdName() {
+        return prodName;
+    }
+
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getAvail() {
+        return avail;
+    }
+
+    public void setAvail(int avail) {
+        this.avail = avail;
+    }
+
+    public String getDiscribe() {
+        return discribe;
+    }
+
+    public void setDiscribe(String discribe) {
+        this.discribe = discribe;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Comments getComments() {
+        return comments;
+    }
+    
+    @Override
+    public String toString() {
+        return prodName;
+    }
 }

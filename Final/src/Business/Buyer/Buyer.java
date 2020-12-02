@@ -5,6 +5,7 @@
  */
 package Business.Buyer;
 
+import Business.BuyerOrder.BuyOrder;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -15,5 +16,35 @@ public class Buyer {
     private String telephone;
     private String address;
     public UserAccount userAccount;
+    private BuyOrder buyOrder;
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public BuyOrder getBuyOrder() {
+        return buyOrder;
+    }
+    
     
 }
