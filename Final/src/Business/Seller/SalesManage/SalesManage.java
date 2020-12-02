@@ -5,7 +5,6 @@
  */
 package Business.Seller.SalesManage;
 
-import Business.BuyerOrder.MasterBuyOrderCatalog;
 
 
 /**
@@ -13,5 +12,5 @@ import Business.BuyerOrder.MasterBuyOrderCatalog;
  * @author jiaohongmei
  */
 public class SalesManage {//销售管理员
-    private MasterBuyOrderCatalog  masterBuyOrderCatalog;
+    
 }

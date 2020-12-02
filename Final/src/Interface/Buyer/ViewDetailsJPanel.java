@@ -5,8 +5,8 @@
  */
 package Interface.Buyer;
 
-import Business.Product.Comment;
-import Business.Product.Product;
+import Business.Goods.Comment;
+import Business.Goods.Good;
 import java.awt.CardLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -22,24 +22,24 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
      * Creates new form ViewDetailsJPanel
      */
     JPanel userProcessContainer;
-    Product product;
-    public ViewDetailsJPanel(JPanel userProcessContainer,Product product) {
+    Good good;
+    public ViewDetailsJPanel(JPanel userProcessContainer,Good good) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.product = product;
-        txtProduct.setText(product.getProdName());
-        txtPrice.setText(String.valueOf(product.getPrice()));
-        txtSeller.setText(product.getSeller().getName());
-        txtPosition.setText(product.getSeller().getAddress());
-        txtInventory.setText(String.valueOf(product.getQuantity()));
+        this.good = good;
+        txtGood.setText(good.getProdName());
+        txtPrice.setText(String.valueOf(good.getPrice()));
+        txtSeller.setText(good.getSeller().getName());
+        txtPosition.setText(good.getSeller().getAddress());
+        txtInventory.setText(String.valueOf(good.getQuantity()));
         String allComment = "";
-        for(Comment comment: product.getComments().getCommentList()){
+        for(Comment comment: good.getComments().getCommentList()){
             allComment = allComment + comment.getScore() + "  " + comment.getWord() + "    /n    ";
         }
         txtComment.setText(allComment);
         
-        if(product.getImagePath()!=null){
-            ImageIcon photo = new ImageIcon(product.getImagePath());
+        if(good.getImagePath()!=null){
+            ImageIcon photo = new ImageIcon(good.getImagePath());
             Image image = photo.getImage();
             image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
             lblImage.setIcon(new ImageIcon(image));
@@ -61,7 +61,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         txtSeller = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtProduct = new javax.swing.JTextField();
+        txtGood = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,9 +80,9 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Seller:");
 
-        jLabel4.setText("Product:");
+        jLabel4.setText("Good:");
 
-        txtProduct.setEnabled(false);
+        txtGood.setEnabled(false);
 
         txtPrice.setEnabled(false);
 
@@ -150,17 +150,13 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
                                                 .addComponent(jLabel7)
                                                 .addComponent(jLabel6))
                                             .addGap(26, 26, 26)
-                                            .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel5))
-                                            .addGap(34, 34, 34)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(txtGood, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
                                 .addGap(217, 217, 217))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -187,7 +183,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
                                 .addGap(73, 73, 73)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtGood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
@@ -241,10 +237,10 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblImage;
     private javax.swing.JTextArea txtComment;
+    private javax.swing.JTextField txtGood;
     private javax.swing.JTextField txtInventory;
     private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtSeller;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 package Business.Seller.PurchaseManage;
-import Business.SellerOrder.MasterSellOrderCatalog;
 /**
  *
  * @author jiaohongmei
  */
 public class PurchaseManage {//进货管理员
-    private MasterSellOrderCatalog  masterSellOrderCatalog;
+    
 }
