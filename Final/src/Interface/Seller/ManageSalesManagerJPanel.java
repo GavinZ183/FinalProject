@@ -363,6 +363,12 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
         String password=txtPassword1.getText();
         String name=txtName1.getText();
         String telePhone=txtTelephone1.getText();
+        //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(username)){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         SalesManage sm = new SalesManage();
         UserAccount userAccount=new UserAccount();
