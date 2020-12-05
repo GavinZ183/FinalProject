@@ -22,6 +22,7 @@
                   <Component id="jLabel1" max="32767" attributes="0"/>
                   <Component id="btnshopping" max="32767" attributes="0"/>
                   <Component id="btnHistoryOrder" max="32767" attributes="0"/>
+                  <Component id="btnManageInformation" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="293" max="32767" attributes="0"/>
           </Group>
@@ -36,7 +37,9 @@
               <Component id="btnshopping" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnHistoryOrder" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace pref="412" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Component id="btnManageInformation" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace pref="327" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,6 +73,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistoryOrderActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnManageInformation">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Manage information"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageInformationActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

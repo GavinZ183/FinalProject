@@ -35,7 +35,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
     UserAccount account;
     Network network;
     Seller seller;
-    ArrayList<BuyOrderItem> itemList;
+    ArrayList<BuyOrderItem> itemList = new ArrayList<BuyOrderItem>();
     ExpressCompany ec;
     public ManageBuyerOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
         initComponents();
@@ -65,9 +65,10 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
+        itemList.clear();
         for(Buyer buyer: network.getBuyerDirectory().getBuyerList()){
             for(BuyOrderItem item: buyer.getBuyOrder().getOrderItemList()){
-                if(item.getGood().getSeller().getUserAccount().getUsername().equals(seller.getUserAccount().getUsername())){
+                if(item.getGood().getSeller().equals(seller)){
                     Object row[] = new Object[8];
                     row[0] = item;
                     row[1] = item.getGood().getPrice();
@@ -311,18 +312,20 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         String position = txtPosition.getText();
         String status = txtStatus.getText();
         String time = "";
-        try{
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date date = format.parse(txtTime.getText());
-            time = format.format(date);
+        if(txtTime.getText().length()>0){
+            try{
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                Date date = format.parse(txtTime.getText());
+                time = format.format(date);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Please input time on format:'yyyy-MM-dd HH:mm'!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtTime.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel5.setForeground(Color.red);
+                return;
+            }
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Please input time on format:'yyyy-MM-dd HH:mm'!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtTime.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel5.setForeground(Color.red);
-            return;
-        }
-        
+              
         //star to filter no-empty requirement
         ArrayList<BuyOrderItem> orderItemList = new ArrayList<BuyOrderItem>();
         if(goodname.length()>0){

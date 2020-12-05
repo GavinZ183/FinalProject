@@ -530,7 +530,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Date date = new Date();
         for(Buyer buyer: network.getBuyerDirectory().getBuyerList()){
-            if(buyer.getUserAccount().getUsername().equals(account.getUsername())){
+            if(buyer.getUserAccount().equals(account)){
                 for(BuyOrderItem item: cart){
                     item.setCreateTime(date);
                     item.setStatus("pending");

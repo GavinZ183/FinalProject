@@ -5,6 +5,7 @@
  */
 package Interface.Buyer;
 
+import Business.Buyer.Buyer;
 import Business.EcoSystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
@@ -44,6 +45,7 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnshopping = new javax.swing.JButton();
         btnHistoryOrder = new javax.swing.JButton();
+        btnManageInformation = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Buyer Main Screen");
@@ -64,6 +66,14 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageInformation.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnManageInformation.setText("Manage information");
+        btnManageInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageInformationActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,7 +83,8 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnshopping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHistoryOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnHistoryOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(293, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -85,7 +96,9 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 .addComponent(btnshopping, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(btnHistoryOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(btnManageInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,9 +116,23 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnHistoryOrderActionPerformed
 
+    private void btnManageInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInformationActionPerformed
+        // TODO add your handling code here:
+        Buyer b = new Buyer();
+        for(Buyer buyer: network.getBuyerDirectory().getBuyerList()){
+            if(buyer.getUserAccount().equals(account)){
+                b = buyer;
+            }
+        }
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageBuyerInformationJPanel(userProcessContainer,b,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageInformationActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHistoryOrder;
+    private javax.swing.JButton btnManageInformation;
     private javax.swing.JButton btnshopping;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
