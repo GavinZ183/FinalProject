@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interface.DeliveryCompany.DeliveryMan;
+package Interface.DeliveryCompany.Driver;
 
+import Interface.DeliveryCompany.DeliveryMan.*;
 import Business.BuyerOrder.BuyOrderItem;
-import Business.ExpressCompany.Deliveryman;
+import Business.ExpressCompany.Driver;
 import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
-import Interface.DeliveryCompany.DeliveryMan.*;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,26 +20,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author TT1
  */
-public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
+public class DriverOrderJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ConfirmDeliveryOrderJPanel
+     * Creates new form DriverOrderJPanel
      */
     JPanel userProcessContainer;
    UserAccount account;
    Network network;
-   Deliveryman deliveryman;
+   Driver driver;
 
-    public ConfirmDeliveryOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+    public DriverOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
        initComponents();
         this.network=network;
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         
         for(ExpressCompany c:network.getExpressCompanyDir().getExpressCompanyList()){
-            for(Deliveryman d:c.getDeliverymanDirectory().getDeliverymanList()){
+            for(Driver d:c.getDriverDir().getDriverList()){
                 if(d.getUserAccount().getUsername().equals(account.getUsername()))
-                    deliveryman=d;
+                    driver=d;
             }
         }
             
@@ -54,7 +54,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
-        for(BuyOrderItem buyOrderItem:deliveryman.getBuyOrder().getOrderItemList()){
+        for(BuyOrderItem buyOrderItem:driver.getBuyOrder().getOrderItemList()){
             
                 Object row[] = new Object[6];
                 row[0] = buyOrderItem.getGood();
@@ -72,7 +72,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 }
             }
  public void labelStatus(){
-     jStatus.setText(deliveryman.getStatus());
+     jStatus.setText(driver.getStatus());
  }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +96,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("DeliveryMan Workarea");
+        jLabel1.setText("Driver Workarea");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,15 +176,12 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(254, 254, 254)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4)
@@ -194,7 +191,10 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(100, 100, 100)
                                 .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jStatus))))
+                            .addComponent(jStatus)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(jLabel1)))
                 .addGap(0, 276, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -205,28 +205,24 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jStatus))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChange))
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jStatus))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChange))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnView)
                     .addComponent(btnAccept))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRefuse)
-                    .addComponent(btnFinish))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFinish)
+                    .addComponent(btnRefuse))
                 .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -244,7 +240,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
             jComboBox1.addItem("REST");
             jComboBox1.addItem("BUSY");
            String status = (String)jComboBox1.getSelectedItem();
-           deliveryman.setStatus(status);
+           driver.setStatus(status);
            
          JOptionPane.showMessageDialog(null, "Change Your Status to "+status+" Successfully");
          labelStatus();
@@ -262,8 +258,8 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
-            buyOrderItem.setStatus("Deliveryman Deliverying");
+        if(buyOrderItem.getStatus()=="ASSIGND Driver"){
+            buyOrderItem.setStatus("Driver Deliverying");
             JOptionPane.showMessageDialog(null, "Assigned this order Successfully");
         }
             else
@@ -297,8 +293,8 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
-            buyOrderItem.setStatus("Deliveryman Refused");
+        if(buyOrderItem.getStatus()=="ASSIGND Driver"){
+            buyOrderItem.setStatus("Driver Refused");
             JOptionPane.showMessageDialog(null, "Refused this order Successfully");
         }
             else
@@ -317,8 +313,8 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="Deliveryman Deliverying"){
-            buyOrderItem.setStatus("DELIVERED");
+        if(buyOrderItem.getStatus()=="Driver Deliverying"){
+            buyOrderItem.setStatus("Arrive at Express transfer station");
             JOptionPane.showMessageDialog(null, "Finished this order Successfully");
         }
             else

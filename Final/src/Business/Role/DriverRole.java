@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
-import Interface.DeliveryCompany.Driver.ConfirmDeliveryOrderJPanel;
+import Interface.DeliveryCompany.Driver.DriverOrderJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +19,7 @@ public class DriverRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new ConfirmDeliveryOrderJPanel(userProcessContainer,account,network);
+        return new DriverOrderJPanel(userProcessContainer,account,network);
     }
    @Override
     public String getType() {

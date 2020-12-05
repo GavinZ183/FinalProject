@@ -7,6 +7,7 @@ package Interface.Supplier;
 
 import Business.Network.Network;
 import Business.Supplier.Supplier;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -75,6 +76,11 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
         txtName.setEnabled(false);
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Information Screen");
@@ -146,6 +152,13 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
         btnUpdate.setEnabled(true);
         btnSave.setEnabled(false);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

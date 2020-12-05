@@ -6,6 +6,7 @@
 package Business.Supplier;
 
 import Business.Product.ProductCatalog;
+
 import Business.UserAccount.UserAccount;
 
 /**
@@ -18,7 +19,9 @@ public class Supplier {
 
     private UserAccount userAccount;
     private ProductCatalog productCatalog;
+   
 
+    
     public String getName() {
         return name;
     }

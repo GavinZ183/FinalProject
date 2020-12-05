@@ -69,7 +69,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Good"/>
+        <Property name="text" type="java.lang.String" value="Manage Product"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageGoodActionPerformed"/>

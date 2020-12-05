@@ -5,6 +5,17 @@
  */
 package Interface.DeliveryCompany;
 
+import Business.BuyerOrder.BuyOrderItem;
+import Business.ExpressCompany.Deliveryman;
+import Business.ExpressCompany.Driver;
+import Business.ExpressCompany.ExpressCompany;
+import Business.Network.Network;
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author TT1
@@ -14,10 +25,59 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageExpressOrderJPanel
      */
-    public ManageExpressOrderJPanel() {
-        initComponents();
-    }
+   JPanel userProcessContainer;
+   ExpressCompany expressCompany;
+   Network network;
 
+    ManageExpressOrderJPanel(JPanel userProcessContainer, ExpressCompany expressCompany, Network network) {
+        initComponents();
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        this.expressCompany=expressCompany;
+        populateTable();
+    }
+    public void populateTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(BuyOrderItem buyOrderItem:expressCompany.getBuyOrder().getOrderItemList()){
+            
+                Object row[] = new Object[7];
+                row[0] = buyOrderItem.getGood();
+                row[1] =buyOrderItem.getQuantity();
+                row[2] =buyOrderItem.getBuyer();
+                row[3] =buyOrderItem.getBuyer().getPosition();
+                row[4]=buyOrderItem.getSeller();
+                row[5]=buyOrderItem.getSeller().getPosition();
+                row[6]=buyOrderItem.getStatus();
+                        
+                
+                model.addRow(row);
+                }
+            }
+     private void searchOrderItemTable(ArrayList<BuyOrderItem> orderItemList) {
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        
+        for(BuyOrderItem buyOrderItem: orderItemList){
+           Object row[] = new Object[7];
+                row[0] = buyOrderItem.getGood();
+                row[1] =buyOrderItem.getQuantity();
+                row[2] =buyOrderItem.getBuyer();
+                row[3] =buyOrderItem.getBuyer().getPosition();
+                row[4]=buyOrderItem.getSeller();
+                row[5]=buyOrderItem.getSeller().getPosition();
+                row[6]=buyOrderItem.getStatus();
+
+            model.addRow(row);
+        }     
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +112,8 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         jComboBox2 = new javax.swing.JComboBox<>();
         btnChooseDeliveryMan = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        btnAssignDriver = new javax.swing.JButton();
+        btnAssignDeliveryMan = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage ExpressOrder Screen");
@@ -60,12 +122,22 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         jLabel2.setText("Dilivery Company:");
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setText("Product:");
+        jLabel4.setText("Goods:");
 
         jLabel6.setText("Buyer:");
 
         btnChooseDeliveryDriver.setText("Choose Driver");
+        btnChooseDeliveryDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChooseDeliveryDriverActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Buyer Position:");
 
@@ -74,7 +146,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Quantity", "Buyer", "Buyer Position", "Seller", "Seller Position", "Status"
+                "Goods", "Quantity", "Buyer", "Buyer Position", "Seller", "Seller Position", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -97,22 +169,50 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         jLabel8.setText("Status:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setEnabled(false);
 
         btnFreshTable.setText("Fresh table");
 
         jLabel9.setText("Delivery Driver:");
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Seller:");
 
         jLabel11.setText("Seller Position:");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setEnabled(false);
 
         btnChooseDeliveryMan.setText("Choose Delivery Man");
+        btnChooseDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChooseDeliveryManActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Delivery Man:");
+
+        btnAssignDriver.setText("Assign Driver");
+        btnAssignDriver.setEnabled(false);
+        btnAssignDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignDriverActionPerformed(evt);
+            }
+        });
+
+        btnAssignDeliveryMan.setText("Assign Delivery Man");
+        btnAssignDeliveryMan.setEnabled(false);
+        btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignDeliveryManActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -163,32 +263,33 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtSellerPosition)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(443, 443, 443)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnChooseDeliveryDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnChooseDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFreshTable)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(297, 297, 297)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(146, 146, 146)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChooseDeliveryMan, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnChooseDeliveryDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(721, 721, 721)
+                .addComponent(btnAssignDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(721, 721, 721)
+                .addComponent(btnAssignDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -226,19 +327,255 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                     .addComponent(btnChooseDeliveryDriver)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
+                .addComponent(btnAssignDriver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChooseDeliveryMan)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAssignDeliveryMan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnChooseDeliveryDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseDeliveryDriverActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       
+        BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
+         //卖家 =！买家   状态=商家发货
+       
+        if(buyOrderItem.getSeller().getPosition()!=buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="SELLER SHIPPED")
+        {
+            
+            jComboBox1.setEnabled(true);
+            btnChooseDeliveryDriver.setEnabled(false);
+            btnAssignDriver.setEnabled(true);
+    
+            for(Driver driver:expressCompany.getDriverDir().getDriverList()){
+                if(driver.getStatus()=="WORK"&&driver.getPosition().equals(buyOrderItem.getSeller().getPosition()))
+                jComboBox1.addItem(driver.getName());
+            }
+        }
+         else
+             JOptionPane.showMessageDialog(null, "No need to assign a driver", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+       
+      
+    }//GEN-LAST:event_btnChooseDeliveryDriverActionPerformed
+
+    private void btnAssignDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDriverActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       
+        BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
+        String driverName = (String)jComboBox1.getSelectedItem();
+        Driver driver=new Driver();
+        for(Driver d:expressCompany.getDriverDir().getDriverList()){
+                if(d.getName().equals(driverName)){
+                    driver=d;
+                }
+            }
+        buyOrderItem.setStatus("ASSIGND Driver");
+        driver.getBuyOrder().getOrderItemList().add(buyOrderItem);
+        
+        jComboBox1.setEnabled(false);
+        btnChooseDeliveryDriver.setEnabled(true);
+        btnAssignDriver.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "Assignd a driver successfully!");
+        populateTable();
+                
+            
+    }//GEN-LAST:event_btnAssignDriverActionPerformed
+
+    private void btnChooseDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseDeliveryManActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       
+        BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
+       
+        //卖家 =！买家   状态=到达派送点
+        if(buyOrderItem.getSeller().getPosition()!=buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="Arrive at Express transfer station")
+        {
+            
+            jComboBox2.setEnabled(true);
+            btnChooseDeliveryMan.setEnabled(false);
+            btnAssignDeliveryMan.setEnabled(true);
+    
+            for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
+                if(deliveryman.getStatus()=="WORK"&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
+                jComboBox2.addItem(deliveryman.getName());
+            }
+        }
+         //卖家地址 =买家地址    订单状态=商家发货
+        else if(buyOrderItem.getSeller().getPosition()==buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="SELLER SHIPPED")
+        {
+            
+            jComboBox2.setEnabled(true);
+            btnChooseDeliveryMan.setEnabled(false);
+            btnAssignDeliveryMan.setEnabled(true);
+    
+            for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
+                if(deliveryman.getStatus()=="WORK"&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
+                jComboBox2.addItem(deliveryman.getName());
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "No need to assign a driver", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        
+    }//GEN-LAST:event_btnChooseDeliveryManActionPerformed
+
+    private void btnAssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryManActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       
+        BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
+        String name = (String)jComboBox2.getSelectedItem();
+        Deliveryman deliveryman=new  Deliveryman();
+        for(Deliveryman d:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
+                if(d.getName().equals(name)){
+                    deliveryman=d;
+                }
+            }
+        buyOrderItem.setStatus("ASSIGND Deliveryman");
+        deliveryman.getBuyOrder().getOrderItemList().add(buyOrderItem);
+        
+        jComboBox2.setEnabled(false);
+        btnChooseDeliveryMan.setEnabled(true);
+        btnAssignDeliveryMan.setEnabled(false);
+        JOptionPane.showMessageDialog(null, "Assignd a deliveryman successfully!");
+        populateTable();
+    }//GEN-LAST:event_btnAssignDeliveryManActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);  
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String goods = txtProduct.getText();
+       
+        //star to filter no-empty requirement
+        ArrayList<BuyOrderItem> orderItemList = new ArrayList<BuyOrderItem>();
+        if(goods.length()>0){
+            for(BuyOrderItem buyOrderItem:expressCompany.getBuyOrder().getOrderItemList()){
+                if(buyOrderItem.getGood().getProdName().equals(goods)){
+                    orderItemList.add(buyOrderItem);
+                    }
+                }
+            }
+        else
+             orderItemList=expressCompany.getBuyOrder().getOrderItemList();
+             
+        
+         String buyername = txtBuyer.getText();
+        ArrayList<BuyOrderItem> orderItemList1 = new ArrayList<BuyOrderItem>();
+        if(buyername.length()>0){
+            for(BuyOrderItem item: orderItemList){
+                if(item.getBuyer().getUserAccount().getUsername().equals(buyername)){
+                    orderItemList1.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList1 = orderItemList;
+        }
+        
+        
+        
+        String sellername = txtSeller.getText();
+        ArrayList<BuyOrderItem> orderItemList2 = new ArrayList<BuyOrderItem>();
+        if(sellername.length()>0){
+            for(BuyOrderItem item: orderItemList1){
+                if(item.getSeller().getName().equals(sellername)){
+                    orderItemList2.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList2 = orderItemList1;
+        }
+        
+        
+        
+        String sellerposition=txtSellerPosition.getText();  
+        ArrayList<BuyOrderItem> orderItemList3 = new ArrayList<BuyOrderItem>();
+        if(sellerposition.length()>0){
+            for(BuyOrderItem item: orderItemList2){
+                if(item.getSeller().getPosition().equals(sellerposition)){
+                    orderItemList3.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList3 = orderItemList2;
+        }
+        
+        
+        String status=txtStatus.getText();
+          ArrayList<BuyOrderItem> orderItemList4 = new ArrayList<BuyOrderItem>();
+        if(status.length()>0){
+            for(BuyOrderItem item: orderItemList3){
+                if(item.getStatus().equals(status)){
+                    orderItemList4.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList4 = orderItemList3;
+        }
+        
+        String position=txtBuyerPosition.getText();  
+        ArrayList<BuyOrderItem> orderItemList5 = new ArrayList<BuyOrderItem>();
+        if(position.length()>0){
+            for(BuyOrderItem item: orderItemList4){
+                if(item.getBuyer().getPosition().equals(position)){
+                    orderItemList5.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList5 = orderItemList4;
+        }
+        
+        searchOrderItemTable(orderItemList5);
+        
+      
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignDeliveryMan;
+    private javax.swing.JButton btnAssignDriver;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnChooseDeliveryDriver;
     private javax.swing.JButton btnChooseDeliveryMan;
