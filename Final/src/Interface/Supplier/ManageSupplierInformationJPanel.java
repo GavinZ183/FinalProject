@@ -30,8 +30,10 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
          this.supplier=supplier;
          this.network=network;
          
-       txtName.setText(supplier.getName());
-       txtType.setText(supplier.getType());
+        txtName.setText(supplier.getName());
+        txtType.setText(supplier.getType());
+       
+        
     }
 
     /**
@@ -56,8 +58,6 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Type:");
 
-        txtType.setEnabled(false);
-
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,8 +72,6 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-
-        txtName.setEnabled(false);
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {

@@ -413,8 +413,9 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         deliveryman.setTelephone(telePhone);
         deliveryman.setStatus("Free");
         deliveryman.setUserAccount(userAccount);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
        
-         expressCompany.getDeliverymanDirectory().getDeliverymanList().remove(deliveryman);
+         expressCompany.getDriverDir().getDriverList().add(deliveryman);
         
        
         txtUsername1.setText("");

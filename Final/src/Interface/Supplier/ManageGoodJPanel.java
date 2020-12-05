@@ -51,7 +51,7 @@ public void populateTable(){
         for(Product product:supplier.getProductCatalog().getProductcatalog()){
             
                 Object row[] = new Object[5];
-                row[0] = product;
+                row[0] = product.getProdName();
                 row[1] =product.getProdName();
                 row[2] =product.getPrice();
                 row[3] =product.getQuantity();

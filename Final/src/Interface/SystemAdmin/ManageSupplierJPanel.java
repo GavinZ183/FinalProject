@@ -342,8 +342,10 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         supplier.setName(name);
         supplier.setType(type);
+        supplier.setUserAccount(userAccount);
         network.getSupplierDirectory().getsupplierList().add(supplier);
-       supplier.setUserAccount(userAccount);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+      
        
         
        
@@ -371,7 +373,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             return;
         }
       Supplier buyer = ( Supplier)jTable1.getValueAt(selectedRow, 0);
-      network.getSupplierDirectory().getsupplierList().add(buyer);
+      network.getSupplierDirectory().getsupplierList().remove(buyer);
        
        UserAccount us=new UserAccount();
        us=buyer.getUserAccount();

@@ -71,5 +71,8 @@ public class ExpressCompany {
         this.deliverymanDirectory = deliverymanDirectory;
     }
     
-    
+  @Override
+    public String toString() {
+        return name;
+    }  
 }

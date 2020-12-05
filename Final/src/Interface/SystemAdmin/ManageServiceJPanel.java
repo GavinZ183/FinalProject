@@ -48,7 +48,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         for(Service service:network.getServiceDir().getserviceList()){
             
                 Object row[] = new Object[3];
-                row[0] = service;
+                row[0] =service;
                 row[1] =service.getUserAccount().getUsername();
                 row[2] =service.getUserAccount().getPassword();
                 
@@ -324,9 +324,10 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         Service.setName(name);
-       
+        Service.setUserAccount(userAccount);
         network.getServiceDir().getserviceList().add(Service);
-       Service.setUserAccount(userAccount);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+      
        
         
        

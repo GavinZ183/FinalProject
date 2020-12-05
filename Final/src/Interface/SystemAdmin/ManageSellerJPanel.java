@@ -390,8 +390,10 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         Seller.setName(name);
         Seller.setTelephone(telePhone);
-        network.getSellerDirectory().getSellerList().add(Seller);
         Seller.setUserAccount(userAccount);
+        network.getSellerDirectory().getSellerList().add(Seller);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+        
        
         
        

@@ -244,6 +244,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         buyer.setAddress(address);
         buyer.setTelephone(telePhone);
         network.getBuyerDirectory().getBuyerList().add(buyer);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
         buyer.setUserAccount(userAccount);
        
         

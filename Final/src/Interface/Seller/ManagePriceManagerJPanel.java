@@ -373,6 +373,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         pm.setTelephone(telePhone);
         pm.setUserAccount(userAccount);
         seller.getPriceManageDir().getPriceManageList().add(pm);
+         
 
         txtUsername1.setText("");
         txtPassword1.setText("");

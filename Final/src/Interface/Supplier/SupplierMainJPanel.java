@@ -23,7 +23,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     Network network;
-    Supplier supplier;
+    
    
 
     public SupplierMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
@@ -31,10 +31,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.network=network;
         this.account=account;
-        for(Supplier s:network.getSupplierDirectory().getsupplierList()){
-            if(s.getUserAccount().equals(account))
-                supplier=s;
-        }
+       
        
         
     }
@@ -110,13 +107,23 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
 
     private void btnManageSellerOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSellerOrderActionPerformed
         // TODO add your handling code here:
+        Supplier supplier=new Supplier();
+         for(Supplier s:network.getSupplierDirectory().getsupplierList()){
+            if(s.getUserAccount().getUsername().equals(account.getUsername()))
+                supplier=s;
+        }
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageSupplierInformationJPanel(userProcessContainer,supplier,network));
+               userProcessContainer.add(new ManageSellerOrderJPanel(userProcessContainer,supplier,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageSellerOrderActionPerformed
 
     private void btnManageGoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageGoodActionPerformed
         // TODO add your handling code here:
+         Supplier supplier=new Supplier();
+         for(Supplier s:network.getSupplierDirectory().getsupplierList()){
+            if(s.getUserAccount().getUsername().equals(account.getUsername()))
+                supplier=s;
+        }
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
                userProcessContainer.add(new ManageGoodJPanel(userProcessContainer,supplier,network));
                 layout.next(userProcessContainer);
@@ -124,8 +131,13 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
 
     private void btnManageInformatonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInformatonActionPerformed
         // TODO add your handling code here:
+         Supplier supplier=new Supplier();
+         for(Supplier s:network.getSupplierDirectory().getsupplierList()){
+            if(s.getUserAccount().getUsername().equals(account.getUsername()))
+                supplier=s;
+        }
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-               userProcessContainer.add(new ManageSellerOrderJPanel(userProcessContainer,supplier,network));
+               userProcessContainer.add(new ManageSupplierInformationJPanel(userProcessContainer,supplier,network));
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageInformatonActionPerformed
 

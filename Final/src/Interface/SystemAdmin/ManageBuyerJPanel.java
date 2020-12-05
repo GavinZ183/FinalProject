@@ -404,8 +404,10 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         buyer.setAddress(address);
         buyer.setTelephone(telePhone);
-        network.getBuyerDirectory().getBuyerList().add(buyer);
         buyer.setUserAccount(userAccount);
+        network.getBuyerDirectory().getBuyerList().add(buyer);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+        
        
         
        

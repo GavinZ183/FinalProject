@@ -65,5 +65,8 @@ public class Supplier {
         this.productCatalog = productCatalog;
     }
     
-    
+    @Override
+    public String toString() {
+        return name;
+    }
 }

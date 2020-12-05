@@ -100,6 +100,11 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         });
 
         btnFreshTable.setText("Fresh table");
+        btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFreshTableActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -378,8 +383,10 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         
         expressCompany.setName(name);
-        network.getExpressCompanyDir().getExpressCompanyList().add(expressCompany);
         expressCompany.setUserAccount(userAccount);
+        network.getExpressCompanyDir().getExpressCompanyList().add(expressCompany);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+       
        
         
        
@@ -389,6 +396,10 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
         
          populateTable();
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFreshTableActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

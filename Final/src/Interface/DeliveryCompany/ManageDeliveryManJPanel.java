@@ -410,10 +410,10 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         deliveryman.setPosition(Position);
         deliveryman.setTelephone(telePhone);
-        deliveryman.setStatus("Free");
+        deliveryman.setStatus("WORK");
         deliveryman.setUserAccount(userAccount);
-       
-         expressCompany.getDeliverymanDirectory().getDeliverymanList().remove(deliveryman);
+       network.getUserAccountDirectory().getUserAccountList().add(userAccount);
+         expressCompany.getDeliverymanDirectory().getDeliverymanList().add(deliveryman);
         
        
         txtUsername1.setText("");
