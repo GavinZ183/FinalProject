@@ -211,7 +211,12 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
             }
         }
         String userName=txtUsername1.getText();
-        
+        //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
        
 //        if(network.checkIfUserIsUnique(userName)){
 //            JOptionPane.showMessageDialog(null, "UserName is not unique");
@@ -222,6 +227,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
          txtUsername1.setBorder(BorderFactory.createLineBorder(Color.red));
          txtPassword1.setBorder(BorderFactory.createLineBorder(Color.red));
          txtPassword2.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
         } 
         String password=txtPassword1.getText();
         String position=txtPosition.getText();
