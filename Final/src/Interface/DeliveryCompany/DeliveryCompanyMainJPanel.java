@@ -5,8 +5,11 @@
  */
 package Interface.DeliveryCompany;
 
+import Business.EcoSystem;
+import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -18,12 +21,22 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryCompanyMainJPanel
      */
-    public DeliveryCompanyMainJPanel() {
-        initComponents();
-    }
+   JPanel userProcessContainer;
+   UserAccount account;
+   Network network;
+   ExpressCompany expressCompany;
+   EcoSystem system;
 
-    public DeliveryCompanyMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public DeliveryCompanyMainJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
+       initComponents();
+       this.userProcessContainer=userProcessContainer;
+        this.network=network;
+        this.account=account;
+        this.system=system;
+        for(ExpressCompany e:network.getExpressCompanyDir().getExpressCompanyList()){
+            if(e.getUserAccount().equals(account))
+                expressCompany=e;
+        }
     }
 
     /**
@@ -35,19 +48,93 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnAssign = new javax.swing.JButton();
+        btnManageDriver = new javax.swing.JButton();
+        btnDeliveryman = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
+        jLabel1.setText("Express Company Main Screen");
+
+        btnAssign.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnAssign.setText("Assign Order");
+        btnAssign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignActionPerformed(evt);
+            }
+        });
+
+        btnManageDriver.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnManageDriver.setText("Manage Driver");
+        btnManageDriver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageDriverActionPerformed(evt);
+            }
+        });
+
+        btnDeliveryman.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnDeliveryman.setText("Manage Deliveryman");
+        btnDeliveryman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeliverymanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(220, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnAssign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnManageDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addGap(193, 193, 193))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel1)
+                .addGap(78, 78, 78)
+                .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(btnDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageExpressOrderJPanel(userProcessContainer,expressCompany,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAssignActionPerformed
+
+    private void btnManageDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDriverActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageDriverJPanel(userProcessContainer,expressCompany,system,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageDriverActionPerformed
+
+    private void btnDeliverymanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliverymanActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageDeliveryManJPanel(userProcessContainer,expressCompany,system,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnDeliverymanActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssign;
+    private javax.swing.JButton btnDeliveryman;
+    private javax.swing.JButton btnManageDriver;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

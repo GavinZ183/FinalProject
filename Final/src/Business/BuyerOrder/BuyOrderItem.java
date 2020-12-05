@@ -8,6 +8,7 @@ package Business.BuyerOrder;
 
 import Business.Buyer.Buyer;
 import Business.Goods.Good;
+import Business.Seller.Seller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,8 +25,38 @@ public class BuyOrderItem {
     private Evaluate evaluate;//评价
     private Date createTime;
     private ArrayList<String> messages;//message's format: 'time username: message'
+<<<<<<< HEAD
     private Buyer buyer;
+=======
+    private Seller seller;
+    private Buyer buyer;
+    private String orderPosition;
+
+    public String getOrderPosition() {
+        return orderPosition;
+    }
+
+    public void setOrderPosition(String orderPosition) {
+        this.orderPosition = orderPosition;
+    }
+>>>>>>> 6619b88e35ad4bb330de8d80980ce77cf3b7d7cf
     
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    public Buyer getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.buyer = buyer;
+    }
    
     
     @Override

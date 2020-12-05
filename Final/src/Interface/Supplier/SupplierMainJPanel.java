@@ -65,7 +65,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
         });
 
         btnManageGood.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnManageGood.setText("Manage Good");
+        btnManageGood.setText("Manage Product");
         btnManageGood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageGoodActionPerformed(evt);

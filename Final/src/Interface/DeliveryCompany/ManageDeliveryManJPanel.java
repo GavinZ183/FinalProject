@@ -5,6 +5,17 @@
  */
 package Interface.DeliveryCompany;
 
+import Business.EcoSystem;
+import Business.ExpressCompany.Deliveryman;
+import Business.ExpressCompany.ExpressCompany;
+import Business.Network.Network;
+import Business.Role.DeliverymanRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author TT1
@@ -14,10 +25,43 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDeliveryManJPanel
      */
-    public ManageDeliveryManJPanel() {
-        initComponents();
-    }
+   JPanel userProcessContainer;
+   ExpressCompany expressCompany;
+   EcoSystem system;
+   Network network;
 
+    ManageDeliveryManJPanel(JPanel userProcessContainer, ExpressCompany expressCompany, EcoSystem system, Network network) {
+        initComponents();
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        this.expressCompany=expressCompany;
+        btnSave.setEnabled(false);
+        txtPosition.setEnabled(false);
+      txtUsername.setEnabled(false);
+      txtPassword.setEnabled(false);
+      txtTelephone.setEnabled(false);
+        populateTable();
+    }
+    public void populateTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
+            
+                Object row[] = new Object[5];
+                row[0] = deliveryman.getPosition();
+                row[1] =deliveryman.getUserAccount().getUsername();
+                row[2] =deliveryman.getUserAccount().getPassword();
+                row[3] =deliveryman.getTelephone();
+                row[4]=deliveryman.getStatus();
+                        
+                
+                model.addRow(row);
+                }
+            }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,12 +112,22 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jLabel5.setText("Username:");
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Position:");
 
         jLabel13.setText("Username:");
 
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Password:");
 
@@ -82,14 +136,14 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Position", "Username", "Password", "Telephone"
+                "Position", "Username", "Password", "Telephone", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -103,6 +157,11 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel3.setText("Delete Delivery Man:");
@@ -113,8 +172,18 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jLabel8.setText("Update Delivery Man:");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Delivery Man");
@@ -258,6 +327,109 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+ int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+     Deliveryman deliveryman = (Deliveryman)jTable1.getValueAt(selectedRow, 0);
+      expressCompany.getDeliverymanDirectory().getDeliverymanList().remove(deliveryman);
+      
+       
+       UserAccount us=new UserAccount();
+       us=deliveryman.getUserAccount();
+       system.getUserAccountDirectory().getUserAccountList().remove(us);
+          populateTable();
+         JOptionPane.showMessageDialog(null, "Delete the deliveryman successfully!");        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       Deliveryman deliveryman = (Deliveryman)jTable1.getValueAt(selectedRow, 0);
+      txtPosition.setText(deliveryman.getPosition());
+      txtUsername.setText(deliveryman.getUserAccount().getUsername());
+      txtPassword.setText(deliveryman.getUserAccount().getPassword());
+      txtTelephone.setText(deliveryman.getTelephone());
+      
+       btnSave.setEnabled(true);
+       btnUpdate.setEnabled(false);
+       txtPosition.setEnabled(true);
+      txtUsername.setEnabled(true);
+      txtPassword.setEnabled(true);
+      txtTelephone.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+       Deliveryman deliveryman = (Deliveryman)jTable1.getValueAt(selectedRow, 0);
+      
+     
+      
+      deliveryman.setPosition(txtPosition.getText());
+      deliveryman.setTelephone(txtTelephone.getText());
+      deliveryman.getUserAccount().setPassword(txtPassword.getText());
+      deliveryman.getUserAccount().setUsername(txtUsername.getText());
+       populateTable();
+       
+        btnSave.setEnabled(false);
+       btnUpdate.setEnabled(true);
+       txtPosition.setEnabled(false);
+      txtUsername.setEnabled(false);
+      txtPassword.setEnabled(false);
+      txtTelephone.setEnabled(false);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        String username=txtUsername1.getText();
+        String password=txtPassword1.getText();
+        String Position=txtPosition1.getText();
+        String telePhone=txtTelephone1.getText();
+        
+        
+        Deliveryman deliveryman=new Deliveryman();
+        UserAccount userAccount=new UserAccount();
+        DeliverymanRole role=new DeliverymanRole();
+        
+        userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
+        deliveryman.setPosition(Position);
+        deliveryman.setTelephone(telePhone);
+        deliveryman.setStatus("Free");
+        deliveryman.setUserAccount(userAccount);
+       
+         expressCompany.getDeliverymanDirectory().getDeliverymanList().remove(deliveryman);
+        
+       
+        txtUsername1.setText("");
+        txtPassword1.setText("");
+        txtTelephone1.setText("");
+        txtPosition1.setText("");
+         populateTable();
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);  
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

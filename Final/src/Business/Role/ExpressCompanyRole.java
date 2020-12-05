@@ -20,7 +20,7 @@ public class ExpressCompanyRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new DeliveryCompanyMainJPanel(userProcessContainer,account,network);
+        return new DeliveryCompanyMainJPanel(userProcessContainer,account,system,network);
     }
    @Override
     public String getType() {

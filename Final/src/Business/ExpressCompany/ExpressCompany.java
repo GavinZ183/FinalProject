@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 public class ExpressCompany {
     private String name;
     public UserAccount userAccount;
+    private BuyOrder buyOrder;
     private DriverDir driverDir;
     private DeliverymanDirectory deliverymanDirectory;
     private BuyOrder buyOrder;
@@ -26,6 +27,14 @@ public class ExpressCompany {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public BuyOrder getBuyOrder() {
+        return buyOrder;
+    }
+
+    public void setBuyOrder(BuyOrder buyOrder) {
+        this.buyOrder = buyOrder;
     }
 
     public String getName() {

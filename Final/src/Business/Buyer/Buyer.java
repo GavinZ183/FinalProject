@@ -17,7 +17,16 @@ public class Buyer {
     private String address;
     private String position;
     public UserAccount userAccount;
+    private String position;
     private BuyOrder buyOrder;
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getTelephone() {
         return telephone;

@@ -16,7 +16,7 @@ public class Product {
     private String prodName;
     private int price;
     private int modelNumber;
-    private int avail;
+ 
     private String discribe;
     private int quantity;
     private Supplier supplier;
@@ -45,13 +45,7 @@ public class Product {
         this.price = price;
     }
 
-    public int getAvail() {
-        return avail;
-    }
-
-    public void setAvail(int avail) {
-        this.avail = avail;
-    }
+   
 
     public String getDiscribe() {
         return discribe;

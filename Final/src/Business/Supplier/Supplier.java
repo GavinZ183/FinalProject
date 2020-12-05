@@ -6,6 +6,7 @@
 package Business.Supplier;
 
 import Business.Product.ProductCatalog;
+
 import Business.UserAccount.UserAccount;
 
 /**
@@ -18,6 +19,7 @@ public class Supplier {
 
     private UserAccount userAccount;
     private ProductCatalog productCatalog;
+<<<<<<< HEAD
     
     private String position;
 
@@ -28,7 +30,11 @@ public class Supplier {
     public void setPosition(String position) {
         this.position = position;
     }
+=======
+   
+>>>>>>> 6619b88e35ad4bb330de8d80980ce77cf3b7d7cf
 
+    
     public String getName() {
         return name;
     }

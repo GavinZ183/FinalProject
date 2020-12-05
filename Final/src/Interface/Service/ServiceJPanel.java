@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interface.DeliveryCompany.DeliveryMan;
+package Interface.Service;
 
+import Business.Buyer.Buyer;
+import Interface.DeliveryCompany.DeliveryMan.*;
 import Business.BuyerOrder.BuyOrderItem;
 import Business.ExpressCompany.Deliveryman;
 import Business.ExpressCompany.ExpressCompany;
@@ -20,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author TT1
  */
-public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
+public class ServiceJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ConfirmDeliveryOrderJPanel
@@ -28,21 +30,15 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
    UserAccount account;
    Network network;
-   Deliveryman deliveryman;
+  
 
-    public ConfirmDeliveryOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+    public ServiceJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
        initComponents();
         this.network=network;
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         
-        for(ExpressCompany c:network.getExpressCompanyDir().getExpressCompanyList()){
-            for(Deliveryman d:c.getDeliverymanDirectory().getDeliverymanList()){
-                if(d.getUserAccount().getUsername().equals(account.getUsername()))
-                    deliveryman=d;
-            }
-        }
-            
+        
         
         populateTable();
         
@@ -54,26 +50,26 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
-        for(BuyOrderItem buyOrderItem:deliveryman.getBuyOrder().getOrderItemList()){
-            
+        for(Buyer b:network.getBuyerDirectory().getBuyerList()){
+          for(BuyOrderItem buyOrderItem:b.getBuyOrder().getOrderItemList()) {
+              if(!buyOrderItem.getMessages().isEmpty()){
+                  
                 Object row[] = new Object[6];
                 row[0] = buyOrderItem.getGood();
-                row[1] =buyOrderItem.getQuantity();
-               
-                row[2] =buyOrderItem.getBuyer().getPosition();
-               
-                row[3]=buyOrderItem.getSeller().getPosition();
-                row[4]=buyOrderItem.getStatus();
-                row[5]=buyOrderItem.getCreateTime();
-                
+                row[1] =buyOrderItem.getBuyer().getUserAccount().getUsername();
+                row[2]=buyOrderItem.getSeller().getName();
+                row[3]=buyOrderItem.getStatus();
+                row[4]=buyOrderItem.getCreateTime();
+                row[5]=buyOrderItem.getMessages();
                         
                 
                 model.addRow(row);
-                }
+              }
+          } 
+        }
+        
             }
- public void labelStatus(){
-     jStatus.setText(deliveryman.getStatus());
- }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,31 +82,27 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAccept = new javax.swing.JButton();
-        btnRefuse = new javax.swing.JButton();
-        jStatus = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        btnContact = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnFinish = new javax.swing.JButton();
-        btnChange = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("DeliveryMan Workarea");
+        jLabel1.setText("Customer Service Staff Workarea");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Goods", "Quantity", "Buyer Position", "Seller Position", "Status", "Time"
+                "Goods", "Buyer", "Seller", "Status", "Time", "Message"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -126,24 +118,21 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(8);
         }
 
-        btnAccept.setText("Accept");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+        btnContact.setText("Contact Buyer");
+        btnContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
+                btnContactActionPerformed(evt);
             }
         });
 
-        btnRefuse.setText("Refuse");
-        btnRefuse.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setText("Cancel Order");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefuseActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
-        jStatus.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jStatus.setText("\"status\"");
-
-        btnView.setText("View Details");
+        btnView.setText("View Order Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
@@ -157,45 +146,26 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnChange.setText("Change my status");
-        btnChange.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangeActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel4.setText("My status:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(202, 202, 202)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(100, 100, 100)
-                                .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jStatus))))
-                .addGap(0, 276, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnView))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFinish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(220, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(192, 192, 192))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -205,28 +175,16 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jStatus))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChange))
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnView)
-                    .addComponent(btnAccept))
+                    .addComponent(btnContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRefuse)
-                    .addComponent(btnFinish))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFinish)
+                    .addComponent(btnCancel))
                 .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -236,22 +194,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
-        // TODO add your handling code here:
-            
-            
-            jComboBox1.addItem("WORK");
-            jComboBox1.addItem("REST");
-            jComboBox1.addItem("BUSY");
-           String status = (String)jComboBox1.getSelectedItem();
-           deliveryman.setStatus(status);
-           
-         JOptionPane.showMessageDialog(null, "Change Your Status to "+status+" Successfully");
-         labelStatus();
-
-    }//GEN-LAST:event_btnChangeActionPerformed
-
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+    private void btnContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactActionPerformed
         // TODO add your handling code here:
          int selectedRow = jTable1.getSelectedRow();
 
@@ -262,14 +205,11 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
-            buyOrderItem.setStatus("Deliveryman Deliverying");
-            JOptionPane.showMessageDialog(null, "Assigned this order Successfully");
-        }
-            else
-            JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new MessageJPanel(userProcessContainer,account,buyOrderItem));
+        layout.next(userProcessContainer);
             
-    }//GEN-LAST:event_btnAcceptActionPerformed
+    }//GEN-LAST:event_btnContactActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
@@ -286,7 +226,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewActionPerformed
 
-    private void btnRefuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefuseActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
           int selectedRow = jTable1.getSelectedRow();
 
@@ -297,14 +237,12 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
-            buyOrderItem.setStatus("Deliveryman Refused");
-            JOptionPane.showMessageDialog(null, "Refused this order Successfully");
-        }
-            else
-            JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+        
+            buyOrderItem.setStatus("Canceled");
+            JOptionPane.showMessageDialog(null, "Canceled this order Successfully");
+       
             
-    }//GEN-LAST:event_btnRefuseActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
         // TODO add your handling code here:
@@ -328,16 +266,12 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnChange;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnContact;
     private javax.swing.JButton btnFinish;
-    private javax.swing.JButton btnRefuse;
     private javax.swing.JButton btnView;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jStatus;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

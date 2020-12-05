@@ -5,13 +5,19 @@
  */
 package Interface.Supplier;
 
+import Business.BuyerOrder.BuyOrderItem;
 import Business.Network.Network;
+import Business.Seller.Seller;
 import Business.SellerOrder.SellOrder;
 import Business.SellerOrder.SellOrderItem;
 import Business.Supplier.Supplier;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -40,9 +46,11 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
-        for(SellOrder sellOrder:network.getMasterSellOrderCatalog().getOrderCatalog()){
-            for(SellOrderItem sellOrderItem:sellOrder.getOrderItemList()){
-                if(sellOrderItem.getSeller().equals(supplier)){
+         
+        
+            for(Seller seller:network.getSellerDirectory().getSellerList()){
+                for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
+                    if(sellOrderItem.getSupplier().equals(supplier)){
                      Object row[] = new Object[6];
                     row[0] =sellOrderItem.getProduct().getProdName();
                     row[1] =sellOrderItem.getSalesprice();
@@ -52,10 +60,29 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
                     row[5] =sellOrderItem.getStatus();
                     model.addRow(row);
                 }
-          
-            }
-        
+            }   
         }
+        
+        
+    }
+        private void searchOrderItemTable(ArrayList<SellOrderItem> orderItemList) {
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        
+        for(SellOrderItem sellOrderItem: orderItemList){
+            Object row[] = new Object[6];
+                    row[0] =sellOrderItem.getProduct().getProdName();
+                    row[1] =sellOrderItem.getSalesprice();
+                    row[2] =sellOrderItem.getSeller().getName();
+                    row[3] =sellOrderItem.getSeller().getPosition();
+                    row[4] =sellOrderItem.getQuantity();
+                    row[5] =sellOrderItem.getStatus();
+
+            model.addRow(row);
+        }     
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,6 +149,11 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         btnFreshTable.setText("Fresh table");
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Product:");
 
@@ -137,6 +169,11 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         });
 
         btnSearch2.setText("Search");
+        btnSearch2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -241,7 +278,120 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
             return;
         }
         SellOrderItem sellOrderItem = (SellOrderItem)jTable1.getValueAt(selectedRow, 0);
+        sellOrderItem.setStatus("DELIVERED");
     }//GEN-LAST:event_btnProduceAndSentActionPerformed
+
+    private void btnSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch2ActionPerformed
+        // TODO add your handling code here:
+        String prudname = txtProduct.getText();
+        
+        int price = 0;
+        try{
+            price = Integer.parseInt(txtPrice.getText());
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
+            txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
+            jLabel5.setForeground(Color.red);
+            return;
+        }
+        String sellername = txtSeller.getText();
+        
+        
+        //star to filter no-empty requirement
+        ArrayList<SellOrderItem> orderItemList = new ArrayList<SellOrderItem>();
+        if(prudname.length()>0){
+            for(Seller seller:network.getSellerDirectory().getSellerList()){
+                for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
+                    if(sellOrderItem.getSupplier().equals(supplier)&&sellOrderItem.getProduct().getProdName().equals(prudname)){
+                    orderItemList.add(sellOrderItem);
+                    }
+                }
+            }
+        }
+        else{
+             for(Seller seller:network.getSellerDirectory().getSellerList()){
+                 for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
+                    if(sellOrderItem.getSupplier().equals(supplier)){
+                    orderItemList.add(sellOrderItem);
+                    }
+                }
+             }
+        }
+        
+        ArrayList<SellOrderItem> orderItemList1 = new ArrayList<SellOrderItem>();
+        if(price!=0){
+            for(SellOrderItem item: orderItemList){
+                if(item.getProduct().getPrice()==(price)){
+                    orderItemList1.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList1 = orderItemList;
+        }
+        
+        
+        ArrayList<SellOrderItem> orderItemList2 = new ArrayList<SellOrderItem>();
+        if(sellername.length()>0){
+            for(SellOrderItem item: orderItemList1){
+                if(item.getSeller().getName().equals(sellername)){
+                    orderItemList2.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList2 = orderItemList1;
+        }
+        
+        String position=txtPosition.getText();
+        
+        ArrayList<SellOrderItem> orderItemList3 = new ArrayList<SellOrderItem>();
+        if(position.length()>0){
+            for(SellOrderItem item: orderItemList2){
+                if(item.getSeller().getPosition().equals(position)){
+                    orderItemList3.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList3 = orderItemList2;
+        }
+        
+        String status=txtStatus.getText();
+          ArrayList<SellOrderItem> orderItemList4 = new ArrayList<SellOrderItem>();
+        if(status.length()>0){
+            for(SellOrderItem item: orderItemList3){
+                if(item.getStatus().equals(status)){
+                    orderItemList4.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList4 = orderItemList3;
+        }
+        searchOrderItemTable(orderItemList4);
+        
+        txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
+        jLabel5.setForeground(Color.black);
+       
+    }                                         
+
+    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+       populateTable();
+    }                                             
+
+  
+    {                                           
+    }//GEN-LAST:event_btnSearch2ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+          CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
