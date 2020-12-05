@@ -17,7 +17,6 @@ public class Buyer {
     private String address;
     private String position;
     public UserAccount userAccount;
-    private String position;
     private BuyOrder buyOrder;
 
     public String getPosition() {
@@ -54,14 +53,6 @@ public class Buyer {
 
     public BuyOrder getBuyOrder() {
         return buyOrder;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
     
     @Override

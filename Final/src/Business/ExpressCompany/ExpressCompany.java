@@ -18,7 +18,6 @@ public class ExpressCompany {
     private BuyOrder buyOrder;
     private DriverDir driverDir;
     private DeliverymanDirectory deliverymanDirectory;
-    private BuyOrder buyOrder;
     private String position;
 
     public String getPosition() {
@@ -30,9 +29,12 @@ public class ExpressCompany {
     }
 
     public BuyOrder getBuyOrder() {
+        if(buyOrder == null){
+            buyOrder = new BuyOrder();
+        }
         return buyOrder;
     }
-
+    
     public void setBuyOrder(BuyOrder buyOrder) {
         this.buyOrder = buyOrder;
     }
@@ -67,13 +69,6 @@ public class ExpressCompany {
 
     public void setDeliverymanDirectory(DeliverymanDirectory deliverymanDirectory) {
         this.deliverymanDirectory = deliverymanDirectory;
-    }
-
-    public BuyOrder getBuyOrder() {
-        if(buyOrder == null){
-            buyOrder = new BuyOrder();
-        }
-        return buyOrder;
     }
     
     
