@@ -8,7 +8,7 @@ package Business.Seller;
 import Business.Goods.Good;
 import Business.Goods.GoodCatalog;
 import Business.Product.ProductCatalog;
-import Business.Seller.InventorManage.InventoryManageDir;
+import Business.Seller.PriceManage.PriceManageDir;
 import Business.Seller.PurchaseManage.PurchaseManageDir;
 import Business.Seller.SalesManage.SalesManageDir;
 import Business.SellerOrder.SellOrder;
@@ -25,7 +25,7 @@ public class Seller {
     private String position;
     private UserAccount userAccount;
     private GoodCatalog sellerGoodCatalog;
-    private InventoryManageDir inventoryManageDir;
+    private PriceManageDir priceManageDir;
     private PurchaseManageDir purchaseManageDir;
     private SalesManageDir salesManageDir;
     private SellOrder sellOrder;
@@ -78,12 +78,12 @@ public class Seller {
         this.sellerGoodCatalog = sellerGoodCatalog;
     }
 
-    public InventoryManageDir getInventoryManageDir() {
-        return inventoryManageDir;
+    public PriceManageDir getPriceManageDir() {
+        return priceManageDir;
     }
 
-    public void setInventoryManageDir(InventoryManageDir inventoryManageDir) {
-        this.inventoryManageDir = inventoryManageDir;
+    public void setPriceManageDir(PriceManageDir priceManageDir) {
+        this.priceManageDir = priceManageDir;
     }
 
     public PurchaseManageDir getPurchaseManageDir() {

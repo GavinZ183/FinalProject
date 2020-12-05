@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Seller.PurchaseManage;
+package Business.Seller.PriceManage;
 
 import Business.UserAccount.UserAccount;
 
@@ -11,9 +11,9 @@ import Business.UserAccount.UserAccount;
  *
  * @author jiaohongmei
  */
-public class PurchaseManage {//进货管理员
-    private UserAccount userAccount;
-    private String name;
+public class PriceManage {//价格管理员
+   private UserAccount userAccount;
+   private String name;
    private String telephone;
 
     public UserAccount getUserAccount() {
@@ -39,9 +39,10 @@ public class PurchaseManage {//进货管理员
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+    
     @Override
     public String toString() {
         return name;
     }
-    
+
 }

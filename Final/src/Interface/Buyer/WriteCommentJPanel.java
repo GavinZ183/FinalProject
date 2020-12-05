@@ -7,7 +7,10 @@ package Interface.Buyer;
 
 import Business.BuyerOrder.BuyOrderItem;
 import Business.Goods.Comment;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,10 +25,12 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     BuyOrderItem item;
-    public WriteCommentJPanel(JPanel userProcessContainer,BuyOrderItem item) {
+    UserAccount account;
+    public WriteCommentJPanel(JPanel userProcessContainer,BuyOrderItem item, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.item = item;
+        this.account = account;
     }
 
     /**
@@ -123,6 +128,10 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String word = txtComment.getText();
         int score = (Integer)jSpinner1.getValue();
+        String buyerName = account.getUsername();
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String datetime = format.format(date);
         if(score <0  || score >10){
             JOptionPane.showMessageDialog(null, "Quantity cannot be less than 0 or more than 10!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
@@ -132,11 +141,16 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
             return;
         }
         
+        
         item.getEvaluate().setScore(score);
         item.getEvaluate().setWord(word);
+        item.getEvaluate().setBuyer(buyerName);
+        item.getEvaluate().setDate(datetime);
         Comment c = new Comment();
         c.setScore(score);
         c.setWord(word);
+        c.setBuyer(buyerName);
+        c.setDate(datetime);
         item.getGood().getComments().getCommentList().add(c);
         JOptionPane.showMessageDialog(null, "Write comment successfully!");
     }//GEN-LAST:event_btnCommitActionPerformed

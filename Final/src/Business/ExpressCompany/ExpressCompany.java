@@ -5,6 +5,7 @@
  */
 package Business.ExpressCompany;
 
+import Business.BuyerOrder.BuyOrder;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -16,6 +17,16 @@ public class ExpressCompany {
     public UserAccount userAccount;
     private DriverDir driverDir;
     private DeliverymanDirectory deliverymanDirectory;
+    private BuyOrder buyOrder;
+    private String position;
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getName() {
         return name;
@@ -47,6 +58,13 @@ public class ExpressCompany {
 
     public void setDeliverymanDirectory(DeliverymanDirectory deliverymanDirectory) {
         this.deliverymanDirectory = deliverymanDirectory;
+    }
+
+    public BuyOrder getBuyOrder() {
+        if(buyOrder == null){
+            buyOrder = new BuyOrder();
+        }
+        return buyOrder;
     }
     
     

@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 public class Buyer {
     private String telephone;
     private String address;
+    private String position;
     public UserAccount userAccount;
     private BuyOrder buyOrder;
 
@@ -45,6 +46,17 @@ public class Buyer {
     public BuyOrder getBuyOrder() {
         return buyOrder;
     }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
     
-    
+    @Override
+    public String toString() {
+        return userAccount.getUsername();
+    }
 }

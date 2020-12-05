@@ -18,6 +18,16 @@ public class Supplier {
 
     private UserAccount userAccount;
     private ProductCatalog productCatalog;
+    
+    private String position;
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getName() {
         return name;

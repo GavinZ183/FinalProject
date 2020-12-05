@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class SalesMannagerRole extends Role{
+public class SalesManagerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {

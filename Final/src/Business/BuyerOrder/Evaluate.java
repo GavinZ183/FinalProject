@@ -13,6 +13,8 @@ public class Evaluate {
     private int score;//打分(0-10)
     private String word;
     //private file picture;//可以插入图片,返图
+    private String buyer;
+    private String date;
 
     public int getScore() {
         return score;
@@ -30,4 +32,19 @@ public class Evaluate {
         this.word = word;
     }
     
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer = buyer;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

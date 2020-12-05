@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
-import Interface.Seller.PurchaseManager.PurchaseGoodJPanel;
+import Interface.Seller.PurchaseManager.CheckInventoryJPanel;
 
 import javax.swing.JPanel;
 
@@ -16,11 +16,11 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class PurchaseMannagerRole extends Role{
+public class PurchaseManagerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new PurchaseGoodJPanel(userProcessContainer,account,network);
+        return new CheckInventoryJPanel(userProcessContainer,account,network);
     }
    @Override
     public String getType() {

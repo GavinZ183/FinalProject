@@ -5,8 +5,11 @@
  */
 package Interface.Seller;
 
+import Business.EcoSystem;
 import Business.Network.Network;
+import Business.Seller.Seller;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -23,11 +26,20 @@ public class SellerMainJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     Network network;
-    public SellerMainJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
+    EcoSystem system;
+    Seller seller;
+    public SellerMainJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Network network) {
         this.userProcessContainer=userProcessContainer;
-         this.account=account;
-         this.network=network;
-          initComponents();
+        this.account = account;
+        this.network = network;
+        this.system = system;
+         initComponents();
+          
+         for(Seller s: network.getSellerDirectory().getSellerList()){
+            if(s.getUserAccount().getUsername().equals(account.getUsername())){
+                seller = s;
+            }
+        }
     }
 
     /**
@@ -40,7 +52,7 @@ public class SellerMainJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnInventoryManager = new javax.swing.JButton();
+        btnPriceManager = new javax.swing.JButton();
         btnPurchaseManager = new javax.swing.JButton();
         btnSalesManager = new javax.swing.JButton();
         btnManageInformaton = new javax.swing.JButton();
@@ -48,17 +60,37 @@ public class SellerMainJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Seller Main Screen");
 
-        btnInventoryManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnInventoryManager.setText("Manage Inventory Manager");
+        btnPriceManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnPriceManager.setText("Manage Price Manager");
+        btnPriceManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPriceManagerActionPerformed(evt);
+            }
+        });
 
         btnPurchaseManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnPurchaseManager.setText("Manage Purchase Manager");
+        btnPurchaseManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPurchaseManagerActionPerformed(evt);
+            }
+        });
 
         btnSalesManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnSalesManager.setText("Manage Sales Manager");
+        btnSalesManager.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalesManagerActionPerformed(evt);
+            }
+        });
 
         btnManageInformaton.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
-        btnManageInformaton.setText("Manage Informaton");
+        btnManageInformaton.setText("Manage Seller Informaton");
+        btnManageInformaton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageInformatonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,7 +100,7 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 .addGap(256, 256, 256)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInventoryManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPriceManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPurchaseManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSalesManager, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageInformaton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -80,7 +112,7 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(122, 122, 122)
-                .addComponent(btnInventoryManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPriceManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(btnPurchaseManager, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
@@ -91,10 +123,38 @@ public class SellerMainJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnManageInformatonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageInformatonActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageSellerInformationJPanel(userProcessContainer,seller,network));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageInformatonActionPerformed
+
+    private void btnPurchaseManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurchaseManagerActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManagePurchaseManagerJPanel(userProcessContainer,seller,system));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnPurchaseManagerActionPerformed
+
+    private void btnPriceManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPriceManagerActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManagePriceManagerJPanel(userProcessContainer,seller,system));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnPriceManagerActionPerformed
+
+    private void btnSalesManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesManagerActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new ManageSalesManagerJPanel(userProcessContainer,seller,system));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnSalesManagerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInventoryManager;
     private javax.swing.JButton btnManageInformaton;
+    private javax.swing.JButton btnPriceManager;
     private javax.swing.JButton btnPurchaseManager;
     private javax.swing.JButton btnSalesManager;
     private javax.swing.JLabel jLabel1;

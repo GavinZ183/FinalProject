@@ -20,7 +20,7 @@
               <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnInventoryManager" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnPriceManager" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnPurchaseManager" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSalesManager" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnManageInformaton" alignment="0" max="32767" attributes="0"/>
@@ -35,7 +35,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-              <Component id="btnInventoryManager" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="btnPriceManager" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="btnPurchaseManager" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -56,13 +56,16 @@
         <Property name="text" type="java.lang.String" value="Seller Main Screen"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnInventoryManager">
+    <Component class="javax.swing.JButton" name="btnPriceManager">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Inventory Manager"/>
+        <Property name="text" type="java.lang.String" value="Manage Price Manager"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPriceManagerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPurchaseManager">
       <Properties>
@@ -71,6 +74,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Purchase Manager"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPurchaseManagerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalesManager">
       <Properties>
@@ -79,14 +85,20 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Sales Manager"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalesManagerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnManageInformaton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Informaton"/>
+        <Property name="text" type="java.lang.String" value="Manage Seller Informaton"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageInformatonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

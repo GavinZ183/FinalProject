@@ -19,7 +19,7 @@ public class SellerRole extends Role{
 
 
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account,EcoSystem system, Network network) {
-        return new SellerMainJPanel(userProcessContainer,account,network);
+        return new SellerMainJPanel(userProcessContainer,account,system,network);
     }
    @Override
     public String getType() {

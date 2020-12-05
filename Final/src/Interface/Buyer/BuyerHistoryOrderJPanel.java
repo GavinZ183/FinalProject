@@ -394,7 +394,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         BuyOrderItem item = (BuyOrderItem)orderListTable.getValueAt(selectedRow, 0);
         if(item.getStatus().equals("recieved")){
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-            userProcessContainer.add(new WriteCommentJPanel(userProcessContainer,item));
+            userProcessContainer.add(new WriteCommentJPanel(userProcessContainer,item,account));
             layout.next(userProcessContainer);
         }
         else{

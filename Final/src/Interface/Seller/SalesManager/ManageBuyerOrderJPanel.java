@@ -5,9 +5,22 @@
  */
 package Interface.Seller.SalesManager;
 
+import Business.Buyer.Buyer;
+import Business.BuyerOrder.BuyOrderItem;
+import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
+import Business.Seller.SalesManage.SalesManage;
+import Business.Seller.Seller;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,13 +31,84 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageBuyerOrderJPanel
      */
-    public ManageBuyerOrderJPanel() {
+    JPanel userProcessContainer;
+    UserAccount account;
+    Network network;
+    Seller seller;
+    ArrayList<BuyOrderItem> itemList;
+    ExpressCompany ec;
+    public ManageBuyerOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.network = network;
+        
+        for(Seller sel: network.getSellerDirectory().getSellerList()){
+            for(SalesManage salesManager: sel.getSalesManageDir().getSalesManageList()){
+                if(salesManager.getUserAccount().getUsername().equals(account.getUsername())){
+                    seller = sel;
+                }
+            }
+        }
+        
+        populateOrderListTable();
+        
+        ArrayList<ExpressCompany> list = network.getExpressCompanyDir().getExpressCompanyList();
+        for(int i=0;i<list.size();i++){
+             jComboBox1.addItem(list.get(i).getName() + " in " + list.get(i).getPosition());//在快递公司类下面添加一个position属性
+        }
     }
 
-    public ManageBuyerOrderJPanel(JPanel userProcessContainer, UserAccount account, Network network) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void populateOrderListTable(){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(Buyer buyer: network.getBuyerDirectory().getBuyerList()){
+            for(BuyOrderItem item: buyer.getBuyOrder().getOrderItemList()){
+                if(item.getGood().getSeller().getUserAccount().getUsername().equals(seller.getUserAccount().getUsername())){
+                    Object row[] = new Object[8];
+                    row[0] = item;
+                    row[1] = item.getGood().getPrice();
+                    row[2] = buyer;
+                    row[3] = buyer.getPosition();
+                    row[4] = item.getCreateTime();
+                    row[5] = item.getQuantity();
+                    row[6] = item.getGood().getQuantity();
+                    row[7] = item.getStatus();
+
+                    model.addRow(row);
+                    itemList.add(item);
+                }
+            }
+        }   
     }
+    
+    public void searchOrderItemTable(ArrayList<BuyOrderItem> itemList){
+        int rowCount = jTable1.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i=rowCount-1;i>=0;i--) {
+            model.removeRow(i);
+        }
+        for(BuyOrderItem item: itemList){
+
+            Object row[] = new Object[8];
+            row[0] = item;
+            row[1] = item.getGood().getPrice();
+            row[2] = item.getBuyer();
+            row[3] = item.getBuyer().getPosition();
+            row[4] = item.getCreateTime();
+            row[5] = item.getQuantity();
+            row[6] = item.getGood().getQuantity();
+            row[7] = item.getStatus();
+
+            model.addRow(row);
+            itemList.add(item);
+
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +133,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtProduct = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
+        txtTime = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -59,6 +143,11 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         jLabel6.setText("Buyer:");
 
         btnhooseDeliveryCompany.setText("Choose Delivery Company");
+        btnhooseDeliveryCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhooseDeliveryCompanyActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Buyer Order Screen");
@@ -70,14 +159,14 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Price", "Buyer", "Buyer Position", "Quantity", "Inventory", "Status"
+                "Product", "Price", "Buyer", "Buyer Position", "Time", "Quantity", "Inventory", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -91,16 +180,31 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         btnFreshTable.setText("Fresh table");
+        btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFreshTableActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("< back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Product:");
 
         jLabel2.setText("Buyer order list:");
 
-        jLabel5.setText("Price:");
+        jLabel5.setText("Time:");
 
         jLabel8.setText("Status:");
 
@@ -142,14 +246,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(42, 42, 42)
-                                    .addComponent(txtPrice))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel7)
@@ -159,7 +255,15 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addGap(27, 27, 27)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTime)
+                                        .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -188,7 +292,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -214,6 +318,138 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String goodname = txtProduct.getText();
+        String buyer = txtBuyer.getText();
+        String position = txtPosition.getText();
+        String status = txtStatus.getText();
+        String time = "";
+        try{
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            Date date = format.parse(txtTime.getText());
+            time = format.format(date);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Please input time on format:'yyyy-MM-dd HH:mm'!", "Warning", JOptionPane.WARNING_MESSAGE);
+            txtTime.setBorder(BorderFactory.createLineBorder(Color.red));
+            jLabel5.setForeground(Color.red);
+            return;
+        }
+        
+        //star to filter no-empty requirement
+        ArrayList<BuyOrderItem> orderItemList = new ArrayList<BuyOrderItem>();
+        if(goodname.length()>0){
+            for(BuyOrderItem item: itemList){
+                if(item.getGood().getProdName().equals(goodname)){
+                    orderItemList.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList = itemList;
+        }
+        ArrayList<BuyOrderItem> orderItemList1 = new ArrayList<BuyOrderItem>();
+        if(buyer.length()>0){
+            for(BuyOrderItem item: orderItemList){
+                if(item.getBuyer().getUserAccount().getUsername().equals(buyer)){
+                    orderItemList1.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList1 = orderItemList;
+        }
+        ArrayList<BuyOrderItem> orderItemList2 = new ArrayList<BuyOrderItem>();
+        if(position.length()>0){
+            for(BuyOrderItem item: orderItemList1){
+                if(item.getBuyer().getPosition().equals(position)){
+                    orderItemList2.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList2 = orderItemList1;
+        }
+        ArrayList<BuyOrderItem> orderItemList3 = new ArrayList<BuyOrderItem>();
+        if(time.length()>0){
+            for(BuyOrderItem item: orderItemList2){
+                if(item.getCreateTime().equals(time)){
+                    orderItemList3.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList3 = orderItemList2;
+        }
+        ArrayList<BuyOrderItem> orderItemList4 = new ArrayList<BuyOrderItem>();
+        if(status.length()>0){
+            for(BuyOrderItem item: orderItemList3){
+                if(item.getStatus().equals(status)){
+                    orderItemList4.add(item);
+                }
+            }
+        }
+        else{
+            orderItemList4 = orderItemList3;
+        }
+        
+        searchOrderItemTable(orderItemList4);
+        
+        txtTime.setBorder(BorderFactory.createLineBorder(Color.gray));
+        jLabel5.setForeground(Color.black);
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
+        // TODO add your handling code here:
+        populateOrderListTable();
+    }//GEN-LAST:event_btnFreshTableActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnhooseDeliveryCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhooseDeliveryCompanyActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        BuyOrderItem item = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
+        String sellerPosition = item.getGood().getSeller().getPosition();
+        //find choosed ExpressCompany
+        String deliveryCompany=(String) jComboBox1.getSelectedItem();
+        ArrayList<ExpressCompany> list = network.getExpressCompanyDir().getExpressCompanyList();
+        for(int i=0;i<list.size();i++){
+            if(deliveryCompany.equals(list.get(i).getName() + " in " + list.get(i).getPosition())){
+                ec = list.get(i);
+            }
+        }
+        
+        //judge orderitem status
+        if(item.getStatus().equals("waiting express company")){}
+        else{
+            JOptionPane.showMessageDialog(null, "The order item's status is not 'waiting express company', you could not distribute!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //judge orderitem position and express company position
+        if(sellerPosition.equals(ec.getPosition())){}
+        else{
+            JOptionPane.showMessageDialog(null, "The order item's seller position is not suitable for this delivery company!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        item.setStatus("waiting first delivery man");
+        ec.getBuyOrder().getOrderItemList().add(item);
+        populateOrderListTable();
+    }//GEN-LAST:event_btnhooseDeliveryCompanyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -233,8 +469,8 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBuyer;
     private javax.swing.JTextField txtPosition;
-    private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }

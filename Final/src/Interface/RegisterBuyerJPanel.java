@@ -89,6 +89,8 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         txtPassword2 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        txtPosition = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Create New Buyer");
@@ -114,6 +116,8 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel16.setText("Position:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,7 +139,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPassword2))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(38, 38, 38)
@@ -150,7 +154,11 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(238, 238, 238))
         );
@@ -173,6 +181,10 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                     .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtTelephone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -185,7 +197,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                     .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,6 +224,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
          txtPassword2.setBorder(BorderFactory.createLineBorder(Color.red));
         } 
         String password=txtPassword1.getText();
+        String position=txtPosition.getText();
         String address=txtAddress1.getText();
         String telePhone=txtTelephone1.getText();
         
@@ -221,6 +234,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         BuyerRole role=new BuyerRole();
         
         userAccount=system.getUserAccountDirectory().createUserAccount(userName,password,role); 
+        buyer.setPosition(position);
         buyer.setAddress(address);
         buyer.setTelephone(telePhone);
         network.getBuyerDirectory().getBuyerList().add(buyer);
@@ -233,6 +247,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         txtPassword2.setText("");
         txtTelephone1.setText("");
         txtAddress1.setText("");
+        txtPosition.setText("");
         
         JOptionPane.showMessageDialog(null, "Create a UserAccount successfully!");
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -248,9 +263,11 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtPassword1;
     private javax.swing.JTextField txtPassword2;
+    private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtTelephone1;
     private javax.swing.JTextField txtUsername1;
     // End of variables declaration//GEN-END:variables

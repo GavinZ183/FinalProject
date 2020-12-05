@@ -148,6 +148,7 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
         Date time = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String message = format.format(time) + " : " +account.getUsername() + " : " + word;
+        item.getMessages().add(message);
         txtChatBox.setText("");
     }//GEN-LAST:event_btnSendActionPerformed
 

@@ -6,6 +6,7 @@
 package Business.BuyerOrder;
 
 
+import Business.Buyer.Buyer;
 import Business.Goods.Good;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class BuyOrderItem {
     private Evaluate evaluate;//评价
     private Date createTime;
     private ArrayList<String> messages;//message's format: 'time username: message'
+    private Buyer buyer;
     
    
     
@@ -87,6 +89,14 @@ public class BuyOrderItem {
             messages = new ArrayList<String>();
         }
         return messages;
+    }
+
+    public Buyer getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.buyer = buyer;
     }
     
 }
