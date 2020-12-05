@@ -50,6 +50,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         
         btnUpdate.setEnabled(true);
         btnSave.setEnabled(false);
+        txtPrice.setEnabled(false);
     }
     
     public void populateGoodPriceTable(){
@@ -78,7 +79,6 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         goodPriceTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -87,13 +87,6 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-
-        btnBack.setText("< back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         goodPriceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,10 +147,8 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
                         .addGap(277, 277, 277))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -183,9 +174,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 430, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(10, 10, 10))
+                .addContainerGap(467, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(276, 276, 276)
@@ -210,7 +199,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         good = (Good)goodPriceTable.getValueAt(selectedRow, 0);
         
         txtPrice.setText(String.valueOf(good.getPrice()));
-        
+        txtPrice.setEnabled(true);
         btnUpdate.setEnabled(false);
         btnSave.setEnabled(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -238,20 +227,13 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         populateGoodPriceTable();
         btnUpdate.setEnabled(true);
         btnSave.setEnabled(false);
+        txtPrice.setEnabled(false);
         txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JTable goodPriceTable;

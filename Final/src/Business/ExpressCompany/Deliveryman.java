@@ -31,6 +31,9 @@ public class Deliveryman {
     
 
     public BuyOrder getBuyOrder() {
+        if(buyOrder == null){
+            buyOrder = new BuyOrder();
+        }
         return buyOrder;
     }
 

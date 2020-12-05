@@ -78,6 +78,9 @@ public class Good {
     }
 
     public Comments getComments() {
+        if(comments ==null){
+            comments = new Comments();
+        }
         return comments;
     }
     

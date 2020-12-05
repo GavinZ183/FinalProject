@@ -58,6 +58,9 @@ public class Supplier {
     }
 
     public ProductCatalog getProductCatalog() {
+        if(productCatalog==null){
+            productCatalog =new ProductCatalog();
+        }
         return productCatalog;
     }
 

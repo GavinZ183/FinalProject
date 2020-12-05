@@ -99,7 +99,7 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
     private void btnHistoryOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryOrderActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new ShoppingJPanel(userProcessContainer,account,network));
+        userProcessContainer.add(new BuyerHistoryOrderJPanel(userProcessContainer,account,network));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnHistoryOrderActionPerformed
 

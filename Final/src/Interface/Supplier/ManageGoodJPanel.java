@@ -51,7 +51,7 @@ public void populateTable(){
         for(Product product:supplier.getProductCatalog().getProductcatalog()){
             
                 Object row[] = new Object[5];
-                row[0] = product.getProdName();
+                row[0] = product;
                 row[1] =product.getProdName();
                 row[2] =product.getPrice();
                 row[3] =product.getQuantity();
@@ -202,29 +202,19 @@ public void populateTable(){
             }
         });
 
-        txtPrice2.setEnabled(false);
-
         jLabel14.setText("Description:");
 
         jLabel15.setText("Price:");
 
         jLabel16.setText("name:");
 
-        txtProduct2.setEnabled(false);
-
         jLabel17.setText("Quantity:");
-
-        txtQuantity2.setEnabled(false);
-
-        txtDescription2.setEnabled(false);
 
         jLabel18.setText("image:");
 
         lblImage.setText("jLabel3");
-        lblImage.setEnabled(false);
 
         lblImage1.setText("jLabel3");
-        lblImage1.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

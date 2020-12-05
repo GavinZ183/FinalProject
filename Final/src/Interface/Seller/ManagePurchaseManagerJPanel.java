@@ -6,6 +6,7 @@
 package Interface.Seller;
 
 import Business.EcoSystem;
+import Business.Network.Network;
 import Business.Role.PurchaseManagerRole;
 import Business.Seller.PurchaseManage.PurchaseManage;
 import Business.Seller.Seller;
@@ -27,12 +28,13 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     Seller seller;
-        
-    public ManagePurchaseManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system) {
+    Network network;
+    public ManagePurchaseManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system,Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.seller = seller;
         this.system=system;
+        this.network=network;
         btnSave.setEnabled(false);
         populateTable();
     }
@@ -353,6 +355,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
         pm.setTelephone(telePhone);
         pm.setUserAccount(userAccount);
         seller.getPurchaseManageDir().getPurchaseManageList().add(pm);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
         
         txtUsername1.setText("");
         txtPassword1.setText("");
@@ -360,7 +363,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
         txtName1.setText("");
         populateTable();
         
-        JOptionPane.showMessageDialog(null, "Update the purchase manager successfully!");
+        JOptionPane.showMessageDialog(null, "Create new purchase manager successfully!");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

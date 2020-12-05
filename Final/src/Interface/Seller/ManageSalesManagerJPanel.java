@@ -6,6 +6,7 @@
 package Interface.Seller;
 
 import Business.EcoSystem;
+import Business.Network.Network;
 import Business.Role.SalesManagerRole;
 import Business.Seller.SalesManage.SalesManage;
 import Business.Seller.Seller;
@@ -27,12 +28,13 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     Seller seller;
-        
-    public ManageSalesManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system) {
+    Network network;
+    public ManageSalesManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system, Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.seller = seller;
         this.system=system;
+        this.network=network;
         btnSave.setEnabled(false);
         populateTable();
     }
@@ -379,6 +381,7 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
         sm.setTelephone(telePhone);
         sm.setUserAccount(userAccount);
         seller.getSalesManageDir().getSalesManageList().add(sm);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
 
         txtUsername1.setText("");
         txtPassword1.setText("");
@@ -386,7 +389,7 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
         txtName1.setText("");
         populateTable();
 
-        JOptionPane.showMessageDialog(null, "Update the sales manager successfully!");
+        JOptionPane.showMessageDialog(null, "Create new sales manager successfully!");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

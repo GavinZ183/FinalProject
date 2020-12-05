@@ -302,28 +302,33 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String prudname = txtGood.getText();
         int price = 0;
-        try{
-            price = Integer.parseInt(txtPrice.getText());
-        }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel5.setForeground(Color.red);
-            return;
+        if(txtPrice.getText().length()>0){
+            try{
+                price = Integer.parseInt(txtPrice.getText());
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel5.setForeground(Color.red);
+                return;
+            }
         }
         String sellername = txtSeller.getText();
         String time = "";
-        try{
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date date = format.parse(txtTime.getText());
-            time = format.format(date);
+        if(txtTime.getText().length()>0){
+            try{
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                Date date = format.parse(txtTime.getText());
+                time = format.format(date);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Please input time on format:'yyyy-MM-dd HH:mm'!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtTime.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel7.setForeground(Color.red);
+                return;
+            }
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Please input time on format:'yyyy-MM-dd HH:mm'!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtTime.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel7.setForeground(Color.red);
-            return;
-        }
+        
         
         //star to filter no-empty requirement
         ArrayList<BuyOrderItem> orderItemList = new ArrayList<BuyOrderItem>();

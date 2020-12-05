@@ -48,6 +48,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
+        productList.clear();
         for(Supplier supplier: network.getSupplierDirectory().getsupplierList()){
             for(Product product: supplier.getProductCatalog().getProductcatalog()){
                 Object row[] = new Object[4];
@@ -80,8 +81,8 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
     }
     
     public void cartTable(ArrayList<SellOrderItem> cart){
-        int rowCount = productTable.getRowCount();
-        DefaultTableModel model = (DefaultTableModel)productTable.getModel();
+        int rowCount = cartTable.getRowCount();
+        DefaultTableModel model = (DefaultTableModel)cartTable.getModel();
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
@@ -383,15 +384,18 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String prudname = txtProduct.getText();
         int price = 0;
-        try{
-            price = Integer.parseInt(txtPrice.getText());
+        if(txtPrice.getText().length()>0){
+            try{
+                price = Integer.parseInt(txtPrice.getText());
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel5.setForeground(Color.red);
+                return;
+            }
         }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel5.setForeground(Color.red);
-            return;
-        }
+        
         String suppliername = txtSupplier.getText();
         String position = txtPosition.getText();
         
@@ -520,12 +524,14 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
     private void btnCommitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommitActionPerformed
         // TODO add your handling code here:
         //Date date = new Date();
-                for(SellOrderItem item: cart){
-                    //item.setCreateTime(date);
-                    item.setStatus("pending");
-                    item.setSeller(seller);
-                    seller.getSellOrder().getOrderItemList().add(item);
-                }
+        for(SellOrderItem item: cart){
+            //item.setCreateTime(date);
+            item.setStatus("pending");
+            item.setSeller(seller);
+            seller.getSellOrder().getOrderItemList().add(item);
+        }
+        cart.clear();
+        cartTable(cart);
     }//GEN-LAST:event_btnCommitActionPerformed
 
 

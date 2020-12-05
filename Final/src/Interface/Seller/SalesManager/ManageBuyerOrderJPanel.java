@@ -128,7 +128,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnFreshTable = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -186,13 +185,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("< back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,10 +222,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFreshTable)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addContainerGap(792, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,9 +300,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                     .addComponent(btnhooseDeliveryCompany)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(46, 46, 46)
-                .addComponent(btnBack)
-                .addGap(10, 10, 10))
+                .addGap(83, 83, 83))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -406,13 +392,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         populateOrderListTable();
     }//GEN-LAST:event_btnFreshTableActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnhooseDeliveryCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhooseDeliveryCompanyActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
@@ -452,7 +431,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnFreshTable;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnhooseDeliveryCompany;

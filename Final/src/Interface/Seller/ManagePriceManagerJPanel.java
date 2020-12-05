@@ -6,6 +6,7 @@
 package Interface.Seller;
 
 import Business.EcoSystem;
+import Business.Network.Network;
 import Business.Role.PriceManagerRole;
 import Business.Seller.PriceManage.PriceManage;
 import Business.Seller.Seller;
@@ -27,12 +28,13 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem system;
     Seller seller;
-        
-    public ManagePriceManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system) {
+    Network network;
+    public ManagePriceManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system,Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.seller = seller;
         this.system=system;
+        this.network=network;
         btnSave.setEnabled(false);
         populateTable();
     }
@@ -373,6 +375,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         pm.setTelephone(telePhone);
         pm.setUserAccount(userAccount);
         seller.getPriceManageDir().getPriceManageList().add(pm);
+        network.getUserAccountDirectory().getUserAccountList().add(userAccount);
          
 
         txtUsername1.setText("");
@@ -381,7 +384,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         txtName1.setText("");
         populateTable();
 
-        JOptionPane.showMessageDialog(null, "Update the price manager successfully!");
+        JOptionPane.showMessageDialog(null, "Create new price manager successfully!");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

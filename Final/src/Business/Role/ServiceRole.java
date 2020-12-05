@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
-import Interface.SystemAdmin.ManageServiceJPanel;
+import Interface.Service.ServiceJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -19,9 +19,7 @@ public class ServiceRole extends Role{
 
   @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system,Network network) {
-        return new ManageServiceJPanel(userProcessContainer,system,network);
-        //还未创建service的interface
-        //return new ServiceJPanel(userProcessContainer,account,network);
+        return new ServiceJPanel(userProcessContainer,account,network);
     }
    @Override
     public String getType() {

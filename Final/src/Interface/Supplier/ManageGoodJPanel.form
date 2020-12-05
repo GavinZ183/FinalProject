@@ -432,9 +432,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPrice2">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
@@ -452,9 +449,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtProduct2">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
@@ -462,14 +456,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtQuantity2">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDescription2">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel18">
       <Properties>
@@ -479,13 +467,11 @@
     <Component class="javax.swing.JLabel" name="lblImage">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblImage1">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

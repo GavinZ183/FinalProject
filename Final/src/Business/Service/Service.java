@@ -33,11 +33,18 @@ public class Service {//系统客服,买家或卖家可以申请客服,对订单
     }
 
     public BuyOrder getBuyOrder() {
+        if(buyOrder == null){
+            buyOrder = new BuyOrder();
+        }
         return buyOrder;
     }
 
     public void setBuyOrder(BuyOrder buyOrder) {
         this.buyOrder = buyOrder;
     }
-     
+    
+    @Override
+    public String toString() {
+        return name;
+    }
 }

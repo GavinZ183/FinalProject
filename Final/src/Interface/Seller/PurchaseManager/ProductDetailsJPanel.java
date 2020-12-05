@@ -7,6 +7,8 @@ package Interface.Seller.PurchaseManager;
 
 import Business.Product.Product;
 import java.awt.CardLayout;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +31,11 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
         txtSeller.setText(product.getSupplier().getName());
         txtPosition.setText(product.getSupplier().getPosition());
         txtInventory.setText(String.valueOf(product.getQuantity()));
+        
+        ImageIcon photo = new ImageIcon(product.getImagePath());
+        Image image = photo.getImage();
+        image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+        lblImage.setIcon(new ImageIcon(image));
     }
 
     /**
@@ -60,7 +67,6 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
         txtProduct.setEnabled(false);
 
         lblImage.setText("jLabel3");
-        lblImage.setEnabled(false);
 
         txtPrice.setEnabled(false);
 

@@ -6,20 +6,22 @@
 package Business.Goods;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author TT1
  */
 public class GoodCatalog {
-    private List<Good> goodCatalog;
+    private ArrayList<Good> goodCatalog;
 
     public GoodCatalog() {
         goodCatalog = new ArrayList<Good>();
     }
     
-    public List<Good> getGoodCatalog(){
+    public ArrayList<Good> getGoodCatalog(){
+        if(goodCatalog ==null){
+            goodCatalog = new ArrayList<Good>();
+        }
         return goodCatalog;
     }
     

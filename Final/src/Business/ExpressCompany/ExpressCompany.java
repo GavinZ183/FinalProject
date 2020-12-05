@@ -56,6 +56,9 @@ public class ExpressCompany {
     }
 
     public DriverDir getDriverDir() {
+        if(driverDir==null){
+            driverDir = new DriverDir();
+        }
         return driverDir;
     }
 
@@ -64,6 +67,9 @@ public class ExpressCompany {
     }
 
     public DeliverymanDirectory getDeliverymanDirectory() {
+        if(deliverymanDirectory==null){
+            deliverymanDirectory = new DeliverymanDirectory();
+        }
         return deliverymanDirectory;
     }
 

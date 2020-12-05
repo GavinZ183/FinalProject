@@ -133,21 +133,21 @@ public class SellerMainJPanel extends javax.swing.JPanel {
     private void btnPurchaseManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurchaseManagerActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new ManagePurchaseManagerJPanel(userProcessContainer,seller,system));
+        userProcessContainer.add(new ManagePurchaseManagerJPanel(userProcessContainer,seller,system,network));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPurchaseManagerActionPerformed
 
     private void btnPriceManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPriceManagerActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new ManagePriceManagerJPanel(userProcessContainer,seller,system));
+        userProcessContainer.add(new ManagePriceManagerJPanel(userProcessContainer,seller,system,network));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPriceManagerActionPerformed
 
     private void btnSalesManagerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesManagerActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new ManageSalesManagerJPanel(userProcessContainer,seller,system));
+        userProcessContainer.add(new ManageSalesManagerJPanel(userProcessContainer,seller,system,network));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnSalesManagerActionPerformed
 

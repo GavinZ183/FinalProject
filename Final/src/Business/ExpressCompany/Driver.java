@@ -28,6 +28,9 @@ public class Driver {
         this.name = name;
     }
     public BuyOrder getBuyOrder() {
+        if(buyOrder == null){
+            buyOrder = new BuyOrder();
+        }
         return buyOrder;
     }
 

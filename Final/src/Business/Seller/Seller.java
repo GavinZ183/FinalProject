@@ -71,6 +71,9 @@ public class Seller {
     }
 
     public GoodCatalog getSellerGoodCatalog() {
+        if(sellerGoodCatalog==null){
+            sellerGoodCatalog = new GoodCatalog();
+        }
         return sellerGoodCatalog;
     }
 
@@ -79,6 +82,9 @@ public class Seller {
     }
 
     public PriceManageDir getPriceManageDir() {
+        if(priceManageDir==null){
+            priceManageDir = new PriceManageDir();
+        }
         return priceManageDir;
     }
 
@@ -87,6 +93,9 @@ public class Seller {
     }
 
     public PurchaseManageDir getPurchaseManageDir() {
+        if(purchaseManageDir==null){
+            purchaseManageDir = new PurchaseManageDir();
+        }
         return purchaseManageDir;
     }
 
@@ -95,6 +104,9 @@ public class Seller {
     }
 
     public SalesManageDir getSalesManageDir() {
+        if(salesManageDir==null){
+            salesManageDir = new SalesManageDir();
+        }
         return salesManageDir;
     }
 
@@ -103,6 +115,9 @@ public class Seller {
     }
 
     public SellOrder getSellOrder() {
+        if(sellOrder==null){
+            sellOrder = new SellOrder();
+        }
         return sellOrder;
     }
 

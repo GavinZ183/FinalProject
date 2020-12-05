@@ -7,20 +7,22 @@ package Business.Product;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author jiaohongmei
  */
 public class ProductCatalog {
-   private List<Product> productCatalog;
+   private ArrayList<Product> productCatalog;
 
     public ProductCatalog() {
         productCatalog = new ArrayList<Product>();
     }
     
-    public List<Product> getProductcatalog(){
+    public ArrayList<Product> getProductcatalog(){
+        if(productCatalog ==null){
+            productCatalog = new ArrayList<Product>();
+        }
         return productCatalog;
     }
     

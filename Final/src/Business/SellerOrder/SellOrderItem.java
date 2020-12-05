@@ -70,9 +70,9 @@ public class SellOrderItem {
     }
    
     
-//    @Override
-//    public String toString()
-//    {
-//        return product.getProdName();
-//    }
+    @Override
+    public String toString()
+    {
+        return product.getProdName();
+    }
 }

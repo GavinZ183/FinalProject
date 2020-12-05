@@ -50,6 +50,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
+        goodList.clear();
         for(Seller seller: network.getSellerDirectory().getSellerList()){
             for(Good good: seller.getSellerGoodCatalog().getGoodCatalog()){
                 Object row[] = new Object[5];
@@ -385,14 +386,16 @@ public class ShoppingJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String prudname = txtGood.getText();
         int price = 0;
-        try{
-            price = Integer.parseInt(txtPrice.getText());
-        }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel5.setForeground(Color.red);
-            return;
+        if(txtPrice.getText().length()>0){
+            try{
+                price = Integer.parseInt(txtPrice.getText());
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel5.setForeground(Color.red);
+                return;
+            }
         }
         String sellername = txtSeller.getText();
         String position = txtPosition.getText();
@@ -538,6 +541,8 @@ public class ShoppingJPanel extends javax.swing.JPanel {
                 }
             }
         }
+        cart.clear();
+        cartTable(cart);
     }//GEN-LAST:event_btnCommitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

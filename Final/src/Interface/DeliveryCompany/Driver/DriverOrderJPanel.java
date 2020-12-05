@@ -46,7 +46,9 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
         
         populateTable();
         
-        
+        jComboBox1.addItem("WORK");
+        jComboBox1.addItem("REST");
+        jComboBox1.addItem("BUSY");
     }
  public void populateTable(){
         int rowCount = jTable1.getRowCount();
@@ -236,9 +238,7 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
             
             
-            jComboBox1.addItem("WORK");
-            jComboBox1.addItem("REST");
-            jComboBox1.addItem("BUSY");
+            
            String status = (String)jComboBox1.getSelectedItem();
            driver.setStatus(status);
            

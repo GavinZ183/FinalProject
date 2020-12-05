@@ -50,10 +50,10 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         
             for(Seller seller:network.getSellerDirectory().getSellerList()){
                 for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
-                    if(sellOrderItem.getSupplier().equals(supplier)){
+                    if(sellOrderItem.getProduct().getSupplier().equals(supplier)){
                      Object row[] = new Object[6];
-                    row[0] =sellOrderItem.getProduct().getProdName();
-                    row[1] =sellOrderItem.getSalesprice();
+                    row[0] =sellOrderItem;
+                    row[1] =sellOrderItem.getProduct().getPrice();
                     row[2] =sellOrderItem.getSeller().getName();
                     row[3] =sellOrderItem.getSeller().getPosition();
                     row[4] =sellOrderItem.getQuantity();
@@ -74,7 +74,7 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         
         for(SellOrderItem sellOrderItem: orderItemList){
             Object row[] = new Object[6];
-                    row[0] =sellOrderItem.getProduct().getProdName();
+                    row[0] =sellOrderItem;
                     row[1] =sellOrderItem.getSalesprice();
                     row[2] =sellOrderItem.getSeller().getName();
                     row[3] =sellOrderItem.getSeller().getPosition();
@@ -279,6 +279,7 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         }
         SellOrderItem sellOrderItem = (SellOrderItem)jTable1.getValueAt(selectedRow, 0);
         sellOrderItem.setStatus("DELIVERED");
+        populateTable();
     }//GEN-LAST:event_btnProduceAndSentActionPerformed
 
     private void btnSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch2ActionPerformed
@@ -286,15 +287,18 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         String prudname = txtProduct.getText();
         
         int price = 0;
-        try{
-            price = Integer.parseInt(txtPrice.getText());
+        if(txtPrice.getText().length()>0){
+            try{
+                price = Integer.parseInt(txtPrice.getText());
+            }
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
+                jLabel5.setForeground(Color.red);
+                return;
+            }
         }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Please input price correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
-            txtPrice.setBorder(BorderFactory.createLineBorder(Color.red));
-            jLabel5.setForeground(Color.red);
-            return;
-        }
+        
         String sellername = txtSeller.getText();
         
         

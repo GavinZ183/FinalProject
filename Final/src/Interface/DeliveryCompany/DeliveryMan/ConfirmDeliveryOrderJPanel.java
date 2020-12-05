@@ -46,7 +46,9 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         
         populateTable();
         
-        
+        jComboBox1.addItem("WORK");
+        jComboBox1.addItem("REST");
+        jComboBox1.addItem("BUSY");
     }
  public void populateTable(){
         int rowCount = jTable1.getRowCount();
@@ -224,9 +226,9 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                     .addComponent(btnView)
                     .addComponent(btnAccept))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRefuse)
-                    .addComponent(btnFinish))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFinish)
+                    .addComponent(btnRefuse))
                 .addGap(48, 48, 48))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -240,9 +242,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
             
             
-            jComboBox1.addItem("WORK");
-            jComboBox1.addItem("REST");
-            jComboBox1.addItem("BUSY");
+            
            String status = (String)jComboBox1.getSelectedItem();
            deliveryman.setStatus(status);
            
