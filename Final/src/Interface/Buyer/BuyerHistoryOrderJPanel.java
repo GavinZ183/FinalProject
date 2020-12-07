@@ -116,6 +116,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnConnect = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel7.setText("Time:");
 
@@ -197,6 +198,13 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Confirm Receipt");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -218,7 +226,11 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnFreshTable))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCancel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSearch))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtGood)
@@ -235,15 +247,15 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCancel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSearch))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnConnect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnWriteComment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(6, 6, 6))))
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnWriteComment, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnConnect)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,11 +282,13 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearch)
                     .addComponent(btnCancel))
-                .addGap(27, 27, 27)
-                .addComponent(btnWriteComment)
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnWriteComment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnConnect)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addContainerGap())
         );
@@ -397,7 +411,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             return;
         }
         BuyOrderItem item = (BuyOrderItem)orderListTable.getValueAt(selectedRow, 0);
-        if(item.getStatus().equals("recieved")){
+        if(item.getStatus().equals("RECEIVED")){
             CardLayout layout = (CardLayout)userProcessContainer.getLayout();
             userProcessContainer.add(new WriteCommentJPanel(userProcessContainer,item,account));
             layout.next(userProcessContainer);
@@ -406,6 +420,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "You have not recieved this order item, you could not write comment!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
+        populateOrderListTable();
     }//GEN-LAST:event_btnWriteCommentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -430,6 +445,24 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnConnectActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = orderListTable.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        BuyOrderItem item = (BuyOrderItem)orderListTable.getValueAt(selectedRow, 0);
+        if(item.getStatus().equals("DELIVERED")){
+            item.setStatus("RECEIVED");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Invalid Operation", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+    populateOrderListTable();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -438,6 +471,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnFreshTable;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnWriteComment;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

@@ -45,12 +45,12 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         for(BuyOrderItem buyOrderItem:expressCompany.getBuyOrder().getOrderItemList()){
             
                 Object row[] = new Object[7];
-                row[0] = buyOrderItem.getGood();
+                row[0] =buyOrderItem;
                 row[1] =buyOrderItem.getQuantity();
                 row[2] =buyOrderItem.getBuyer();
                 row[3] =buyOrderItem.getBuyer().getPosition();
-                row[4]=buyOrderItem.getSeller();
-                row[5]=buyOrderItem.getSeller().getPosition();
+                row[4]=buyOrderItem.getGood().getSeller();
+                row[5]=buyOrderItem.getGood().getSeller().getPosition();
                 row[6]=buyOrderItem.getStatus();
                         
                 
@@ -70,8 +70,8 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 row[1] =buyOrderItem.getQuantity();
                 row[2] =buyOrderItem.getBuyer();
                 row[3] =buyOrderItem.getBuyer().getPosition();
-                row[4]=buyOrderItem.getSeller();
-                row[5]=buyOrderItem.getSeller().getPosition();
+                row[4]=buyOrderItem.getGood().getSeller();
+                row[5]=buyOrderItem.getGood().getSeller().getPosition();
                 row[6]=buyOrderItem.getStatus();
 
             model.addRow(row);
@@ -168,10 +168,14 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
 
         jLabel8.setText("Status:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.setEnabled(false);
 
         btnFreshTable.setText("Fresh table");
+        btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFreshTableActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Delivery Driver:");
 
@@ -186,7 +190,6 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Seller Position:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox2.setEnabled(false);
 
         btnChooseDeliveryMan.setText("Choose Delivery Man");
@@ -354,7 +357,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
          //卖家 =！买家   状态=商家发货
        
-        if(buyOrderItem.getSeller().getPosition()!=buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="SELLER SHIPPED")
+        if(!buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition()) && buyOrderItem.getStatus().equals("SELLER SHIPPED"))
         {
             
             jComboBox1.setEnabled(true);
@@ -362,13 +365,13 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
             btnAssignDriver.setEnabled(true);
     
             for(Driver driver:expressCompany.getDriverDir().getDriverList()){
-                if(driver.getStatus()=="WORK"&&driver.getPosition().equals(buyOrderItem.getSeller().getPosition()))
-                jComboBox1.addItem(driver.getName());
+                if(driver.getStatus().equals("WORK")&&driver.getPosition().equals(buyOrderItem.getGood().getSeller().getPosition()))
+                jComboBox1.addItem(driver.getUserAccount().getUsername());
             }
         }
          else
-             JOptionPane.showMessageDialog(null, "No need to assign a driver", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+        { JOptionPane.showMessageDialog(null, "No need to assign a driver", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
        
       
     }//GEN-LAST:event_btnChooseDeliveryDriverActionPerformed
@@ -386,7 +389,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         String driverName = (String)jComboBox1.getSelectedItem();
         Driver driver=new Driver();
         for(Driver d:expressCompany.getDriverDir().getDriverList()){
-                if(d.getName().equals(driverName)){
+                if(d.getUserAccount().getUsername().equals(driverName)){
                     driver=d;
                 }
             }
@@ -414,7 +417,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
        
         //卖家 =！买家   状态=到达派送点
-        if(buyOrderItem.getSeller().getPosition()!=buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="Arrive at Express transfer station")
+        if(!buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition())&&buyOrderItem.getStatus().equals("Arrive at Express transfer station"))
         {
             
             jComboBox2.setEnabled(true);
@@ -422,12 +425,12 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
             btnAssignDeliveryMan.setEnabled(true);
     
             for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
-                if(deliveryman.getStatus()=="WORK"&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
-                jComboBox2.addItem(deliveryman.getName());
+                if(deliveryman.getStatus().equals("WORK")&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
+                jComboBox2.addItem(deliveryman.getUserAccount().getUsername());
             }
         }
          //卖家地址 =买家地址    订单状态=商家发货
-        else if(buyOrderItem.getSeller().getPosition()==buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="SELLER SHIPPED")
+        else if(buyOrderItem.getGood().getSeller().getPosition()==buyOrderItem.getBuyer().getPosition()&&buyOrderItem.getStatus()=="SELLER SHIPPED")
         {
             
             jComboBox2.setEnabled(true);
@@ -435,8 +438,8 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
             btnAssignDeliveryMan.setEnabled(true);
     
             for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
-                if(deliveryman.getStatus()=="WORK"&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
-                jComboBox2.addItem(deliveryman.getName());
+                if(deliveryman.getStatus().equals("WORK")&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))
+                jComboBox2.addItem(deliveryman.getUserAccount().getUsername());
             }
         }
         else
@@ -458,7 +461,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         String name = (String)jComboBox2.getSelectedItem();
         Deliveryman deliveryman=new  Deliveryman();
         for(Deliveryman d:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
-                if(d.getName().equals(name)){
+                if(d.getUserAccount().getUsername().equals(name)){
                     deliveryman=d;
                 }
             }
@@ -516,7 +519,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         ArrayList<BuyOrderItem> orderItemList2 = new ArrayList<BuyOrderItem>();
         if(sellername.length()>0){
             for(BuyOrderItem item: orderItemList1){
-                if(item.getSeller().getName().equals(sellername)){
+                if(item.getGood().getSeller().getName().equals(sellername)){
                     orderItemList2.add(item);
                 }
             }
@@ -531,7 +534,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         ArrayList<BuyOrderItem> orderItemList3 = new ArrayList<BuyOrderItem>();
         if(sellerposition.length()>0){
             for(BuyOrderItem item: orderItemList2){
-                if(item.getSeller().getPosition().equals(sellerposition)){
+                if(item.getGood().getSeller().getPosition().equals(sellerposition)){
                     orderItemList3.add(item);
                 }
             }
@@ -571,6 +574,11 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         
       
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnFreshTableActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

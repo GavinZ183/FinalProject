@@ -30,9 +30,11 @@ public class ManageSupplierInformationJPanel extends javax.swing.JPanel {
          this.supplier=supplier;
          this.network=network;
          
+         
         txtName.setText(supplier.getName());
         txtType.setText(supplier.getType());
-       
+        txtName.setEnabled(false);
+        txtType.setEnabled(false);
         
     }
 

@@ -55,7 +55,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         
         ArrayList<ExpressCompany> list = network.getExpressCompanyDir().getExpressCompanyList();
         for(int i=0;i<list.size();i++){
-             jComboBox1.addItem(list.get(i).getName() + " in " + list.get(i).getPosition());//在快递公司类下面添加一个position属性
+             jComboBox1.addItem(list.get(i).getName());//在快递公司类下面添加一个position属性
         }
     }
 
@@ -201,8 +201,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
         jLabel8.setText("Status:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel9.setText("Delivery Company:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -211,7 +209,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(258, 258, 258)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, Short.MAX_VALUE)
                 .addGap(291, 291, 291))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -408,27 +406,29 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         String deliveryCompany=(String) jComboBox1.getSelectedItem();
         ArrayList<ExpressCompany> list = network.getExpressCompanyDir().getExpressCompanyList();
         for(int i=0;i<list.size();i++){
-            if(deliveryCompany.equals(list.get(i).getName() + " in " + list.get(i).getPosition())){
+            if(deliveryCompany.equals(list.get(i).getName())){
                 ec = list.get(i);
             }
         }
         
         //judge orderitem status
-        if(item.getStatus().equals("waiting express company")){}
+        if(item.getStatus().equals("Buyer submitted the order")){
+            item.setStatus("SELLER SHIPPED");
+            ec.getBuyOrder().getOrderItemList().add(item);
+        }
         else{
-            JOptionPane.showMessageDialog(null, "The order item's status is not 'waiting express company', you could not distribute!", "Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The order item's status is not 'Buyer submitted the order', you could not distribute!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
         
         //judge orderitem position and express company position
-        if(sellerPosition.equals(ec.getPosition())){}
-        else{
-            JOptionPane.showMessageDialog(null, "The order item's seller position is not suitable for this delivery company!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+//        if(sellerPosition.equals(ec.getPosition())){}
+//        else{
+//            JOptionPane.showMessageDialog(null, "The order item's seller position is not suitable for this delivery company!", "Warning",JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
         
-        item.setStatus("waiting first delivery man");
-        ec.getBuyOrder().getOrderItemList().add(item);
+       
         populateOrderListTable();
     }//GEN-LAST:event_btnhooseDeliveryCompanyActionPerformed
 

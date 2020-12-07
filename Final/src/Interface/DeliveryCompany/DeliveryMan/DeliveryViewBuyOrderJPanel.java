@@ -45,10 +45,10 @@ public class DeliveryViewBuyOrderJPanel extends javax.swing.JPanel {
         txtProduct3.setText(buyOrderItem.getBuyer().getPosition());
         txtProduct4.setText(buyOrderItem.getBuyer().getAddress());
         txtProduct5.setText(buyOrderItem.getBuyer().getTelephone());
-        txtProduct6.setText(buyOrderItem.getSeller().getName());
-        txtProduct7.setText(buyOrderItem.getSeller().getPosition());
-        txtProduct8.setText(buyOrderItem.getSeller().getAddress());
-        txtProduct9.setText(buyOrderItem.getSeller().getTelephone());
+        txtProduct6.setText(buyOrderItem.getGood().getSeller().getName());
+        txtProduct7.setText(buyOrderItem.getGood().getSeller().getPosition());
+        txtProduct8.setText(buyOrderItem.getGood().getSeller().getAddress());
+        txtProduct9.setText(buyOrderItem.getGood().getSeller().getTelephone());
         txtProduct10.setText(buyOrderItem.getStatus());
         txtProduct11.setText(buyOrderItem.getCreateTime());
            

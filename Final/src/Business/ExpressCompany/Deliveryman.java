@@ -74,6 +74,6 @@ public class Deliveryman {
     }
     @Override
     public String toString() {
-        return name;
+        return position;
     }
 }

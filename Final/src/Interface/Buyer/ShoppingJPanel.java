@@ -533,7 +533,7 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             if(buyer.getUserAccount().equals(account)){
                 for(BuyOrderItem item: cart){
                     item.setCreateTime(date);
-                    item.setStatus("pending");
+                    item.setStatus("Buyer submitted the order");
                     item.setBuyer(buyer);
                     buyer.getBuyOrder().getOrderItemList().add(item);
                     int newInventory = item.getGood().getQuantity() - item.getQuantity();

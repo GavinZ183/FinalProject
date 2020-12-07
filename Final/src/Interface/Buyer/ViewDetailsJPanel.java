@@ -10,6 +10,7 @@ import Business.Goods.Comment;
 import Business.Goods.Good;
 import java.awt.CardLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +33,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         txtGood.setText(good.getProdName());
         txtPrice.setText(String.valueOf(good.getPrice()));
         txtSeller.setText(good.getSeller().getName());
-        txtPosition.setText(good.getSeller().getAddress());
+        txtPosition.setText(good.getSeller().getPosition());
         txtInventory.setText(String.valueOf(good.getQuantity()));
         
         int rowCount = commentTable.getRowCount();
@@ -52,10 +53,14 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         }  
         
         if(good.getImagePath()!=null){
-            ImageIcon photo = new ImageIcon(good.getImagePath());
-            Image image = photo.getImage();
-            image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-            lblImage.setIcon(new ImageIcon(image));
+//            ImageIcon photo = new ImageIcon(good.getImagePath());
+//            Image image = photo.getImage();
+//            image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+//            lblImage.setIcon(new ImageIcon(image));
+    Image im=Toolkit.getDefaultToolkit().createImage(good.getImagePath());// Returns an image which gets pixel data from the specified file.
+        im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);//Creates a scaled version of this image.
+        ImageIcon ii=new ImageIcon(im);//Creates an uninitialized image icon.
+        lblImage.setIcon(ii);
         }
         else{
             lblImage.setText("No picture!");
@@ -124,7 +129,6 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         jLabel9.setText("Image:");
 
         lblImage.setText("jLabel3");
-        lblImage.setEnabled(false);
 
         commentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -59,12 +59,12 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         for(BuyOrderItem buyOrderItem:deliveryman.getBuyOrder().getOrderItemList()){
             
                 Object row[] = new Object[6];
-                row[0] = buyOrderItem.getGood();
+                row[0] = buyOrderItem;
                 row[1] =buyOrderItem.getQuantity();
                
                 row[2] =buyOrderItem.getBuyer().getPosition();
                
-                row[3]=buyOrderItem.getSeller().getPosition();
+                row[3]=buyOrderItem.getGood().getSeller().getPosition();
                 row[4]=buyOrderItem.getStatus();
                 row[5]=buyOrderItem.getCreateTime();
                 
@@ -262,12 +262,13 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
+        if(buyOrderItem.getStatus().equals("ASSIGND Deliveryman")){
             buyOrderItem.setStatus("Deliveryman Deliverying");
             JOptionPane.showMessageDialog(null, "Assigned this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+         populateTable();
             
     }//GEN-LAST:event_btnAcceptActionPerformed
 
@@ -297,12 +298,13 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Deliveryman"){
+        if(buyOrderItem.getStatus().equals("ASSIGND Deliveryman")){
             buyOrderItem.setStatus("Deliveryman Refused");
             JOptionPane.showMessageDialog(null, "Refused this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+         populateTable();
             
     }//GEN-LAST:event_btnRefuseActionPerformed
 
@@ -317,12 +319,13 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="Deliveryman Deliverying"){
+        if(buyOrderItem.getStatus().equals("Deliveryman Deliverying")){
             buyOrderItem.setStatus("DELIVERED");
             JOptionPane.showMessageDialog(null, "Finished this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+         populateTable();
             
     }//GEN-LAST:event_btnFinishActionPerformed
 

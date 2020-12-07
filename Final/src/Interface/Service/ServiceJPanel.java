@@ -55,9 +55,9 @@ public class ServiceJPanel extends javax.swing.JPanel {
               if(!buyOrderItem.getMessages().isEmpty()){
                   
                 Object row[] = new Object[6];
-                row[0] = buyOrderItem.getGood();
+                row[0] = buyOrderItem;
                 row[1] =buyOrderItem.getBuyer().getUserAccount().getUsername();
-                row[2]=buyOrderItem.getSeller().getName();
+                row[2]=buyOrderItem.getGood().getSeller();
                 row[3]=buyOrderItem.getStatus();
                 row[4]=buyOrderItem.getCreateTime();
                 row[5]=buyOrderItem.getMessages();
@@ -85,7 +85,6 @@ public class ServiceJPanel extends javax.swing.JPanel {
         btnContact = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
-        btnFinish = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Customer Service Staff Workarea");
@@ -139,33 +138,24 @@ public class ServiceJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnFinish.setText("Finish");
-        btnFinish.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnView))
-                .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFinish, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(220, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(192, 192, 192))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(310, 310, 310)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnContact, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -177,15 +167,13 @@ public class ServiceJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnView)
-                    .addComponent(btnContact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFinish)
-                    .addComponent(btnCancel))
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(btnView)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancel)
+                .addGap(27, 27, 27)
+                .addComponent(btnContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -240,35 +228,16 @@ public class ServiceJPanel extends javax.swing.JPanel {
         
             buyOrderItem.setStatus("Canceled");
             JOptionPane.showMessageDialog(null, "Canceled this order Successfully");
+            
+            populateTable();
        
             
     }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
-        // TODO add your handling code here:
-         int selectedRow = jTable1.getSelectedRow();
-
-        if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-      
-        BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
-        
-        if(buyOrderItem.getStatus()=="Deliveryman Deliverying"){
-            buyOrderItem.setStatus("DELIVERED");
-            JOptionPane.showMessageDialog(null, "Finished this order Successfully");
-        }
-            else
-            JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
-            
-    }//GEN-LAST:event_btnFinishActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnContact;
-    private javax.swing.JButton btnFinish;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

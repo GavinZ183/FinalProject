@@ -8,6 +8,7 @@ package Interface.Seller.PurchaseManager;
 import Business.Product.Product;
 import java.awt.CardLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -32,10 +33,15 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
         txtPosition.setText(product.getSupplier().getPosition());
         txtInventory.setText(String.valueOf(product.getQuantity()));
         
-        ImageIcon photo = new ImageIcon(product.getImagePath());
-        Image image = photo.getImage();
-        image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-        lblImage.setIcon(new ImageIcon(image));
+//        ImageIcon photo = new ImageIcon(product.getImagePath());
+//        Image image = photo.getImage();
+//        image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+//        lblImage.setIcon(new ImageIcon(image));
+Image im=Toolkit.getDefaultToolkit().createImage(product.getImagePath());// Returns an image which gets pixel data from the specified file.
+//        im=im.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);//Creates a scaled version of this image.
+im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        ImageIcon ii=new ImageIcon(im);//Creates an uninitialized image icon.
+        lblImage.setIcon(ii);
     }
 
     /**
@@ -65,8 +71,6 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
         jLabel9.setText("Image:");
 
         txtProduct.setEnabled(false);
-
-        lblImage.setText("jLabel3");
 
         txtPrice.setEnabled(false);
 
@@ -129,8 +133,8 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addGap(18, 18, 18)
-                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(3, 3, 3)))
+                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(9, 9, 9)))
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))))
                 .addContainerGap(232, Short.MAX_VALUE))
@@ -142,8 +146,8 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)

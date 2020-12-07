@@ -52,7 +52,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         for(Driver deliveryman:expressCompany.getDriverDir().getDriverList()){
             
                 Object row[] = new Object[5];
-                row[0] = deliveryman.getPosition();
+                row[0] = deliveryman;
                 row[1] =deliveryman.getUserAccount().getUsername();
                 row[2] =deliveryman.getUserAccount().getPassword();
                 row[3] =deliveryman.getTelephone();
@@ -411,7 +411,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         userAccount=system.getUserAccountDirectory().createUserAccount(username,password,role); 
         deliveryman.setPosition(Position);
         deliveryman.setTelephone(telePhone);
-        deliveryman.setStatus("Free");
+        deliveryman.setStatus("WORK");
         deliveryman.setUserAccount(userAccount);
         network.getUserAccountDirectory().getUserAccountList().add(userAccount);
        

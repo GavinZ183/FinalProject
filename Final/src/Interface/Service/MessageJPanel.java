@@ -25,6 +25,7 @@ public class MessageJPanel extends javax.swing.JPanel {
     BuyOrderItem buyOrderItem;
 
     MessageJPanel(JPanel userProcessContainer, UserAccount account, BuyOrderItem buyOrderItem) {
+        initComponents();
          this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.buyOrderItem = buyOrderItem;
@@ -33,10 +34,12 @@ public class MessageJPanel extends javax.swing.JPanel {
     }
     
     public void populateChatRecord(){
-        String chatRecord = "";
-        for(String message:buyOrderItem.getMessages()){
-            chatRecord = chatRecord + message +"    /n    ";
+         String chatRecord = "";
+        for(int i=0;i<buyOrderItem.getMessages().size();i++){
+             chatRecord=chatRecord +buyOrderItem.getMessages().get(i)+"\r\n";
         }
+         txtChatRecord.setLineWrap(true);
+        txtChatRecord.setWrapStyleWord(true);
         txtChatRecord.setText(chatRecord);
     }
     
@@ -65,6 +68,7 @@ public class MessageJPanel extends javax.swing.JPanel {
         jLabel2.setText("Chat Record:");
 
         txtChatRecord.setColumns(20);
+        txtChatRecord.setLineWrap(true);
         txtChatRecord.setRows(5);
         jScrollPane1.setViewportView(txtChatRecord);
 

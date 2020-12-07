@@ -6,6 +6,7 @@
 package Interface.Buyer;
 
 import Business.BuyerOrder.BuyOrderItem;
+import Business.BuyerOrder.Evaluate;
 import Business.Goods.Comment;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -31,7 +32,12 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.item = item;
         this.account = account;
+        if(item.getEvaluate() != null){
+            txtComment.setText(item.getEvaluate().getWord());
+        }
+        
     }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +55,7 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Write Comment Screen");
@@ -73,6 +80,9 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("score:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel3.setText("The range of score should be 0~10 ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,8 +104,13 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
                             .addComponent(btnCommit))))
                 .addGap(72, 72, 72))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(btnBack))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,11 +120,13 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCommit)
                 .addGap(10, 10, 10)
                 .addComponent(btnBack)
@@ -141,11 +158,12 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
             return;
         }
         
-        
-        item.getEvaluate().setScore(score);
-        item.getEvaluate().setWord(word);
-        item.getEvaluate().setBuyer(buyerName);
-        item.getEvaluate().setDate(datetime);
+        Evaluate e=new Evaluate();
+        e.setScore(score);
+        e.setWord(word);
+        e.setBuyer(buyerName);
+        e.setDate(datetime);
+        item.setEvaluate(e);
         Comment c = new Comment();
         c.setScore(score);
         c.setWord(word);
@@ -153,6 +171,7 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         c.setDate(datetime);
         item.getGood().getComments().getCommentList().add(c);
         JOptionPane.showMessageDialog(null, "Write comment successfully!");
+       
     }//GEN-LAST:event_btnCommitActionPerformed
 
 
@@ -161,6 +180,7 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCommit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea txtComment;

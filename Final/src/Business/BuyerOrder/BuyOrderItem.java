@@ -25,7 +25,7 @@ public class BuyOrderItem {
     private Evaluate evaluate;//评价
     private Date createTime;
     private ArrayList<String> messages;//message's format: 'time username: message'
-    private Seller seller;
+    
     private Buyer buyer;
     private String orderPosition;
 
@@ -38,13 +38,7 @@ public class BuyOrderItem {
     }
     
 
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
-    }
+   
 
     public Buyer getBuyer() {
         return buyer;

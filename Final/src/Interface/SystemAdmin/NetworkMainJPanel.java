@@ -235,13 +235,16 @@ import javax.swing.JPanel;
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-          userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        SystemMainJPanel dwjp = (SystemMainJPanel) component;
-        dwjp.populateTable();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+//          userProcessContainer.remove(this);
+//        Component[] componentArray = userProcessContainer.getComponents();
+//        Component component = componentArray[componentArray.length - 1];
+//        SystemMainJPanel dwjp = (SystemMainJPanel) component;
+//        dwjp.populateTable();
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new SystemMainJPanel(userProcessContainer,system));
+                layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

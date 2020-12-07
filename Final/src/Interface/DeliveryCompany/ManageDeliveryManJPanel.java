@@ -52,7 +52,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
             
                 Object row[] = new Object[5];
-                row[0] = deliveryman.getPosition();
+                row[0] = deliveryman;
                 row[1] =deliveryman.getUserAccount().getUsername();
                 row[2] =deliveryman.getUserAccount().getPassword();
                 row[3] =deliveryman.getTelephone();

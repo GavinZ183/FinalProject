@@ -35,9 +35,12 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
     
     public void populateChatRecord(){
         String chatRecord = "";
-        for(String message: item.getMessages()){
-            chatRecord = chatRecord + message;
+        for(int i=0;i<item.getMessages().size();i++){
+             chatRecord=chatRecord +item.getMessages().get(i)+"\r\n";
         }
+           
+           
+        
         txtChatRecord.setLineWrap(true);
         txtChatRecord.setWrapStyleWord(true);
         txtChatRecord.setText(chatRecord);

@@ -59,12 +59,12 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
         for(BuyOrderItem buyOrderItem:driver.getBuyOrder().getOrderItemList()){
             
                 Object row[] = new Object[6];
-                row[0] = buyOrderItem.getGood();
+                row[0] = buyOrderItem;
                 row[1] =buyOrderItem.getQuantity();
                
                 row[2] =buyOrderItem.getBuyer().getPosition();
                
-                row[3]=buyOrderItem.getSeller().getPosition();
+                row[3]=buyOrderItem.getGood().getSeller().getPosition();
                 row[4]=buyOrderItem.getStatus();
                 row[5]=buyOrderItem.getCreateTime();
                 
@@ -258,13 +258,13 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Driver"){
+        if(buyOrderItem.getStatus().equals("ASSIGND Driver")){
             buyOrderItem.setStatus("Driver Deliverying");
             JOptionPane.showMessageDialog(null, "Assigned this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
-            
+          populateTable();   
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -280,6 +280,7 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
          CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         userProcessContainer.add(new DeliveryViewBuyOrderJPanel(userProcessContainer,buyOrderItem));
         layout.next(userProcessContainer);
+         populateTable();
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnRefuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefuseActionPerformed
@@ -293,12 +294,13 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="ASSIGND Driver"){
+        if(buyOrderItem.getStatus().equals("ASSIGND Driver")){
             buyOrderItem.setStatus("Driver Refused");
             JOptionPane.showMessageDialog(null, "Refused this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+         populateTable();
             
     }//GEN-LAST:event_btnRefuseActionPerformed
 
@@ -313,13 +315,13 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
       
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
         
-        if(buyOrderItem.getStatus()=="Driver Deliverying"){
+        if(buyOrderItem.getStatus().equals("Driver Deliverying")){
             buyOrderItem.setStatus("Arrive at Express transfer station");
             JOptionPane.showMessageDialog(null, "Finished this order Successfully");
         }
             else
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
-            
+        populateTable();     
     }//GEN-LAST:event_btnFinishActionPerformed
 
 
