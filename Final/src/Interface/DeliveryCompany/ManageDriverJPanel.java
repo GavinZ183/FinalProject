@@ -380,7 +380,12 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         }
       Driver deliveryman = (Driver)jTable1.getValueAt(selectedRow, 0);
       
-     
+     //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
       
       deliveryman.setPosition(txtPosition.getText());
       deliveryman.setTelephone(txtTelephone.getText());

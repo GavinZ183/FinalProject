@@ -459,8 +459,9 @@ public void populateTable(){
         txtProduct.setText(product.getProdName());
         txtPrice.setText(String.valueOf(product.getPrice()));
 //        txtDescription.setText(product.getDiscribe());
- txtDescription.setText(product.getImagePath());
+ txtDescription.setText(product.getDiscribe());
         txtQuantity.setText(String.valueOf(product.getQuantity()));
+        ImagePath=product.getImagePath();
         
 //        ImageIcon photo = new ImageIcon(product.getImagePath());
 //        Image image = photo.getImage();

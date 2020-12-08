@@ -66,7 +66,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         
         for(BuyOrderItem buyOrderItem: orderItemList){
            Object row[] = new Object[7];
-                row[0] = buyOrderItem.getGood();
+                row[0] = buyOrderItem;
                 row[1] =buyOrderItem.getQuantity();
                 row[2] =buyOrderItem.getBuyer();
                 row[3] =buyOrderItem.getBuyer().getPosition();

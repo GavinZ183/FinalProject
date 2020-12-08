@@ -314,6 +314,13 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
             return;
         }
         PriceManage pm = (PriceManage)jTable1.getValueAt(selectedRow, 0);
+        
+        //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         pm.setName( txtName.getText());
         pm.setTelephone(txtTelephone.getText());

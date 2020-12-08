@@ -147,6 +147,11 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         jLabel8.setText("Status:");
 
         btnFreshTable.setText("Fresh table");
+        btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFreshTableActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +312,7 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         if(prudname.length()>0){
             for(Seller seller:network.getSellerDirectory().getSellerList()){
                 for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
-                    if(sellOrderItem.getSupplier().equals(supplier)&&sellOrderItem.getProduct().getProdName().equals(prudname)){
+                    if(sellOrderItem.getProduct().getSupplier().equals(supplier)&&sellOrderItem.getProduct().getProdName().equals(prudname)){
                     orderItemList.add(sellOrderItem);
                     }
                 }
@@ -316,7 +321,7 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         else{
              for(Seller seller:network.getSellerDirectory().getSellerList()){
                  for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
-                    if(sellOrderItem.getSupplier().equals(supplier)){
+                    if(sellOrderItem.getProduct().getSupplier().equals(supplier)){
                     orderItemList.add(sellOrderItem);
                     }
                 }
@@ -379,12 +384,7 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
         jLabel5.setForeground(Color.black);
        
-    }                                         
-
-    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-       populateTable();
-    }                                             
+    }                                                                                    
 
   
     {                                           
@@ -396,6 +396,11 @@ public class ManageSellerOrderJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnFreshTableActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

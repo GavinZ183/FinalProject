@@ -374,14 +374,20 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
         }
       Buyer buyer = (Buyer)jTable1.getValueAt(selectedRow, 0);
       
-     
+     //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
       
       buyer.setAddress(txtAddress.getText());
       buyer.setTelephone(txtTelephone.getText());
       buyer.getUserAccount().setPassword(txtPassword.getText());
       buyer.getUserAccount().setUsername(txtUsername.getText());
        populateTable();
-        
+        btnSave.setEnabled(false);
+       btnUpdate.setEnabled(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

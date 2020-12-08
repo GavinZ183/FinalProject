@@ -5,11 +5,19 @@
  */
 package Interface.SystemAdmin;
 
+import Business.Buyer.Buyer;
 import Business.EcoSystem;
+import Business.ExpressCompany.ExpressCompany;
 import Business.Network.Network;
+import Business.Seller.Seller;
+import Business.Service.Service;
+import Business.Supplier.Supplier;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -32,10 +40,63 @@ import javax.swing.JPanel;
         this.network=network;
         this.system=system;
         label.setText(network.getName());
-        
+        populateTree();
     }
 
-   
+   public void populateTree(){
+        DefaultTreeModel model=(DefaultTreeModel)jTree1.getModel();
+       // Add the code for draw your system structure shown by JTree
+        ArrayList<Buyer> buyerList=network.getBuyerDirectory().getBuyerList();
+        ArrayList<Seller> sellerList=network.getSellerDirectory().getSellerList();
+        ArrayList<ExpressCompany> expressCompanyList=network.getExpressCompanyDir().getExpressCompanyList();
+        ArrayList<Supplier> supplierList = network.getSupplierDirectory().getsupplierList();
+        ArrayList<Service> serviceList = network.getServiceDir().getserviceList();
+       
+        DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        
+        DefaultMutableTreeNode buy=new DefaultMutableTreeNode("Networks");
+        root.insert(buy, 0);        
+        for(int i=0;i<buyerList.size();i++){
+            Buyer buyer=buyerList.get(i);
+            DefaultMutableTreeNode buyerNode=new DefaultMutableTreeNode(buyer);
+            buy.insert(buyerNode, i);
+        }          
+        
+        DefaultMutableTreeNode sell=new DefaultMutableTreeNode("Networks");
+        root.insert(sell, 0);        
+        for(int i=0;i<sellerList.size();i++){
+            Seller seller=sellerList.get(i);
+            DefaultMutableTreeNode sellerNode=new DefaultMutableTreeNode(seller);
+            sell.insert(sellerNode, i);
+        }
+        
+        DefaultMutableTreeNode express=new DefaultMutableTreeNode("DeliveryMen");      
+        root.insert(express, 1);
+        for(int i=0;i<expressCompanyList.size();i++){
+            ExpressCompany expressCompany=expressCompanyList.get(i);
+            DefaultMutableTreeNode expressCompanyNode=new DefaultMutableTreeNode(expressCompany);
+            express.insert(expressCompanyNode, i);
+        }
+        
+        DefaultMutableTreeNode sup=new DefaultMutableTreeNode("DeliveryMen");      
+        root.insert(sup, 1);
+        for(int i=0;i<supplierList.size();i++){
+            Supplier supplier=supplierList.get(i);
+            DefaultMutableTreeNode supplierNode=new DefaultMutableTreeNode(supplier);
+            sup.insert(supplierNode, i);
+        }
+        
+        DefaultMutableTreeNode ser=new DefaultMutableTreeNode("DeliveryMen");      
+        root.insert(ser, 1);
+        for(int i=0;i<serviceList.size();i++){
+            Service service=serviceList.get(i);
+            DefaultMutableTreeNode serviceNode=new DefaultMutableTreeNode(service.getUserAccount().getUsername());
+            ser.insert(serviceNode, i);
+        }
+        
+        model.reload();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

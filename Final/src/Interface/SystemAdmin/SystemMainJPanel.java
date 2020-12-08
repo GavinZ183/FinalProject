@@ -34,7 +34,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
        this.userProcessContainer=userProcessContainer;
         this.system=system;
         populateTable();
-        //populateTree();
+        populateTree();
     }
 
     
@@ -53,6 +53,24 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                 }
             }
+    
+    public void populateTree(){
+        DefaultTreeModel model=(DefaultTreeModel)jTree1.getModel();
+       // Add the code for draw your system structure shown by JTree
+        ArrayList<Network> networkList = system.getNetworkList();
+ 
+        DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
+        root.removeAllChildren();
+        
+        DefaultMutableTreeNode net=new DefaultMutableTreeNode("Networks");
+        root.insert(net, 0);        
+        for(int i=0;i<networkList.size();i++){
+            Network network=networkList.get(i);
+            DefaultMutableTreeNode networkNode=new DefaultMutableTreeNode(network);
+            net.insert(networkNode, i);
+        }
+        model.reload();
+    }
 //    public void populateTree(){
 //        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
 //       // Add the code for draw your system structure shown by JTree

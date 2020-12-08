@@ -320,6 +320,13 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
             return;
         }
         SalesManage sm = (SalesManage)jTable1.getValueAt(selectedRow, 0);
+        
+        //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         sm.setName( txtName.getText());
         sm.setTelephone(txtTelephone.getText());

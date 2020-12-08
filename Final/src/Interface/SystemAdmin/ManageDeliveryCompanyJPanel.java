@@ -355,12 +355,19 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
      ExpressCompany expressCompany = ( ExpressCompany)jTable1.getValueAt(selectedRow, 0);
       
      
-      
+      //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
      
       expressCompany.setName(txtName.getText());
       expressCompany.getUserAccount().setPassword(txtPassword.getText());
       expressCompany.getUserAccount().setUsername(txtUsername.getText());
        populateTable();
+       btnSave.setEnabled(false);
+       btnUpdate.setEnabled(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

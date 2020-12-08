@@ -61,7 +61,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             row[1] = item.getGood().getPrice();
             row[2] = item.getGood().getSeller();
             row[3] = item.getQuantity();
-            row[4] = item.getEvaluate();
+            row[4] = item.getEvaluate().getWord();
             row[5] = item.getCreateTime();
             row[6] = item.getStatus();
 
@@ -82,7 +82,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             row[1] = item.getGood().getPrice();
             row[2] = item.getGood().getSeller();
             row[3] = item.getQuantity();
-            row[4] = item.getEvaluate();
+            row[4] = item.getEvaluate().getWord();
             row[5] = item.getCreateTime();
             row[6] = item.getStatus();
 

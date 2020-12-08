@@ -410,14 +410,20 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         }
       Supplier buyer = (Supplier)jTable1.getValueAt(selectedRow, 0);
       
-     
+     //check If Username Is Unique
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
       
       buyer.setName(txtName.getText());
       buyer.setType(txtType.getText());
       buyer.getUserAccount().setPassword(txtPassword.getText());
       buyer.getUserAccount().setUsername(txtUsername.getText());
        populateTable();
-        
+       btnSave.setEnabled(false);
+       btnUpdate.setEnabled(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
