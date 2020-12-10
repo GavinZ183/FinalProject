@@ -132,6 +132,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnChartReport = new javax.swing.JButton();
 
         jPanel1.setBackground(java.awt.Color.pink);
 
@@ -171,7 +172,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 btnCreateNetworkActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCreateNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 343, -1, 41));
+        jPanel2.add(btnCreateNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 343, -1, 41));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("System Admin Main Screen");
@@ -206,6 +207,15 @@ public class SystemMainJPanel extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/001-地球.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 33, -1, -1));
+
+        btnChartReport.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
+        btnChartReport.setText("Chart Report");
+        btnChartReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChartReportActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnChartReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 160, 41));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -242,8 +252,16 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 layout.next(userProcessContainer);
     }//GEN-LAST:event_btnEnterNetworkActionPerformed
 
+    private void btnChartReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartReportActionPerformed
+        // TODO add your handling code here:
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+               userProcessContainer.add(new ChartJPanel(userProcessContainer,system));
+                layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnChartReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChartReport;
     private javax.swing.JButton btnCreateNetwork;
     private javax.swing.JButton btnEnterNetwork;
     private javax.swing.JLabel jLabel1;
