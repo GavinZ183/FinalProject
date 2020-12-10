@@ -85,9 +85,14 @@ public class ServiceJPanel extends javax.swing.JPanel {
         btnContact = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Customer Service Staff Workarea");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 27, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,12 +122,15 @@ public class ServiceJPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(8);
         }
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 112, 806, 147));
+
         btnContact.setText("Contact Buyer");
         btnContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContactActionPerformed(evt);
             }
         });
+        add(btnContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 405, 170, -1));
 
         btnCancel.setText("Cancel Order");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +138,7 @@ public class ServiceJPanel extends javax.swing.JPanel {
                 btnCancelActionPerformed(evt);
             }
         });
+        add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 358, 170, -1));
 
         btnView.setText("View Order Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -137,49 +146,10 @@ public class ServiceJPanel extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 311, 170, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(192, 192, 192))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnContact, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                .addComponent(btnView)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancel)
-                .addGap(27, 27, 27)
-                .addComponent(btnContact, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(112, 112, 112)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(253, Short.MAX_VALUE)))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/客服.png"))); // NOI18N
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactActionPerformed
@@ -240,6 +210,7 @@ public class ServiceJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnContact;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -114,12 +114,19 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         btnAssignDriver = new javax.swing.JButton();
         btnAssignDeliveryMan = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage ExpressOrder Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 35, 371, -1));
 
         jLabel2.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel2.setText("Dilivery Company:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -127,10 +134,14 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 339, 161, -1));
+        add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 339, 141, -1));
 
         jLabel4.setText("Goods:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 306, -1, -1));
 
         jLabel6.setText("Buyer:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 344, -1, -1));
 
         btnChooseDeliveryDriver.setText("Choose Driver");
         btnChooseDeliveryDriver.addActionListener(new java.awt.event.ActionListener() {
@@ -138,8 +149,13 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnChooseDeliveryDriverActionPerformed(evt);
             }
         });
+        add(btnChooseDeliveryDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 437, 185, -1));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 301, 141, -1));
 
         jLabel7.setText("Buyer Position:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+        add(txtBuyerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 140, -1));
+        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 140, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,9 +182,13 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 768, 147));
+
         jLabel8.setText("Status:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
         jComboBox1.setEnabled(false);
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 437, 157, -1));
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -176,8 +196,10 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
 
         jLabel9.setText("Delivery Driver:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 441, -1, -1));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -185,12 +207,18 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, -1, -1));
+        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 380, 141, -1));
 
         jLabel10.setText("Seller:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 385, -1, -1));
 
         jLabel11.setText("Seller Position:");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
+        add(txtSellerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
 
         jComboBox2.setEnabled(false);
+        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 515, 169, -1));
 
         btnChooseDeliveryMan.setText("Choose Delivery Man");
         btnChooseDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
@@ -198,8 +226,10 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnChooseDeliveryManActionPerformed(evt);
             }
         });
+        add(btnChooseDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 516, 185, -1));
 
         jLabel12.setText("Delivery Man:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 519, -1, -1));
 
         btnAssignDriver.setText("Assign Driver");
         btnAssignDriver.setEnabled(false);
@@ -208,6 +238,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnAssignDriverActionPerformed(evt);
             }
         });
+        add(btnAssignDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 475, 185, -1));
 
         btnAssignDeliveryMan.setText("Assign Delivery Man");
         btnAssignDeliveryMan.setEnabled(false);
@@ -216,133 +247,13 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnAssignDeliveryManActionPerformed(evt);
             }
         });
+        add(btnAssignDeliveryMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 551, 185, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(291, 291, 291))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack)
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGap(90, 90, 90)
-                                            .addComponent(txtBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel6))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(txtProduct)))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtBuyerPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(90, 90, 90)
-                                        .addComponent(txtSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel10))
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSellerPosition)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(443, 443, 443)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnChooseDeliveryDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnChooseDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnFreshTable)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(721, 721, 721)
-                .addComponent(btnAssignDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(721, 721, 721)
-                .addComponent(btnAssignDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2)
-                .addGap(9, 9, 9)
-                .addComponent(btnFreshTable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtBuyerPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtSeller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtSellerPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnChooseDeliveryDriver)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(9, 9, 9)
-                .addComponent(btnAssignDriver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnChooseDeliveryMan)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAssignDeliveryMan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addContainerGap())
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/数据协同.png"))); // NOI18N
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 900, 650));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/022-直销.png"))); // NOI18N
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 70, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChooseDeliveryDriverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseDeliveryDriverActionPerformed
@@ -595,6 +506,8 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

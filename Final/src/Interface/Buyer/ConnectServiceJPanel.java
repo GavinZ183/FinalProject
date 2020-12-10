@@ -64,6 +64,11 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtChatBox = new javax.swing.JTextArea();
         btnSend = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -71,21 +76,29 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 483, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Connect Service Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 45, -1, -1));
 
         jLabel2.setText("Chat Record:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 150, -1, -1));
 
         txtChatRecord.setColumns(20);
         txtChatRecord.setRows(5);
         jScrollPane1.setViewportView(txtChatRecord);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 150, 449, 187));
+
         jLabel3.setText("Chat Box:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 373, -1, -1));
 
         txtChatBox.setColumns(20);
         txtChatBox.setRows(5);
         jScrollPane2.setViewportView(txtChatBox);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 373, 326, -1));
 
         btnSend.setText("Send");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
@@ -93,51 +106,13 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
                 btnSendActionPerformed(evt);
             }
         });
+        add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 396, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSend)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btnBack))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(239, 239, 239)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(129, 129, 129)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1)
-                                .addComponent(jScrollPane2)))))
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSend)
-                .addGap(59, 59, 59)
-                .addComponent(btnBack)
-                .addContainerGap())
-        );
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/客服 (1).png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 120, 100));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/问号1.png"))); // NOI18N
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 120, 100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -163,8 +138,10 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSend;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtChatBox;

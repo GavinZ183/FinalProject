@@ -102,6 +102,11 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         productOrderTable = new javax.swing.JTable();
         btnRecieve = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -109,11 +114,14 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 101, -1, -1));
 
         jLabel2.setText("Good list:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Good Screen");
+        jLabel1.setText("Manage Goods Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 24, 564, -1));
 
         goodInventoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,17 +148,22 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(goodInventoryTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 101, 576, 147));
+
         btnPurChase.setText("Purchase Goods");
         btnPurChase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPurChaseActionPerformed(evt);
             }
         });
+        add(btnPurChase, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 284, 245, 54));
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel3.setText("Peoduct Order Screen");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 314, -1));
 
         jLabel4.setText("Product order list:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 397, -1, -1));
 
         btnFreshTable1.setText("Fresh table");
         btnFreshTable1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +171,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnFreshTable1ActionPerformed(evt);
             }
         });
+        add(btnFreshTable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 392, -1, -1));
 
         productOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,73 +198,21 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(productOrderTable);
 
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 433, 795, 147));
+
         btnRecieve.setText("Recieve");
         btnRecieve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecieveActionPerformed(evt);
             }
         });
+        add(btnRecieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 592, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(291, 291, 291))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1)
-                .addGap(18, 18, 18)
-                .addComponent(btnFreshTable)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFreshTable1))
-                    .addComponent(jScrollPane3))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPurChase, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRecieve)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(btnFreshTable))
-                .addGap(52, 52, 52)
-                .addComponent(btnPurChase, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(btnFreshTable1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRecieve)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/库存.png"))); // NOI18N
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, 70));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/024-货物查询.png"))); // NOI18N
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 100, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPurChaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurChaseActionPerformed
@@ -316,6 +278,8 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRecieve;
     private javax.swing.JTable goodInventoryTable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -24,12 +25,24 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+  // 得到显示器屏幕的宽高
+    public int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+    public int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+    // 定义窗体的宽高
+    public int windowsWedth = 1000;
+    public int windowsHeight = 700;
 
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
         
-        this.setSize(1680, 1050);
+        //this.setSize(1000, 700);
+       
+  
+        // 设置窗体位置和大小
+        this.setBounds((width - windowsWedth) / 2,
+                (height - windowsHeight) / 2, windowsWedth, windowsHeight);
+    
     }
    
     /**
@@ -51,106 +64,83 @@ public class MainJFrame extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         btnNewUser = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 700));
 
+        leftPanel.setBackground(java.awt.Color.pink);
         leftPanel.setPreferredSize(new java.awt.Dimension(160, 698));
+        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Welcome, ");
+        jLabel1.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
+        jLabel1.setText("Welcome: ");
+        leftPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
         jLabel2.setText("Username:");
+        leftPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 124, -1, -1));
+        leftPanel.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 150, 148, -1));
 
+        jLabel3.setFont(new java.awt.Font("Palatino", 0, 18)); // NOI18N
         jLabel3.setText("Password:");
+        leftPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 218, -1, -1));
 
-        btnLogin.setText("login");
+        btnLogin.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
+        leftPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 370, 148, 40));
 
-        btnLogout.setText("logout");
+        btnLogout.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
+        leftPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 447, 148, 40));
+        leftPanel.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 250, 148, -1));
 
-        btnNewUser.setText("New User");
+        btnNewUser.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        btnNewUser.setText("New Buyer");
         btnNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewUserActionPerformed(evt);
             }
         });
+        leftPanel.add(btnNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 531, 148, 40));
 
-        javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
-        leftPanel.setLayout(leftPanelLayout);
-        leftPanelLayout.setHorizontalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(leftPanelLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel1))
-                            .addGroup(leftPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(leftPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                            .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtUsername)
-                            .addComponent(txtPassword))))
-                .addContainerGap())
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnNewUser)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        leftPanelLayout.setVerticalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(btnLogin)
-                .addGap(18, 18, 18)
-                .addComponent(btnLogout)
-                .addGap(39, 39, 39)
-                .addComponent(btnNewUser)
-                .addContainerGap(272, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
+        leftPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 72, 124, 28));
 
         jSplitPane1.setLeftComponent(leftPanel);
 
+        rightPanel.setBackground(java.awt.Color.pink);
         rightPanel.setLayout(new java.awt.CardLayout());
+
+        jLabel5.setBackground(java.awt.Color.pink);
+        jLabel5.setFont(new java.awt.Font("Palatino", 1, 36)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/购物.png"))); // NOI18N
+        jLabel5.setText("     Welcome to Shopping System");
+        rightPanel.add(jLabel5, "card2");
+
         jSplitPane1.setRightComponent(rightPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -173,7 +163,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         txtUsername.setText("");
         txtPassword.setText("");
-        jLabel1.setText("Welcome, ");
+        jLabel4.setText("");
 
         rightPanel.removeAll();
         JPanel blankJP = new JPanel();
@@ -208,7 +198,7 @@ public class MainJFrame extends javax.swing.JFrame {
         rightPanel.add(user.getRole().createWorkArea(rightPanel, user, system,network));
         layout.next(rightPanel);
 
-        jLabel1.setText(jLabel1.getText()+username);
+        jLabel4.setText(username);
 
         btnLogout.setEnabled(true);
         txtUsername.setEnabled(false);
@@ -259,6 +249,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;

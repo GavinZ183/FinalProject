@@ -52,9 +52,15 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
         btnAssign = new javax.swing.JButton();
         btnManageDriver = new javax.swing.JButton();
         btnDeliveryman = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Express Company Main Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         btnAssign.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnAssign.setText("Assign Order");
@@ -63,6 +69,7 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
                 btnAssignActionPerformed(evt);
             }
         });
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 378, 41));
 
         btnManageDriver.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageDriver.setText("Manage Driver");
@@ -71,6 +78,7 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
                 btnManageDriverActionPerformed(evt);
             }
         });
+        add(btnManageDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 378, 41));
 
         btnDeliveryman.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnDeliveryman.setText("Manage Deliveryman");
@@ -79,34 +87,13 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
                 btnDeliverymanActionPerformed(evt);
             }
         });
+        add(btnDeliveryman, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 378, 41));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAssign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnManageDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addGap(193, 193, 193))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addGap(78, 78, 78)
-                .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnManageDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/电商插画 (3).png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/014-物流.png"))); // NOI18N
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 70, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
@@ -136,5 +123,7 @@ public class DeliveryCompanyMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDeliveryman;
     private javax.swing.JButton btnManageDriver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel14;
     // End of variables declaration//GEN-END:variables
 }

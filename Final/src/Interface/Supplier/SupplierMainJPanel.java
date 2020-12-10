@@ -49,9 +49,15 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
         btnManageSellerOrder = new javax.swing.JButton();
         btnManageGood = new javax.swing.JButton();
         btnManageInformaton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Supplier Main Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 21, -1, -1));
 
         btnManageSellerOrder.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageSellerOrder.setText("Manage Seller Order");
@@ -60,6 +66,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
                 btnManageSellerOrderActionPerformed(evt);
             }
         });
+        add(btnManageSellerOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 158, 261, 41));
 
         btnManageGood.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageGood.setText("Manage Product");
@@ -68,6 +75,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
                 btnManageGoodActionPerformed(evt);
             }
         });
+        add(btnManageGood, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 241, 261, 41));
 
         btnManageInformaton.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageInformaton.setText("Manage Informaton");
@@ -76,33 +84,13 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
                 btnManageInformatonActionPerformed(evt);
             }
         });
+        add(btnManageInformaton, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 326, 261, 41));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageSellerOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageGood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageInformaton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(276, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(122, 122, 122)
-                .addComponent(btnManageSellerOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnManageGood, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnManageInformaton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
-        );
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/公司.png"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 110, 100));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/016-代理商.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageSellerOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSellerOrderActionPerformed
@@ -147,5 +135,7 @@ public class SupplierMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageInformaton;
     private javax.swing.JButton btnManageSellerOrder;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

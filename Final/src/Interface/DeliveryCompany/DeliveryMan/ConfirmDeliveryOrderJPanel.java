@@ -45,6 +45,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
             
         
         populateTable();
+        labelStatus();
         
         jComboBox1.addItem("WORK");
         jComboBox1.addItem("REST");
@@ -96,9 +97,15 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         btnFinish = new javax.swing.JButton();
         btnChange = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("DeliveryMan Workarea");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 23, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,12 +135,15 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(0).setPreferredWidth(8);
         }
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 112, 806, 147));
+
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 394, 108, -1));
 
         btnRefuse.setText("Refuse");
         btnRefuse.addActionListener(new java.awt.event.ActionListener() {
@@ -141,9 +151,13 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnRefuseActionPerformed(evt);
             }
         });
+        add(btnRefuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 435, 108, -1));
 
         jStatus.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jStatus.setText("\"status\"");
+        add(jStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 285, -1, -1));
+
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 334, 92, -1));
 
         btnView.setText("View Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +165,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 394, 108, -1));
 
         btnFinish.setText("Finish");
         btnFinish.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +173,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnFinishActionPerformed(evt);
             }
         });
+        add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 435, 108, -1));
 
         btnChange.setText("Change my status");
         btnChange.addActionListener(new java.awt.event.ActionListener() {
@@ -165,77 +181,17 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnChangeActionPerformed(evt);
             }
         });
+        add(btnChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, 139, -1));
 
         jLabel4.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel4.setText("My status:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 285, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(100, 100, 100)
-                                .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jStatus))))
-                .addGap(0, 276, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 285, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jStatus))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnChange))
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnView)
-                    .addComponent(btnAccept))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFinish)
-                    .addComponent(btnRefuse))
-                .addGap(48, 48, 48))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(112, 112, 112)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(253, Short.MAX_VALUE)))
-        );
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/012-服务.png"))); // NOI18N
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 340, 70, 70));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/014-快递员.png"))); // NOI18N
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 70, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
@@ -338,6 +294,8 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jStatus;

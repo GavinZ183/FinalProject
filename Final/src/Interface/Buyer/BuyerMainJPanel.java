@@ -46,9 +46,15 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
         btnshopping = new javax.swing.JButton();
         btnHistoryOrder = new javax.swing.JButton();
         btnManageInformation = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        setBackground(java.awt.Color.pink);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Buyer Main Screen");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 42, -1, -1));
 
         btnshopping.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnshopping.setText("Shopping");
@@ -57,6 +63,7 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 btnshoppingActionPerformed(evt);
             }
         });
+        add(btnshopping, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 228, 41));
 
         btnHistoryOrder.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnHistoryOrder.setText("History order");
@@ -65,6 +72,7 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 btnHistoryOrderActionPerformed(evt);
             }
         });
+        add(btnHistoryOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 228, 41));
 
         btnManageInformation.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageInformation.setText("Manage information");
@@ -73,33 +81,13 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
                 btnManageInformationActionPerformed(evt);
             }
         });
+        add(btnManageInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 228, 41));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnshopping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHistoryOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(293, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(122, 122, 122)
-                .addComponent(btnshopping, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnHistoryOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnManageInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(327, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/电商插画 (2).png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/购物 (1).png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 31, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnshoppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnshoppingActionPerformed
@@ -135,5 +123,7 @@ public class BuyerMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageInformation;
     private javax.swing.JButton btnshopping;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

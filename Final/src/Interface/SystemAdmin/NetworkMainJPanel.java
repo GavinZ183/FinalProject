@@ -121,6 +121,10 @@ import javax.swing.tree.DefaultTreeModel;
         btnManageService = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(java.awt.Color.pink);
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -128,7 +132,7 @@ import javax.swing.tree.DefaultTreeModel;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,6 +143,9 @@ import javax.swing.tree.DefaultTreeModel;
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(java.awt.Color.pink);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnManageSupplier.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageSupplier.setText("Manage supplier");
         btnManageSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +153,7 @@ import javax.swing.tree.DefaultTreeModel;
                 btnManageSupplierActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 406, 324, 41));
 
         btnManageDeliveryCompany.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageDeliveryCompany.setText("Manage delivery company");
@@ -154,6 +162,7 @@ import javax.swing.tree.DefaultTreeModel;
                 btnManageDeliveryCompanyActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageDeliveryCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 331, 324, 41));
 
         btnManageSeller.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageSeller.setText("Manage seller");
@@ -162,6 +171,7 @@ import javax.swing.tree.DefaultTreeModel;
                 btnManageSellerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 259, 324, 41));
 
         btnManageBuyer.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageBuyer.setText("Manage buyer");
@@ -170,12 +180,15 @@ import javax.swing.tree.DefaultTreeModel;
                 btnManageBuyerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 184, 324, 41));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Systemadmin Main Screen");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 34, -1, -1));
 
         label.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         label.setText("Network:");
+        jPanel2.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 114, 119, -1));
 
         btnManageService.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnManageService.setText("Manage Customer Service Staff");
@@ -184,9 +197,11 @@ import javax.swing.tree.DefaultTreeModel;
                 btnManageServiceActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageService, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 491, 324, 40));
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel3.setText("Network:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 114, 119, -1));
 
         btnBack.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnBack.setText("<<Back");
@@ -195,55 +210,13 @@ import javax.swing.tree.DefaultTreeModel;
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel2.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 492, 121, 38));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnManageService, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageBuyer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageSeller, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageDeliveryCompany, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(175, 175, 175))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label)
-                    .addComponent(jLabel3))
-                .addGap(35, 35, 35)
-                .addComponent(btnManageBuyer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageSeller, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnManageDeliveryCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(btnManageSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManageService, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(316, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/003-地球.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 23, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/013-管理.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 549, -1, -1));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -317,7 +290,9 @@ import javax.swing.tree.DefaultTreeModel;
     private javax.swing.JButton btnManageService;
     private javax.swing.JButton btnManageSupplier;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

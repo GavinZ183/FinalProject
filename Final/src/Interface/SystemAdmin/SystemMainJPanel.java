@@ -130,6 +130,10 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         table = new javax.swing.JTable();
         txtNetwork = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jPanel1.setBackground(java.awt.Color.pink);
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -148,6 +152,9 @@ public class SystemMainJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(java.awt.Color.pink);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnEnterNetwork.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnEnterNetwork.setText("Enter Network");
         btnEnterNetwork.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +162,7 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 btnEnterNetworkActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEnterNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 343, -1, 41));
 
         btnCreateNetwork.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnCreateNetwork.setText("Create Network");
@@ -163,9 +171,11 @@ public class SystemMainJPanel extends javax.swing.JPanel {
                 btnCreateNetworkActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCreateNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 343, -1, 41));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("Systemadmin Main Screen");
+        jLabel1.setText("System Admin Main Screen");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 36, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,52 +195,17 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(table);
 
-        jLabel5.setText("Network:");
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 108, 424, 147));
+        jPanel2.add(txtNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 287, 169, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(175, 175, 175))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(216, 216, 216))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(btnCreateNetwork)
-                        .addGap(121, 121, 121)
-                        .addComponent(btnEnterNetwork))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEnterNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(412, Short.MAX_VALUE))
-        );
+        jLabel5.setText("Network:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 292, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 402, 70, 70));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/001-地球.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 33, -1, -1));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -272,6 +247,8 @@ public class SystemMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreateNetwork;
     private javax.swing.JButton btnEnterNetwork;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
