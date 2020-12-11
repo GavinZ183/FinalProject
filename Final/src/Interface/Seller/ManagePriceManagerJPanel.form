@@ -43,7 +43,7 @@
     <Component class="javax.swing.JTextField" name="txtTelephone">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="357" y="412" width="166" height="-1"/>
+          <AbsoluteConstraints x="360" y="412" width="166" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -179,7 +179,7 @@
     <Component class="javax.swing.JTextField" name="txtTelephone1">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="357" y="576" width="166" height="-1"/>
+          <AbsoluteConstraints x="360" y="576" width="166" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -29,6 +29,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
     EcoSystem system;
     Seller seller;
     Network network;
+    String oldname = "";
     public ManagePriceManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system,Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -102,7 +103,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 365, -1, -1));
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 412, 166, -1));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 412, 166, -1));
 
         jLabel13.setText("Username:");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 521, -1, -1));
@@ -151,7 +152,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Telephone:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 417, -1, -1));
-        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 576, 166, -1));
+        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 576, 166, -1));
 
         jLabel12.setText("Name:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 521, -1, -1));
@@ -236,11 +237,15 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         PriceManage pm = (PriceManage)jTable1.getValueAt(selectedRow, 0);
         
         //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        if(txtName.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
 
         pm.setName( txtName.getText());
         pm.setTelephone(txtTelephone.getText());
@@ -252,6 +257,10 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
 
         btnSave.setEnabled(false);
         btnUpdate.setEnabled(true);
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtTelephone.setText("");
+        txtName.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -275,6 +284,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         txtUsername.setText(pm.getUserAccount().getUsername());
         txtPassword.setText(pm.getUserAccount().getPassword());
         txtTelephone.setText(pm.getTelephone());
+        oldname = pm.getUserAccount().getUsername();
 
         btnSave.setEnabled(true);
         btnUpdate.setEnabled(false);

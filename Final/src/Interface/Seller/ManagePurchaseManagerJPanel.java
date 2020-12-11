@@ -29,6 +29,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
     EcoSystem system;
     Seller seller;
     Network network;
+    String oldname = "";
     public ManagePurchaseManagerJPanel(JPanel userProcessContainer, Seller seller, EcoSystem system,Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -99,9 +100,9 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 391, 166, -1));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 391, 166, -1));
         add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 495, 163, -1));
-        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 543, 166, -1));
+        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 543, 166, -1));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 548, -1, -1));
@@ -239,6 +240,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
         txtUsername.setText(pm.getUserAccount().getUsername());
         txtPassword.setText(pm.getUserAccount().getPassword());
         txtTelephone.setText(pm.getTelephone());
+        oldname = pm.getUserAccount().getUsername();
 
         btnSave.setEnabled(true);
         btnUpdate.setEnabled(false);
@@ -311,12 +313,16 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
         }
         PurchaseManage pm = (PurchaseManage)jTable1.getValueAt(selectedRow, 0);
         
-        //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+       //check If Username Is Unique
+        if(txtName.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
 
         pm.setName( txtName.getText());
         pm.setTelephone(txtTelephone.getText());
@@ -328,6 +334,10 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
         
         btnSave.setEnabled(false);
         btnUpdate.setEnabled(true);
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtTelephone.setText("");
+        txtName.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

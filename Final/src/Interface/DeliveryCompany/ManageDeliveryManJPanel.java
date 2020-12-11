@@ -29,7 +29,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
    ExpressCompany expressCompany;
    EcoSystem system;
    Network network;
-
+   String oldname = "";
     ManageDeliveryManJPanel(JPanel userProcessContainer, ExpressCompany expressCompany, EcoSystem system, Network network) {
         initComponents();
         this.network=network;
@@ -104,7 +104,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 567, 134, -1));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 567, 134, -1));
 
         jLabel4.setText("Position:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 368, -1, -1));
@@ -138,7 +138,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
         jLabel13.setText("Username:");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 524, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 415, 134, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 415, 134, -1));
 
         btnCreate.setText("Create");
         btnCreate.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -233,9 +233,9 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Delivery Man:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 479, -1, -1));
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 519, 169, -1));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 519, 169, -1));
         add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 134, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 363, 169, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 169, -1));
         add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 134, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/006-快递员.png"))); // NOI18N
@@ -274,6 +274,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
       txtUsername.setText(deliveryman.getUserAccount().getUsername());
       txtPassword.setText(deliveryman.getUserAccount().getPassword());
       txtTelephone.setText(deliveryman.getTelephone());
+      oldname = deliveryman.getUserAccount().getUsername();
       
        btnSave.setEnabled(true);
        btnUpdate.setEnabled(false);
@@ -292,13 +293,16 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
             return;
         }
        Deliveryman deliveryman = (Deliveryman)jTable1.getValueAt(selectedRow, 0);
-      
-     //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+      //check If Username Is Unique
+        if(txtUsername.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
       
       deliveryman.setPosition(txtPosition.getText());
       deliveryman.setTelephone(txtTelephone.getText());

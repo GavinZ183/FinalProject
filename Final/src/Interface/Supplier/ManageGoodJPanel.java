@@ -515,7 +515,7 @@ public void populateTable(){
        product.setDiscribe(des);
         product.setQuantity(Integer.parseInt(quantity));
         product.setImagePath(ImagePath);
-        
+        lblImage1.removeAll();
         txtProduct.setEnabled(false);
         txtPrice.setEnabled(false);
         txtDescription.setEnabled(false);

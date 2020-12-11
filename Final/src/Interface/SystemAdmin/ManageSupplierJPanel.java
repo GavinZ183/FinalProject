@@ -27,7 +27,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Network network;
     EcoSystem system;
-    
+    String oldname = "";
 
     ManageSupplierJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
        initComponents();
@@ -103,12 +103,13 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 410, 140, -1));
 
         btnCreate.setText("Create");
+        btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 551, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 551, 90, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 415, -1, -1));
@@ -153,27 +154,29 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 270, -1, -1));
 
         btnFreshTable.setText("Fresh table");
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 57, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 57, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel8.setText("Update Supplier:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 318, -1, -1));
 
         btnDelete.setText("Delete");
+        btnDelete.setPreferredSize(new java.awt.Dimension(90, 30));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 270, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 270, 90, 30));
 
         btnUpdate.setText("Update");
+        btnUpdate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(654, 358, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 358, 90, 30));
 
         jLabel2.setText("Supplier list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
@@ -202,12 +205,13 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 363, -1, -1));
 
         btnSave.setText("Save");
+        btnSave.setPreferredSize(new java.awt.Dimension(90, 30));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(652, 410, 90, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 410, 90, 30));
 
         jLabel12.setText("Name:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 508, -1, -1));
@@ -297,6 +301,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
       txtUsername.setText(buyer.getUserAccount().getUsername());
       txtPassword.setText(buyer.getUserAccount().getPassword());
       txtType.setText(buyer.getType());
+      oldname = buyer.getUserAccount().getUsername();
       
        btnSave.setEnabled(true);
        btnUpdate.setEnabled(false);
@@ -313,11 +318,15 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
       Supplier buyer = (Supplier)jTable1.getValueAt(selectedRow, 0);
       
      //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        if(txtUsername.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
       
       buyer.setName(txtName.getText());
       buyer.setType(txtType.getText());

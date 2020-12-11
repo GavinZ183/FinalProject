@@ -27,7 +27,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Network network;
     EcoSystem system;
-    
+    String oldname = "";
 
     public ManageServiceJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
         initComponents();
@@ -113,12 +113,13 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 323, -1, -1));
 
         btnUpdate.setText("Update");
+        btnUpdate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 360, 90, 30));
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Service:");
@@ -135,12 +136,13 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 368, -1, -1));
 
         btnSave.setText("Save");
+        btnSave.setPreferredSize(new java.awt.Dimension(90, 30));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 415, 90, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 415, 90, 30));
 
         jLabel12.setText("Name:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
@@ -150,12 +152,13 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 415, 134, -1));
 
         btnCreate.setText("Create");
+        btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 520, 90, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -193,15 +196,16 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 57, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 57, -1, 30));
 
         btnDelete.setText("Delete");
+        btnDelete.setPreferredSize(new java.awt.Dimension(90, 30));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 268, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 268, 90, 30));
 
         jLabel2.setText("Service list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
@@ -289,6 +293,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
       txtName.setText(Service.getName());
       txtUsername.setText(Service.getUserAccount().getUsername());
       txtPassword.setText(Service.getUserAccount().getPassword());
+      oldname = Service.getUserAccount().getUsername();
      
       
        btnSave.setEnabled(true);
@@ -306,12 +311,16 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
      Service buyer = (Service)jTable1.getValueAt(selectedRow, 0);
       
      //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        if(txtUsername.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
-      
+        oldname = "";
+        
       buyer.setName(txtName.getText());
     
       buyer.getUserAccount().setPassword(txtPassword.getText());

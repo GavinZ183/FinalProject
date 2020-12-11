@@ -27,8 +27,9 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
      */
    JPanel userProcessContainer;
    ExpressCompany expressCompany;
-           EcoSystem system;
-           Network network;
+    EcoSystem system;
+    Network network;
+    String oldname = "";
 
     ManageDriverJPanel(JPanel userProcessContainer, ExpressCompany expressCompany, EcoSystem system, Network network) {
         initComponents();
@@ -118,7 +119,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Telephone:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 591, -1, -1));
-        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 586, 166, -1));
+        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 586, 166, -1));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 385, -1, -1));
@@ -229,15 +230,15 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Driver list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 87, -1, -1));
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 433, 166, -1));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 433, 166, -1));
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Driver:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 497, -1, -1));
         add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 537, 169, -1));
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 380, 134, -1));
+        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 380, 134, -1));
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 380, 169, -1));
-        add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 537, 134, -1));
+        add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 537, 134, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/015-运输.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 70, 70));
@@ -275,6 +276,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
       txtUsername.setText(deliveryman.getUserAccount().getUsername());
       txtPassword.setText(deliveryman.getUserAccount().getPassword());
       txtTelephone.setText(deliveryman.getTelephone());
+      oldname = deliveryman.getUserAccount().getUsername();
       
        btnSave.setEnabled(true);
        btnUpdate.setEnabled(false);
@@ -295,11 +297,15 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
       Driver deliveryman = (Driver)jTable1.getValueAt(selectedRow, 0);
       
      //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        if(txtUsername.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
       
       deliveryman.setPosition(txtPosition.getText());
       deliveryman.setTelephone(txtTelephone.getText());

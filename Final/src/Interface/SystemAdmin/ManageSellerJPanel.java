@@ -27,7 +27,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
      JPanel userProcessContainer;
     Network network;
     EcoSystem system;
-    
+    String oldname = "";
 
     ManageSellerJPanel(JPanel userProcessContainer, EcoSystem system, Network network) {
        initComponents();
@@ -97,8 +97,8 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 415, 166, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 363, 169, -1));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 415, 166, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 363, 169, -1));
 
         jLabel7.setText("Telephone:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 420, -1, -1));
@@ -107,13 +107,14 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 368, -1, -1));
 
         btnSave.setText("Save");
+        btnSave.setPreferredSize(new java.awt.Dimension(90, 30));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 415, 81, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 415, 129, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 415, 90, 30));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 415, 129, -1));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -146,19 +147,20 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 92, 744, 147));
 
         btnFreshTable.setText("Fresh table");
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 57, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 57, -1, 30));
 
         btnDelete.setText("Delete");
+        btnDelete.setPreferredSize(new java.awt.Dimension(90, 30));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 268, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 268, 90, 30));
 
         jLabel2.setText("Seller list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 363, 128, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 363, 128, -1));
 
         jLabel4.setText("Name:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 368, -1, -1));
@@ -176,12 +178,13 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 323, -1, -1));
 
         btnUpdate.setText("Update");
+        btnUpdate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 363, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 363, 90, 30));
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new seller:");
@@ -191,7 +194,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 572, -1, -1));
         add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 567, 166, -1));
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 519, 169, -1));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 519, 169, -1));
         add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 519, 117, -1));
 
         jLabel11.setText("Telephone:");
@@ -204,12 +207,13 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 524, -1, -1));
 
         btnCreate.setText("Create");
+        btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 567, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 567, 90, 30));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +258,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
       txtUsername.setText(seller.getUserAccount().getUsername());
       txtPassword.setText(seller.getUserAccount().getPassword());
       txtTelephone.setText(seller.getTelephone());
+      oldname = seller.getUserAccount().getUsername();
       
        btnSave.setEnabled(true);
        btnUpdate.setEnabled(false);
@@ -270,11 +275,15 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
       Seller seller = ( Seller)jTable1.getValueAt(selectedRow, 0);
       
      //check If Username Is Unique
-        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+        if(txtUsername.getText().equals(oldname)){}
         else{
-            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
-            return;
+            if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername.getText())){}
+            else{
+                JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+                return;
+            }
         }
+        oldname = "";
       
       seller.setName( txtName.getText());
       seller.setTelephone(txtTelephone.getText());

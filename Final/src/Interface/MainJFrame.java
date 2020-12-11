@@ -29,8 +29,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public int width = Toolkit.getDefaultToolkit().getScreenSize().width;
     public int height = Toolkit.getDefaultToolkit().getScreenSize().height;
     // 定义窗体的宽高
-    public int windowsWedth = 1000;
-    public int windowsHeight = 700;
+    public int windowsWedth = 1020;
+    public int windowsHeight = 720;
 
     public MainJFrame() {
         initComponents();
@@ -166,7 +166,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel4.setText("");
 
         rightPanel.removeAll();
-        JPanel blankJP = new JPanel();
+        JPanel blankJP = new LogoutJPanel();
         rightPanel.add("blank", blankJP);
         CardLayout crdLyt = (CardLayout) rightPanel.getLayout();
         crdLyt.next(rightPanel);
