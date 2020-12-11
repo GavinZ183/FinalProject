@@ -93,6 +93,10 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         txtPosition = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.pink);
 
@@ -117,13 +121,28 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         });
 
         txtPassword1.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassword1KeyPressed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
         jLabel10.setText("Password:");
 
         txtTelephone1.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        txtTelephone1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelephone1KeyPressed(evt);
+            }
+        });
 
         txtUsername1.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsername1KeyPressed(evt);
+            }
+        });
 
         txtAddress1.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
 
@@ -131,6 +150,11 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         jLabel14.setText("re-Password:");
 
         txtPassword2.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
+        txtPassword2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassword2KeyPressed(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
         jLabel15.setText("Network:");
@@ -171,7 +195,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,21 +205,30 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                                             .addComponent(jLabel10))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTelephone1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel16)
-                                            .addGap(36, 36, 36)
-                                            .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addGap(37, 37, 37)
-                                            .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtTelephone1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel13)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addGap(37, 37, 37)
+                                                .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
@@ -214,7 +249,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel13))
-                    .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -225,19 +262,22 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtTelephone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(txtTelephone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                    .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3))
@@ -302,6 +342,58 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Create a UserAccount successfully!");
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    private void txtUsername1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyPressed
+        // TODO add your handling code here:
+        if(usernamePatternCorrect()==false){
+            jLabel4.setText("Invalid Format");
+            jLabel4.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel4.setText("Correct Format!");
+            jLabel4.setForeground(Color.blue);
+        }
+        
+    }//GEN-LAST:event_txtUsername1KeyPressed
+
+    private void txtPassword1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyPressed
+        // TODO add your handling code here:
+        if(passwordPatternCorrect() == false){
+            jLabel6.setText("Invalid Format");
+            jLabel6.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel6.setText("Correct Format!");
+            jLabel6.setForeground(Color.blue);}
+    }//GEN-LAST:event_txtPassword1KeyPressed
+
+    private void txtPassword2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword2KeyPressed
+        // TODO add your handling code here:
+        if(rePasswordPatternCorrect() == false){
+            jLabel5.setText("Invalid Format");
+            jLabel5.setForeground(Color.red);
+            txtPassword2.setBorder(BorderFactory.createLineBorder(Color.red));
+        }
+        else
+        {jLabel5.setText("Correct Format!");
+            jLabel5.setForeground(Color.blue);}
+    }//GEN-LAST:event_txtPassword2KeyPressed
+
+    private void txtTelephone1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelephone1KeyPressed
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+        if(Character.isLetter(c))
+         {
+            jLabel7.setText("Invalid Format");
+            jLabel7.setForeground(Color.red);
+            
+        }
+        else
+        {jLabel7.setText("Correct Format!");
+            jLabel7.setForeground(Color.blue);}
+    }//GEN-LAST:event_txtTelephone1KeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
@@ -316,6 +408,10 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtPassword1;
     private javax.swing.JTextField txtPassword2;
