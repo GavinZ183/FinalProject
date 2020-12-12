@@ -256,6 +256,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
         
         if(buyOrderItem.getStatus().equals("ASSIGND Deliveryman")){
             buyOrderItem.setStatus("Deliveryman Refused");
+            deliveryman.getBuyOrder().getOrderItemList().remove(buyOrderItem);
             JOptionPane.showMessageDialog(null, "Refused this order Successfully");
         }
             else

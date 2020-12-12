@@ -42,7 +42,8 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         }
      }
     private boolean usernamePatternCorrect() {
-    Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+    //Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+    Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+$");
     Matcher m = p.matcher(txtUsername1.getText());
     boolean b = m.matches();
     return b;
@@ -125,6 +126,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassword1KeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword1KeyReleased(evt);
+            }
         });
 
         jLabel10.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
@@ -142,6 +146,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsername1KeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsername1KeyReleased(evt);
+            }
         });
 
         txtAddress1.setFont(new java.awt.Font("Plantagenet Cherokee", 0, 18)); // NOI18N
@@ -153,6 +160,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         txtPassword2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassword2KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword2KeyReleased(evt);
             }
         });
 
@@ -249,9 +259,9 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel13))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -344,45 +354,21 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
 
     private void txtUsername1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyPressed
         // TODO add your handling code here:
-        if(usernamePatternCorrect()==false){
-            jLabel4.setText("Invalid Format");
-            jLabel4.setForeground(Color.red);
-             
-        }
-        else
-        {jLabel4.setText("Correct Format!");
-            jLabel4.setForeground(Color.blue);
-        }
-        
     }//GEN-LAST:event_txtUsername1KeyPressed
 
     private void txtPassword1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyPressed
         // TODO add your handling code here:
-        if(passwordPatternCorrect() == false){
-            jLabel6.setText("Invalid Format");
-            jLabel6.setForeground(Color.red);
-             
-        }
-        else
-        {jLabel6.setText("Correct Format!");
-            jLabel6.setForeground(Color.blue);}
+        
     }//GEN-LAST:event_txtPassword1KeyPressed
 
     private void txtPassword2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword2KeyPressed
         // TODO add your handling code here:
-        if(rePasswordPatternCorrect() == false){
-            jLabel5.setText("Invalid Format");
-            jLabel5.setForeground(Color.red);
-            txtPassword2.setBorder(BorderFactory.createLineBorder(Color.red));
-        }
-        else
-        {jLabel5.setText("Correct Format!");
-            jLabel5.setForeground(Color.blue);}
+        
     }//GEN-LAST:event_txtPassword2KeyPressed
 
     private void txtTelephone1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelephone1KeyPressed
         // TODO add your handling code here:
-        char c=evt.getKeyChar();
+        /*char c=evt.getKeyChar();
         if(Character.isLetter(c))
          {
             jLabel7.setText("Invalid Format");
@@ -391,8 +377,49 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         }
         else
         {jLabel7.setText("Correct Format!");
-            jLabel7.setForeground(Color.blue);}
+            jLabel7.setForeground(Color.blue);}*/
     }//GEN-LAST:event_txtTelephone1KeyPressed
+
+    private void txtUsername1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect()==false){
+            jLabel4.setText("Invalid Format");
+            jLabel4.setForeground(Color.red);
+             txtUsername1.setBorder(BorderFactory.createLineBorder(Color.red));
+        }
+        else
+        {jLabel4.setText("Correct Format!");
+            jLabel4.setForeground(Color.blue);
+            txtUsername1.setBorder(BorderFactory.createLineBorder(Color.gray));
+        }
+    }//GEN-LAST:event_txtUsername1KeyReleased
+
+    private void txtPassword1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect() == false){
+            jLabel6.setText("Invalid Format");
+            jLabel6.setForeground(Color.red);
+             txtPassword1.setBorder(BorderFactory.createLineBorder(Color.red));
+        }
+        else
+        {jLabel6.setText("Correct Format!");
+            jLabel6.setForeground(Color.blue);
+        txtPassword1.setBorder(BorderFactory.createLineBorder(Color.gray));}
+    }//GEN-LAST:event_txtPassword1KeyReleased
+
+    private void txtPassword2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword2KeyReleased
+        // TODO add your handling code here:
+        if(rePasswordPatternCorrect() == false){
+            jLabel5.setText("Invalid Format");
+            jLabel5.setForeground(Color.red);
+            txtPassword2.setBorder(BorderFactory.createLineBorder(Color.red));
+        }
+        else
+        {   jLabel5.setText("Correct Format!");
+            jLabel5.setForeground(Color.blue);
+            txtPassword2.setBorder(BorderFactory.createLineBorder(Color.gray));
+        }
+    }//GEN-LAST:event_txtPassword2KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

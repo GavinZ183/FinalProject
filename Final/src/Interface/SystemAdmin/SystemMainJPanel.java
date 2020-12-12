@@ -142,7 +142,9 @@ public class SystemMainJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,9 +235,16 @@ public class SystemMainJPanel extends javax.swing.JPanel {
 
     private void btnCreateNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNetworkActionPerformed
         // TODO add your handling code here:
-        system.createAndAddNetwork(txtNetwork.getText());
-        populateTable();
-        txtNetwork.setText("");
+        if(txtNetwork.getText().length()>0){
+            system.createAndAddNetwork(txtNetwork.getText());
+            populateTable();
+            txtNetwork.setText("");
+            populateTree();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Network name could not be blank!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btnCreateNetworkActionPerformed
 
     private void btnEnterNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterNetworkActionPerformed

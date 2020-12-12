@@ -10,6 +10,7 @@ import Business.Product.Product;
 import Business.Seller.Seller;
 import Business.SellerOrder.SellOrderItem;
 import Business.Supplier.Supplier;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -32,11 +33,13 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
     Seller seller;
     ArrayList<Product> productList = new ArrayList<Product>();
     ArrayList<SellOrderItem> cart = new ArrayList<SellOrderItem>();
-    public PurchaseProductJPanel(JPanel userProcessContainer, Seller seller, Network network) {
+    UserAccount account;
+    public PurchaseProductJPanel(JPanel userProcessContainer, Seller seller, Network network,UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.seller = seller;
         this.network = network;
+        this.account = account;
         
         populateProductTable();
         cartTable(cart);
@@ -55,7 +58,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 row[0] = product;
                 row[1] = product.getPrice();
                 row[2] = supplier;
-                row[3] = supplier.getPosition();
+                row[3] = product.getDiscribe();
                 
                 model.addRow(row);
                 productList.add(product);
@@ -70,11 +73,11 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
             model.removeRow(i);
         }
         for(Product product: productList){
-            Object row[] = new Object[5];
+            Object row[] = new Object[4];
             row[0] = product;
             row[1] = product.getPrice();
             row[2] = product.getSupplier();
-            row[3] = product.getSupplier().getPosition();
+            row[3] = product.getDiscribe();
 
             model.addRow(row);
         } 
@@ -87,12 +90,11 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
             model.removeRow(i);
         }
         for(SellOrderItem item: cart){
-            Object row[] = new Object[5];
+            Object row[] = new Object[4];
             row[0] = item;
             row[1] = item.getProduct().getPrice();
             row[2] = item.getProduct().getSupplier();
-            row[3] = item.getProduct().getSupplier().getPosition();
-            row[4] = item.getQuantity();
+            row[3] = item.getQuantity();
 
             model.addRow(row);
         } 
@@ -110,9 +112,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         productTable = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
-        txtPosition = new javax.swing.JTextField();
         btnFreshTable = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
@@ -147,7 +147,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Price", "Supplier", "Supplier Position"
+                "Product", "Price", "Supplier", "Description"
             }
         ) {
             Class[] types = new Class [] {
@@ -169,9 +169,6 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 808, 147));
 
-        jLabel7.setText("Position:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
-
         btnDelete.setText("Delete product");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +176,6 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
             }
         });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 120, -1));
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 140, -1));
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -198,33 +194,34 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
 
         btnSearch.setText("Search");
+        btnSearch.setPreferredSize(new java.awt.Dimension(130, 30));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, -1, -1));
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
 
         jLabel4.setText("Product:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jLabel2.setText("Product list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 139, -1));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 139, 27));
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product", "Price", "Supplier", "Supplier Position", "Quantity"
+                "Product", "Price", "Supplier", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -238,14 +235,14 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(cartTable);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 808, 147));
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 99, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 99, 27));
 
         jLabel5.setText("Price:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
 
         jLabel3.setText("Shopping cart:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-        add(txtSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 141, -1));
+        add(txtSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 141, 27));
 
         btnDetails.setText("More details");
         btnDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -259,12 +256,13 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
 
         btnAddToCart.setText("Add into cart");
+        btnAddToCart.setPreferredSize(new java.awt.Dimension(130, 30));
         btnAddToCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddToCartActionPerformed(evt);
             }
         });
-        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
+        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
 
         btnModifyQuantity.setText("Modify Quantity");
         btnModifyQuantity.addActionListener(new java.awt.event.ActionListener() {
@@ -277,12 +275,13 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 56, -1));
 
         btnCommit.setText("Commit");
+        btnCommit.setPreferredSize(new java.awt.Dimension(130, 30));
         btnCommit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCommitActionPerformed(evt);
             }
         });
-        add(btnCommit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 590, -1, -1));
+        add(btnCommit, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 590, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/024-货物查询.png"))); // NOI18N
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 100, 70));
@@ -298,9 +297,9 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new CheckInventoryJPanel(userProcessContainer,account,network));
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -320,7 +319,6 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         }
         
         String suppliername = txtSupplier.getText();
-        String position = txtPosition.getText();
         
         //star to filter no-empty requirement
         ArrayList<Product> productList1 = new ArrayList<Product>();
@@ -356,19 +354,9 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         else{
             productList3 = productList2;
         }
-        ArrayList<Product> productList4 = new ArrayList<Product>();
-        if(position.length()>0){
-            for(Product p: productList3){
-                if(p.getSupplier().getPosition().equals(position)){
-                    productList4.add(p);
-                }
-            }
-        }
-        else{
-            productList4 = productList3;
-        }
+
         
-        searchProductTable(productList4);
+        searchProductTable(productList3);
         txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -405,7 +393,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         item.setProduct(product);
         item.setQuantity(quantity);
         for(SellOrderItem i: cart){
-            if(i.getProduct().getProdName().equals(product.getProdName())){
+            if(i.getProduct().getProdName().equals(product.getProdName())&&i.getProduct().getSupplier().equals(product.getSupplier())){
                 JOptionPane.showMessageDialog(null, "You have added the product into cart!");
                 return;
             }
@@ -475,14 +463,12 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTable productTable;
-    private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtSupplier;

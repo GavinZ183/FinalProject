@@ -55,7 +55,7 @@ import javax.swing.tree.DefaultTreeModel;
         DefaultMutableTreeNode root=(DefaultMutableTreeNode)model.getRoot();
         root.removeAllChildren();
         
-        DefaultMutableTreeNode buy=new DefaultMutableTreeNode("Networks");
+        DefaultMutableTreeNode buy=new DefaultMutableTreeNode("Buyer");
         root.insert(buy, 0);        
         for(int i=0;i<buyerList.size();i++){
             Buyer buyer=buyerList.get(i);
@@ -63,7 +63,7 @@ import javax.swing.tree.DefaultTreeModel;
             buy.insert(buyerNode, i);
         }          
         
-        DefaultMutableTreeNode sell=new DefaultMutableTreeNode("Networks");
+        DefaultMutableTreeNode sell=new DefaultMutableTreeNode("Seller");
         root.insert(sell, 0);        
         for(int i=0;i<sellerList.size();i++){
             Seller seller=sellerList.get(i);
@@ -71,7 +71,7 @@ import javax.swing.tree.DefaultTreeModel;
             sell.insert(sellerNode, i);
         }
         
-        DefaultMutableTreeNode express=new DefaultMutableTreeNode("DeliveryMen");      
+        DefaultMutableTreeNode express=new DefaultMutableTreeNode("ExpressCompany");      
         root.insert(express, 1);
         for(int i=0;i<expressCompanyList.size();i++){
             ExpressCompany expressCompany=expressCompanyList.get(i);
@@ -79,7 +79,7 @@ import javax.swing.tree.DefaultTreeModel;
             express.insert(expressCompanyNode, i);
         }
         
-        DefaultMutableTreeNode sup=new DefaultMutableTreeNode("DeliveryMen");      
+        DefaultMutableTreeNode sup=new DefaultMutableTreeNode("Supplier");      
         root.insert(sup, 1);
         for(int i=0;i<supplierList.size();i++){
             Supplier supplier=supplierList.get(i);
@@ -87,7 +87,7 @@ import javax.swing.tree.DefaultTreeModel;
             sup.insert(supplierNode, i);
         }
         
-        DefaultMutableTreeNode ser=new DefaultMutableTreeNode("DeliveryMen");      
+        DefaultMutableTreeNode ser=new DefaultMutableTreeNode("Service");      
         root.insert(ser, 1);
         for(int i=0;i<serviceList.size();i++){
             Service service=serviceList.get(i);
@@ -132,7 +132,9 @@ import javax.swing.tree.DefaultTreeModel;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

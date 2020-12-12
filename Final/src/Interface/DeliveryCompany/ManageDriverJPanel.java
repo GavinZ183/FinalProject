@@ -12,6 +12,10 @@ import Business.Network.Network;
 import Business.Role.DriverRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -64,6 +68,22 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 }
             }
 
+     private boolean usernamePatternCorrect(String username) {
+    //Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+$");
+        Matcher m = p.matcher(username);
+        boolean b = m.matches();
+        return b;
+
+    }
+
+    private boolean passwordPatternCorrect(String password) {
+        Pattern p = Pattern.compile("^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{6,}$");
+        Matcher m = p.matcher(password);
+        boolean b = m.matches();
+        return b;
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,10 +123,20 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         txtPosition1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 586, 134, -1));
+
+        txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword1KeyReleased(evt);
+            }
+        });
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 586, 134, 27));
 
         jLabel4.setText("Position:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 385, -1, -1));
@@ -119,7 +149,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Telephone:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 591, -1, -1));
-        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 586, 166, -1));
+        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 586, 166, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 385, -1, -1));
@@ -140,7 +170,13 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel13.setText("Username:");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 542, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 433, 134, -1));
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyReleased(evt);
+            }
+        });
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 433, 134, 27));
 
         btnCreate.setText("Create");
         btnCreate.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -230,18 +266,34 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Driver list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 87, -1, -1));
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 433, 166, -1));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 433, 166, 27));
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Driver:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 497, -1, -1));
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 537, 169, -1));
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 380, 134, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 380, 169, -1));
-        add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 537, 134, -1));
+
+        txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsername1KeyReleased(evt);
+            }
+        });
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 537, 169, 27));
+        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 380, 134, 27));
+
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyReleased(evt);
+            }
+        });
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 380, 169, 27));
+        add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 537, 134, 27));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/015-运输.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 70, 70));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 80, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 80, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 80, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 80, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -306,6 +358,16 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
             }
         }
         oldname = "";
+        
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername.getText()) == false || passwordPatternCorrect(txtPassword.getText()) == false)
+        {
+         txtUsername.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername.setBorder(BorderFactory.createLineBorder(Color.gray));
+        txtPassword.setBorder(BorderFactory.createLineBorder(Color.gray));
       
       deliveryman.setPosition(txtPosition.getText());
       deliveryman.setTelephone(txtTelephone.getText());
@@ -313,12 +375,19 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
       deliveryman.getUserAccount().setUsername(txtUsername.getText());
        populateTable();
        
+       txtUsername.setText("");
+        txtPassword.setText("");
+        txtTelephone.setText("");
+        txtPosition.setText("");
+         populateTable();
         btnSave.setEnabled(false);
        btnUpdate.setEnabled(true);
        txtPosition.setEnabled(false);
       txtUsername.setEnabled(false);
       txtPassword.setEnabled(false);
       txtTelephone.setEnabled(false);
+      jLabel15.setText("");
+        jLabel16.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -328,6 +397,21 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         String Position=txtPosition1.getText();
         String telePhone=txtTelephone1.getText();
         
+        if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtUsername1.getText())){}
+        else{
+            JOptionPane.showMessageDialog(null, "This username has existed!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername1.getText()) == false || passwordPatternCorrect(txtPassword1.getText()) == false)
+        {
+         txtUsername1.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername1.setBorder(BorderFactory.createLineBorder(Color.gray));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.gray));
         
         Driver deliveryman=new Driver();
         UserAccount userAccount=new UserAccount();
@@ -348,6 +432,8 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         txtTelephone1.setText("");
         txtPosition1.setText("");
          populateTable();
+         jLabel17.setText("");
+        jLabel18.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -357,6 +443,58 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);  
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername.getText())==false){
+            jLabel15.setText("Invalid Format");
+            jLabel15.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel15.setText("Correct Format!");
+            jLabel15.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsernameKeyReleased
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword.getText())==false){
+            jLabel16.setText("Invalid Format");
+            jLabel16.setForeground(Color.red);
+
+        }
+        else
+        {jLabel16.setText("Correct Format!");
+            jLabel16.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void txtUsername1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername1.getText())==false){
+            jLabel17.setText("Invalid Format");
+            jLabel17.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel17.setText("Correct Format!");
+            jLabel17.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsername1KeyReleased
+
+    private void txtPassword1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword1.getText())==false){
+            jLabel18.setText("Invalid Format");
+            jLabel18.setForeground(Color.red);
+
+        }
+        else
+        {jLabel18.setText("Correct Format!");
+            jLabel18.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPassword1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -372,6 +510,10 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

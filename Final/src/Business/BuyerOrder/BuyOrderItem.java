@@ -8,7 +8,6 @@ package Business.BuyerOrder;
 
 import Business.Buyer.Buyer;
 import Business.Goods.Good;
-import Business.Seller.Seller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -80,6 +79,9 @@ public class BuyOrderItem {
     }
 
     public Evaluate getEvaluate() {
+        if(evaluate ==null){
+            evaluate = new Evaluate();
+        }
         return evaluate;
     }
 

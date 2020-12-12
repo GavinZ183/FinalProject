@@ -30,8 +30,8 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
         txtProduct.setText(product.getProdName());
         txtPrice.setText(String.valueOf(product.getPrice()));
         txtSeller.setText(product.getSupplier().getName());
-        txtPosition.setText(product.getSupplier().getPosition());
         txtInventory.setText(String.valueOf(product.getQuantity()));
+        txtDescrip.setText(product.getDiscribe());
         
 //        ImageIcon photo = new ImageIcon(product.getImagePath());
 //        Image image = photo.getImage();
@@ -39,7 +39,7 @@ public class ProductDetailsJPanel extends javax.swing.JPanel {
 //        lblImage.setIcon(new ImageIcon(image));
 Image im=Toolkit.getDefaultToolkit().createImage(product.getImagePath());// Returns an image which gets pixel data from the specified file.
 //        im=im.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);//Creates a scaled version of this image.
-im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+im=im.getScaledInstance(250, 200, Image.SCALE_SMOOTH);
         ImageIcon ii=new ImageIcon(im);//Creates an uninitialized image icon.
         lblImage.setIcon(ii);
     }
@@ -59,8 +59,6 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         txtPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txtPosition = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtSeller = new javax.swing.JTextField();
         txtInventory = new javax.swing.JTextField();
@@ -69,6 +67,8 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         btnBack = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtDescrip = new javax.swing.JTextField();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,8 +77,8 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
         txtProduct.setEnabled(false);
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 142, -1));
-        add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 160, 190));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 142, -1));
+        add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 250, 200));
 
         txtPrice.setEnabled(false);
         add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 142, -1));
@@ -90,26 +90,20 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         jLabel1.setText("Details Information Screen");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, -1, -1));
 
-        jLabel7.setText("Position:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, -1));
-
-        txtPosition.setEnabled(false);
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 142, -1));
-
         jLabel8.setText("Inventory:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
 
         txtSeller.setEnabled(false);
         add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 142, -1));
 
         txtInventory.setEnabled(false);
-        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 142, -1));
+        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 142, -1));
 
         jLabel6.setText("Seller:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
 
         jLabel4.setText("Product:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -117,13 +111,19 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, -1, -1));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/数据盘.png"))); // NOI18N
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 160, 360, 350));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/004-条形码查询 (1).png"))); // NOI18N
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 90, 70));
+
+        jLabel12.setText("Descrip:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
+
+        txtDescrip.setEnabled(false);
+        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 310, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -137,17 +137,17 @@ im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblImage;
+    private javax.swing.JTextField txtDescrip;
     private javax.swing.JTextField txtInventory;
-    private javax.swing.JTextField txtPosition;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProduct;
     private javax.swing.JTextField txtSeller;

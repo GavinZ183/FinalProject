@@ -32,8 +32,12 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.item = item;
         this.account = account;
-        if(item.getEvaluate() != null){
+        if(item.getEvaluate() != null&&item.getEvaluate().getWord()!=null){
             txtComment.setText(item.getEvaluate().getWord());
+            txtComment.setEnabled(false);
+            jSpinner1.setEnabled(false);
+            btnCommit.setEnabled(false);
+            jLabel2.setText(jLabel2.getText() + String.valueOf(item.getEvaluate().getScore()));
         }
         
     }
@@ -179,7 +183,9 @@ public class WriteCommentJPanel extends javax.swing.JPanel {
         c.setDate(datetime);
         item.getGood().getComments().getCommentList().add(c);
         JOptionPane.showMessageDialog(null, "Write comment successfully!");
-       
+       CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.remove(this);
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnCommitActionPerformed
 
 

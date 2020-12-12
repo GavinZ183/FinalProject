@@ -35,6 +35,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         txtSeller.setText(good.getSeller().getName());
         txtPosition.setText(good.getSeller().getPosition());
         txtInventory.setText(String.valueOf(good.getQuantity()));
+        txtDescrip.setText(good.getDiscribe());
         
         int rowCount = commentTable.getRowCount();
         DefaultTableModel model = (DefaultTableModel)commentTable.getModel();
@@ -58,7 +59,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
 //            image = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
 //            lblImage.setIcon(new ImageIcon(image));
     Image im=Toolkit.getDefaultToolkit().createImage(good.getImagePath());// Returns an image which gets pixel data from the specified file.
-        im=im.getScaledInstance(200, 200, Image.SCALE_SMOOTH);//Creates a scaled version of this image.
+        im=im.getScaledInstance(250, 200, Image.SCALE_SMOOTH);//Creates a scaled version of this image.
         ImageIcon ii=new ImageIcon(im);//Creates an uninitialized image icon.
         lblImage.setIcon(ii);
         }
@@ -95,6 +96,8 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         commentTable = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtDescrip = new javax.swing.JTextField();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,13 +145,13 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 280, 142, -1));
 
         jLabel2.setText("Comments:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         jLabel9.setText("Image:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 117, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
         lblImage.setText("jLabel3");
-        add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 116, 166, 190));
+        add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 250, 200));
 
         commentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,13 +178,19 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(commentTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 758, 138));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 758, 138));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/商品.png"))); // NOI18N
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/电商服务.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, -1, -1));
+
+        jLabel12.setText("descrip:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 329, -1, -1));
+
+        txtDescrip.setEnabled(false);
+        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 324, 310, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -198,6 +207,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -207,6 +217,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblImage;
+    private javax.swing.JTextField txtDescrip;
     private javax.swing.JTextField txtGood;
     private javax.swing.JTextField txtInventory;
     private javax.swing.JTextField txtPosition;

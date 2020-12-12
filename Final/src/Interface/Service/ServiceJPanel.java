@@ -197,6 +197,8 @@ public class ServiceJPanel extends javax.swing.JPanel {
         
         
             buyOrderItem.setStatus("Canceled");
+            int oldquantity = buyOrderItem.getGood().getQuantity();
+            buyOrderItem.getGood().setQuantity(oldquantity + buyOrderItem.getQuantity());
             JOptionPane.showMessageDialog(null, "Canceled this order Successfully");
             
             populateTable();

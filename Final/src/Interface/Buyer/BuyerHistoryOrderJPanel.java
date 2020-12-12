@@ -61,7 +61,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             row[1] = item.getGood().getPrice();
             row[2] = item.getGood().getSeller();
             row[3] = item.getQuantity();
-//            row[4] = item.getEvaluate().getWord();
+            row[4] = item.getEvaluate().getWord();
             row[5] = item.getCreateTime();
             row[6] = item.getStatus();
 
@@ -191,7 +191,7 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCancel.setText("Cancel pending order item");
+        btnCancel.setText("Cancel \"Buyer submitted the order\" order item");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -225,9 +225,11 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCancel)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnCancel)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -332,12 +334,15 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
             return;
         }
         BuyOrderItem item = (BuyOrderItem)orderListTable.getValueAt(selectedRow, 0);
-        if(item.getStatus().equals("pending")){
-            b.getBuyOrder().removeOrderItem(item);
+        if(item.getStatus().equals("Buyer submitted the order")){
+            item.setStatus("Canceled");
+            int oldquantity = item.getGood().getQuantity();
+            item.getGood().setQuantity(oldquantity + item.getQuantity());
+            JOptionPane.showMessageDialog(null, "Canceled this order Successfully");
             populateOrderListTable();
         }
         else{
-            JOptionPane.showMessageDialog(null, "The order item's status is not pending, you could not cancal!", "Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The order item's status is not 'Buyer submitted the order', you could not cancal!", "Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -455,10 +460,9 @@ public class BuyerHistoryOrderJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.remove(this);
-        //userProcessContainer.removeAll();
-        layout.previous(userProcessContainer);
+        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        userProcessContainer.add(new BuyerMainJPanel(userProcessContainer,account,network));
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectActionPerformed

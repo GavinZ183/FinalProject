@@ -69,13 +69,12 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
             model.removeRow(i);
         }
         for(SellOrderItem sellOrderItem:seller.getSellOrder().getOrderItemList()){
-           Object row[] = new Object[6];
+           Object row[] = new Object[5];
            row[0] =sellOrderItem;
            row[1] =sellOrderItem.getProduct().getPrice();
-           row[2] =sellOrderItem.getSeller().getName();
-           row[3] =sellOrderItem.getSeller().getPosition();
-           row[4] =sellOrderItem.getQuantity();
-           row[5] =sellOrderItem.getStatus();
+           row[2] =sellOrderItem.getProduct().getSupplier();
+           row[3] =sellOrderItem.getQuantity();
+           row[4] =sellOrderItem.getStatus();
            model.addRow(row);
        }
     }
@@ -104,6 +103,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         btnRecieve = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,13 +114,13 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 101, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 101, 121, 27));
 
         jLabel2.setText("Good list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Goods Screen");
+        jLabel1.setText("Check Inventory Screen");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 24, 564, -1));
 
         goodInventoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -178,14 +178,14 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Product", "Price", "Supplier", "Supplier Position", "Quantity", "Status"
+                "Product", "Price", "Supplier", "Quantity", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -213,12 +213,21 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/024-货物查询.png"))); // NOI18N
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 100, 70));
+
+        btnDelete.setText("Delete");
+        btnDelete.setPreferredSize(new java.awt.Dimension(121, 27));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 220, 121, 27));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPurChaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurChaseActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        userProcessContainer.add(new PurchaseProductJPanel(userProcessContainer,seller,network));
+        userProcessContainer.add(new PurchaseProductJPanel(userProcessContainer,seller,network,account));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPurChaseActionPerformed
 
@@ -270,8 +279,22 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         populateProductOrderTable();
     }//GEN-LAST:event_btnRecieveActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = goodInventoryTable.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a row!", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Good good = (Good)goodInventoryTable.getValueAt(selectedRow, 0);
+        
+        seller.getSellerGoodCatalog().getGoodCatalog().remove(good);
+        populateGoodInventoryTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnFreshTable;
     private javax.swing.JButton btnFreshTable1;
     private javax.swing.JButton btnPurChase;

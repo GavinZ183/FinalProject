@@ -268,12 +268,13 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
          //卖家 =！买家   状态=商家发货
        
-        if(!buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition()) && buyOrderItem.getStatus().equals("SELLER SHIPPED"))
+        if(!buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition()) && (buyOrderItem.getStatus().equals("SELLER SHIPPED")||buyOrderItem.getStatus().equals("Driver Refused")))
         {
             
             jComboBox1.setEnabled(true);
             btnChooseDeliveryDriver.setEnabled(false);
             btnAssignDriver.setEnabled(true);
+            jComboBox1.removeAllItems();
     
             for(Driver driver:expressCompany.getDriverDir().getDriverList()){
                 if(driver.getStatus().equals("WORK")&&driver.getPosition().equals(buyOrderItem.getGood().getSeller().getPosition()))
@@ -328,12 +329,15 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         BuyOrderItem buyOrderItem = (BuyOrderItem)jTable1.getValueAt(selectedRow, 0);
        
         //卖家 =！买家   状态=到达派送点
-        if(!buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition())&&buyOrderItem.getStatus().equals("Arrive at Express transfer station"))
+        if((buyOrderItem.getGood().getSeller().getPosition().equals(buyOrderItem.getBuyer().getPosition()) && buyOrderItem.getStatus().equals("SELLER SHIPPED"))
+                ||buyOrderItem.getStatus().equals("Arrive at Express transfer station")
+                ||buyOrderItem.getStatus().equals("Deliveryman Refused"))
         {
             
             jComboBox2.setEnabled(true);
             btnChooseDeliveryMan.setEnabled(false);
             btnAssignDeliveryMan.setEnabled(true);
+            jComboBox2.removeAllItems();
     
             for(Deliveryman deliveryman:expressCompany.getDeliverymanDirectory().getDeliverymanList()){
                 if(deliveryman.getStatus().equals("WORK")&&deliveryman.getPosition().equals(buyOrderItem.getBuyer().getPosition()))

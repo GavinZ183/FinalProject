@@ -79,6 +79,7 @@ public class MessageJPanel extends javax.swing.JPanel {
         txtChatRecord.setColumns(20);
         txtChatRecord.setLineWrap(true);
         txtChatRecord.setRows(5);
+        txtChatRecord.setEnabled(false);
         jScrollPane1.setViewportView(txtChatRecord);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 490, 220));

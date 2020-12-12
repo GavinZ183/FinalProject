@@ -11,6 +11,10 @@ import Business.Role.ServiceRole;
 import Business.Service.Service;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +61,23 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                 }
             }
+ 
+        private boolean usernamePatternCorrect(String username) {
+    //Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+$");
+        Matcher m = p.matcher(username);
+        boolean b = m.matches();
+        return b;
+
+    }
+
+    private boolean passwordPatternCorrect(String password) {
+        Pattern p = Pattern.compile("^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{6,}$");
+        Matcher m = p.matcher(password);
+        boolean b = m.matches();
+        return b;
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,6 +113,10 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,18 +144,36 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 360, 90, 30));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 90, 30));
 
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Service:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 479, -1, -1));
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 567, 134, -1));
+
+        txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword1KeyReleased(evt);
+            }
+        });
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 567, 134, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 572, -1, -1));
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 519, 169, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 169, -1));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 519, 134, -1));
+
+        txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsername1KeyReleased(evt);
+            }
+        });
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 519, 169, 27));
+
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyReleased(evt);
+            }
+        });
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 169, 27));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 519, 134, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 368, -1, -1));
@@ -142,14 +185,20 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 415, 90, 30));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 90, 30));
 
         jLabel12.setText("Name:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
 
         jLabel13.setText("Username:");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 524, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 415, 134, -1));
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyReleased(evt);
+            }
+        });
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 415, 134, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -158,7 +207,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 520, 90, 30));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 90, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -188,7 +237,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 92, 722, 147));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 92, 760, 147));
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -205,11 +254,11 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 268, 90, 30));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 90, 30));
 
         jLabel2.setText("Service list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 363, 134, -1));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 363, 134, 27));
 
         jLabel4.setText("Name:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 368, -1, -1));
@@ -220,6 +269,10 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 70, 70));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 110, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 110, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 110, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 110, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -234,6 +287,15 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
             return;
         }
         
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername1.getText()) == false || passwordPatternCorrect(txtPassword1.getText()) == false)
+        {
+         txtUsername1.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername1.setBorder(BorderFactory.createLineBorder(Color.gray));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.gray));
         
         Service Service=new Service();
         UserAccount userAccount=new UserAccount();
@@ -253,6 +315,8 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
        
         txtName1.setText("");
          populateTable();
+         jLabel17.setText("");
+        jLabel18.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -321,6 +385,16 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
         }
         oldname = "";
         
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername.getText()) == false || passwordPatternCorrect(txtPassword.getText()) == false)
+        {
+         txtUsername.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername.setBorder(BorderFactory.createLineBorder(Color.gray));
+        txtPassword.setBorder(BorderFactory.createLineBorder(Color.gray));
+        
       buyer.setName(txtName.getText());
     
       buyer.getUserAccount().setPassword(txtPassword.getText());
@@ -328,11 +402,68 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
        populateTable();
         btnSave.setEnabled(false);
        btnUpdate.setEnabled(true);
+       txtUsername.setText("");
+        txtPassword.setText("");
+        txtName.setText("");
+        jLabel15.setText("");
+        jLabel16.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnFreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFreshTableActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFreshTableActionPerformed
+
+    private void txtUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername.getText())==false){
+            jLabel15.setText("Invalid Format");
+            jLabel15.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel15.setText("Correct Format!");
+            jLabel15.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsernameKeyReleased
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword.getText())==false){
+            jLabel16.setText("Invalid Format");
+            jLabel16.setForeground(Color.red);
+
+        }
+        else
+        {jLabel16.setText("Correct Format!");
+            jLabel16.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void txtUsername1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername1.getText())==false){
+            jLabel17.setText("Invalid Format");
+            jLabel17.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel17.setText("Correct Format!");
+            jLabel17.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsername1KeyReleased
+
+    private void txtPassword1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword1.getText())==false){
+            jLabel18.setText("Invalid Format");
+            jLabel18.setForeground(Color.red);
+
+        }
+        else
+        {jLabel18.setText("Correct Format!");
+            jLabel18.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPassword1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -346,6 +477,10 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

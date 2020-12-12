@@ -86,13 +86,13 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
         }   
     }
     
-    public void searchOrderItemTable(ArrayList<BuyOrderItem> itemList){
+    public void searchOrderItemTable(ArrayList<BuyOrderItem> itemlist){
         int rowCount = jTable1.getRowCount();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         for(int i=rowCount-1;i>=0;i--) {
             model.removeRow(i);
         }
-        for(BuyOrderItem item: itemList){
+        for(BuyOrderItem item: itemlist){
 
             Object row[] = new Object[8];
             row[0] = item;
@@ -105,7 +105,6 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
             row[7] = item.getStatus();
 
             model.addRow(row);
-            itemList.add(item);
 
         }
     }

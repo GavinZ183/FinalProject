@@ -11,6 +11,9 @@ import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -30,11 +33,16 @@ public class MainJFrame extends javax.swing.JFrame {
     public int height = Toolkit.getDefaultToolkit().getScreenSize().height;
     // 定义窗体的宽高
     public int windowsWedth = 1020;
-    public int windowsHeight = 720;
+    public int windowsHeight = 770;
+    //logo
+    BufferedImage image;
 
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        
+        //add time
+        clock();
         
         //this.setSize(1000, 700);
        
@@ -42,9 +50,36 @@ public class MainJFrame extends javax.swing.JFrame {
         // 设置窗体位置和大小
         this.setBounds((width - windowsWedth) / 2,
                 (height - windowsHeight) / 2, windowsWedth, windowsHeight);
-    
+        
+        //windows image
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("./image/购物.png")); 
+        
+        btnLogout.setEnabled(false);
     }
    
+    public void clock(){
+        Thread clock=new Thread()
+        {
+            public void run() 
+            {
+                try {
+                    for(;;){
+
+                    Date date = new Date();
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat format1 = new SimpleDateFormat("HH:mm:ss");
+                    lblDay.setText(format.format(date));
+                    lblTime.setText(format1.format(date));
+                    
+                    sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        };
+        clock.start();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,11 +100,12 @@ public class MainJFrame extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnNewUser = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        lblDay = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
         rightPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
 
         leftPanel.setBackground(java.awt.Color.pink);
         leftPanel.setPreferredSize(new java.awt.Dimension(160, 698));
@@ -119,6 +155,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("PingFang HK", 0, 18)); // NOI18N
         leftPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 72, 124, 28));
 
+        lblDay.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
+        lblDay.setText("lblDay");
+        leftPanel.add(lblDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, -1, -1));
+
+        lblTime.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
+        lblTime.setText("lblTime");
+        leftPanel.add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, -1, -1));
+
         jSplitPane1.setLeftComponent(leftPanel);
 
         rightPanel.setBackground(java.awt.Color.pink);
@@ -140,7 +184,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
 
         pack();
@@ -252,6 +296,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblDay;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JPasswordField txtPassword;

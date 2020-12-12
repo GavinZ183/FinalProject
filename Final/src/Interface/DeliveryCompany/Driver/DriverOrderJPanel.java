@@ -256,10 +256,13 @@ public class DriverOrderJPanel extends javax.swing.JPanel {
         
         if(buyOrderItem.getStatus().equals("ASSIGND Driver")){
             buyOrderItem.setStatus("Driver Refused");
+            driver.getBuyOrder().getOrderItemList().remove(buyOrderItem);
             JOptionPane.showMessageDialog(null, "Refused this order Successfully");
         }
-            else
+        else{
             JOptionPane.showMessageDialog(null, "You can't handle this order", "Warning",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
          populateTable();
             
     }//GEN-LAST:event_btnRefuseActionPerformed

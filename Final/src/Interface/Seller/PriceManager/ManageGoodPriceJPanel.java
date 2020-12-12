@@ -126,7 +126,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Goods Price Screen");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 360, -1));
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, 27));
 
         jLabel5.setText("Sales price:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
@@ -193,6 +193,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         btnUpdate.setEnabled(true);
         btnSave.setEnabled(false);
         txtPrice.setEnabled(false);
+        txtPrice.setText("");
         txtPrice.setBorder(BorderFactory.createLineBorder(Color.gray));
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_btnSaveActionPerformed

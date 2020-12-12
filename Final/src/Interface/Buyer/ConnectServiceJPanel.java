@@ -87,6 +87,7 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
 
         txtChatRecord.setColumns(20);
         txtChatRecord.setRows(5);
+        txtChatRecord.setEnabled(false);
         jScrollPane1.setViewportView(txtChatRecord);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 150, 449, 187));

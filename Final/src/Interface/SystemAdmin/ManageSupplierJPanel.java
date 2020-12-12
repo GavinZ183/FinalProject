@@ -11,6 +11,10 @@ import Business.Role.SupplierRole;
 import Business.Supplier.Supplier;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -55,6 +59,23 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                 model.addRow(row);
                 }
             }
+ 
+        private boolean usernamePatternCorrect(String username) {
+    //Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+$");
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]+_[a-zA-Z0-9]+$");
+        Matcher m = p.matcher(username);
+        boolean b = m.matches();
+        return b;
+
+    }
+
+    private boolean passwordPatternCorrect(String password) {
+        Pattern p = Pattern.compile("^(?![A-Za-z0-9]+$)(?![a-z0-9\\W]+$)(?![A-Za-z\\W]+$)(?![A-Z0-9\\W]+$)[a-zA-Z0-9\\W]{6,}$");
+        Matcher m = p.matcher(password);
+        boolean b = m.matches();
+        return b;
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -94,13 +115,23 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setText("Username:");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 508, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 410, 140, -1));
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyReleased(evt);
+            }
+        });
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 410, 140, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -184,16 +215,34 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel9.setText("Create new Supplier:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 463, -1, -1));
-        add(txtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 410, 169, -1));
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 551, 134, -1));
+        add(txtType, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 410, 169, 27));
+
+        txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword1KeyReleased(evt);
+            }
+        });
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 551, 134, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 556, -1, -1));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 503, 139, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 358, 137, -1));
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 503, 169, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 358, 169, -1));
-        add(txtType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 551, 169, -1));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 503, 139, 27));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 358, 137, 27));
+
+        txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsername1KeyReleased(evt);
+            }
+        });
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 503, 169, 27));
+
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyReleased(evt);
+            }
+        });
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 358, 169, 27));
+        add(txtType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 551, 169, 27));
 
         jLabel7.setText("Type:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 415, -1, -1));
@@ -226,6 +275,10 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 70, 70));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 110, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 110, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, 110, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 110, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -241,6 +294,16 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             return;
         }
         
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername1.getText()) == false || passwordPatternCorrect(txtPassword1.getText()) == false)
+        {
+         txtUsername1.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername1.setBorder(BorderFactory.createLineBorder(Color.gray));
+         txtPassword1.setBorder(BorderFactory.createLineBorder(Color.gray));
+         
         Supplier supplier=new Supplier();
         UserAccount userAccount=new UserAccount();
         SupplierRole role=new SupplierRole();
@@ -260,6 +323,8 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         txtName1.setText("");
         txtType1.setText("");
          populateTable();
+         jLabel17.setText("");
+        jLabel18.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -327,6 +392,16 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             }
         }
         oldname = "";
+        
+        //check format of username and password
+        if (usernamePatternCorrect(txtUsername.getText()) == false || passwordPatternCorrect(txtPassword.getText()) == false)
+        {
+         txtUsername.setBorder(BorderFactory.createLineBorder(Color.red));
+         txtPassword.setBorder(BorderFactory.createLineBorder(Color.red));
+         return;
+        } 
+        txtUsername.setBorder(BorderFactory.createLineBorder(Color.gray));
+        txtPassword.setBorder(BorderFactory.createLineBorder(Color.gray));
       
       buyer.setName(txtName.getText());
       buyer.setType(txtType.getText());
@@ -335,7 +410,66 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
        populateTable();
        btnSave.setEnabled(false);
        btnUpdate.setEnabled(true);
+       txtUsername.setText("");
+        txtPassword.setText("");
+        txtName.setText("");
+        txtType.setText("");
+         populateTable();
+         jLabel15.setText("");
+        jLabel16.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername.getText())==false){
+            jLabel15.setText("Invalid Format");
+            jLabel15.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel15.setText("Correct Format!");
+            jLabel15.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsernameKeyReleased
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword.getText())==false){
+            jLabel16.setText("Invalid Format");
+            jLabel16.setForeground(Color.red);
+
+        }
+        else
+        {jLabel16.setText("Correct Format!");
+            jLabel16.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void txtUsername1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyReleased
+        // TODO add your handling code here:
+        if(usernamePatternCorrect(txtUsername1.getText())==false){
+            jLabel17.setText("Invalid Format");
+            jLabel17.setForeground(Color.red);
+             
+        }
+        else
+        {jLabel17.setText("Correct Format!");
+            jLabel17.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtUsername1KeyReleased
+
+    private void txtPassword1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword1KeyReleased
+        // TODO add your handling code here:
+        if(passwordPatternCorrect(txtPassword1.getText())==false){
+            jLabel18.setText("Invalid Format");
+            jLabel18.setForeground(Color.red);
+
+        }
+        else
+        {jLabel18.setText("Correct Format!");
+            jLabel18.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_txtPassword1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -351,6 +485,10 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
