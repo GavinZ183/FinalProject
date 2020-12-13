@@ -441,6 +441,10 @@ public class ShoppingJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Quantity cannot be less than equal to 0!");
             return;
         }
+        if(quantity > item.getGood().getQuantity()){
+            JOptionPane.showMessageDialog(null, "Quantity cannot be more than Inventory!");
+            return;
+        }
         item.setQuantity(quantity);
         cartTable(cart);
     }//GEN-LAST:event_btnModifyQuantityActionPerformed

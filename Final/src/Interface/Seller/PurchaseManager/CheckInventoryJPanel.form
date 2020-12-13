@@ -118,7 +118,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="&#x5b8b;&#x4f53;" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Peoduct Order Screen"/>
+        <Property name="text" type="java.lang.String" value="Product Order Screen"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

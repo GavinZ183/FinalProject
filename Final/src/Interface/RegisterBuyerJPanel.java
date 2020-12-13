@@ -368,7 +368,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
 
     private void txtTelephone1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelephone1KeyPressed
         // TODO add your handling code here:
-        /*char c=evt.getKeyChar();
+        char c=evt.getKeyChar();
         if(Character.isLetter(c))
          {
             jLabel7.setText("Invalid Format");
@@ -377,7 +377,7 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         }
         else
         {jLabel7.setText("Correct Format!");
-            jLabel7.setForeground(Color.blue);}*/
+            jLabel7.setForeground(Color.blue);}
     }//GEN-LAST:event_txtTelephone1KeyPressed
 
     private void txtUsername1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsername1KeyReleased

@@ -83,7 +83,7 @@ public class ChartJPanel extends javax.swing.JPanel {
             dataset.addValue(supplierNum, net.getName(), "supplier");
         }
         JFreeChart chart = ChartFactory.createBarChart3D(
-       		                 "Number of diferent roles in Networks", // 图表标题
+       		                 "Number of three roles in Networks", // 图表标题
                             "Role", // 目录轴的显示标签
                             "Quantity", // 数值轴的显示标签
                             dataset, // 数据集

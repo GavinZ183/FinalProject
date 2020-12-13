@@ -50,11 +50,10 @@ public void populateTable(){
         }
         for(Product product:supplier.getProductCatalog().getProductcatalog()){
             
-                Object row[] = new Object[4];
+                Object row[] = new Object[3];
                 row[0] =product;
                 row[1] =product.getPrice();
-                row[2] =product.getQuantity();
-                row[3] =product.getDiscribe();
+                row[2] =product.getDiscribe();
                 
                 model.addRow(row);
                 }

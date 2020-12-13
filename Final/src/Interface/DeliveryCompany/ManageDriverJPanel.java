@@ -290,10 +290,10 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/015-运输.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 80, 20));
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 80, 20));
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 80, 20));
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 80, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 100, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 100, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 620, 100, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, 100, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

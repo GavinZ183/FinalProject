@@ -159,7 +159,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
         add(btnPurChase, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 284, 245, 54));
 
         jLabel3.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
-        jLabel3.setText("Peoduct Order Screen");
+        jLabel3.setText("Product Order Screen");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 314, -1));
 
         jLabel4.setText("Product order list:");

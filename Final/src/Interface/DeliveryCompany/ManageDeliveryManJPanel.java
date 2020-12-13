@@ -289,10 +289,10 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/006-快递员.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 80, 20));
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 80, 20));
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 80, 20));
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 80, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 120, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 120, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 120, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 120, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
