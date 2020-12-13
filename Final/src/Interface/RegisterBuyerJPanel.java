@@ -198,7 +198,6 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel15)
                                 .addGap(34, 34, 34)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +237,8 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
                                                 .addGap(37, 37, 37)
                                                 .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
@@ -348,7 +348,10 @@ public class RegisterBuyerJPanel extends javax.swing.JPanel {
         txtTelephone1.setText("");
         txtAddress1.setText("");
         txtPosition.setText("");
-        
+        jLabel7.setText("");
+        jLabel4.setText("");
+        jLabel6.setText("");
+        jLabel5.setText("");
         JOptionPane.showMessageDialog(null, "Create a UserAccount successfully!");
     }//GEN-LAST:event_btnRegisterActionPerformed
 

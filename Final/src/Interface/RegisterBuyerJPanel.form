@@ -37,7 +37,6 @@
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="jComboBox1" min="-2" pref="169" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel1" min="-2" pref="308" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -91,6 +90,7 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="jLabel1" alignment="0" min="-2" pref="337" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
