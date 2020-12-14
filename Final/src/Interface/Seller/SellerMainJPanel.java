@@ -73,7 +73,7 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 btnPriceManagerActionPerformed(evt);
             }
         });
-        add(btnPriceManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 276, 41));
+        add(btnPriceManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 276, 41));
 
         btnPurchaseManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnPurchaseManager.setText("Manage Purchase Manager");
@@ -82,7 +82,7 @@ public class SellerMainJPanel extends javax.swing.JPanel {
                 btnPurchaseManagerActionPerformed(evt);
             }
         });
-        add(btnPurchaseManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 280, 41));
+        add(btnPurchaseManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 276, 41));
 
         btnSalesManager.setFont(new java.awt.Font("宋体", 2, 18)); // NOI18N
         btnSalesManager.setText("Manage Sales Manager");

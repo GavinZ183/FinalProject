@@ -129,7 +129,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 516, 169, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 516, 166, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 365, -1, -1));
@@ -183,7 +183,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 169, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 166, 27));
 
         txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -223,7 +223,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 510, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 576, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel8.setText("Update Price Manager:");
@@ -323,7 +323,7 @@ public class ManagePriceManagerJPanel extends javax.swing.JPanel {
         txtPassword.setText("");
         txtTelephone.setText("");
         txtName.setText("");
-        jLabel15.setText("");
+        jLabel19.setText("");
         jLabel16.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 

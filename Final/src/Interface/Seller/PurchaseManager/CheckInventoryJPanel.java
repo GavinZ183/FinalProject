@@ -114,7 +114,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 101, 121, 27));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 101, 122, 27));
 
         jLabel2.setText("Good list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, -1, -1));
@@ -171,7 +171,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnFreshTable1ActionPerformed(evt);
             }
         });
-        add(btnFreshTable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 392, -1, -1));
+        add(btnFreshTable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 392, 122, -1));
 
         productOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -206,7 +206,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnRecieveActionPerformed(evt);
             }
         });
-        add(btnRecieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 592, -1, -1));
+        add(btnRecieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 592, 122, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/库存.png"))); // NOI18N
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, 70));
@@ -221,7 +221,7 @@ public class CheckInventoryJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 220, 121, 27));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 220, 122, 27));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPurChaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurChaseActionPerformed

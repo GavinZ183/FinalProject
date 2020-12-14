@@ -155,7 +155,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 txtPassword1KeyReleased(evt);
             }
         });
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 567, 134, 27));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 567, 169, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 572, -1, -1));
@@ -173,7 +173,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
             }
         });
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 169, 27));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 519, 134, 27));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 519, 169, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 368, -1, -1));
@@ -198,7 +198,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 txtPasswordKeyReleased(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 415, 134, 27));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 415, 169, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -207,7 +207,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 90, 30));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 567, 90, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -258,7 +258,7 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Service list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 363, 134, 27));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 363, 169, 27));
 
         jLabel4.setText("Name:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 368, -1, -1));
@@ -269,10 +269,10 @@ public class ManageServiceJPanel extends javax.swing.JPanel {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 110, 20));
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 110, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 363, 110, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 110, 20));
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 110, 20));
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 570, 110, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 110, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

@@ -151,7 +151,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
                 txtPasswordKeyReleased(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 415, 129, 27));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 415, 166, 27));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -197,7 +197,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Seller list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 363, 128, 27));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 363, 166, 27));
 
         jLabel4.setText("Name:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 368, -1, -1));
@@ -232,7 +232,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
                 txtPassword1KeyReleased(evt);
             }
         });
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 567, 117, 27));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 567, 166, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 572, -1, -1));
@@ -244,7 +244,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
             }
         });
         add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 519, 166, 27));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 519, 117, 27));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 519, 166, 27));
 
         jLabel11.setText("Telephone:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 572, -1, -1));
@@ -274,7 +274,7 @@ public class ManageSellerJPanel extends javax.swing.JPanel {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 110, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 363, 110, 20));
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 110, 20));
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 110, 20));
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 110, 20));

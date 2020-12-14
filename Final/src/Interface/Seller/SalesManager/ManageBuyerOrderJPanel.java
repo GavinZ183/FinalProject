@@ -143,7 +143,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
         setBackground(java.awt.Color.pink);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 151, -1));
+        add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 152, -1));
 
         jLabel6.setText("Buyer:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
@@ -154,7 +154,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 btnhooseDeliveryCompanyActionPerformed(evt);
             }
         });
-        add(btnhooseDeliveryCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, 190, -1));
+        add(btnhooseDeliveryCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, 175, -1));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Buyer Order Screen");
@@ -162,7 +162,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Position:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 151, -1));
+        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 152, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -197,7 +197,7 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 175, -1));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -205,24 +205,24 @@ public class ManageBuyerOrderJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 130, -1));
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 152, -1));
 
         jLabel4.setText("Product:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
 
         jLabel2.setText("Buyer order list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 152, -1));
-        add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 152, -1));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 152, -1));
+        add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 152, -1));
 
         jLabel5.setText("Time:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
         add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 152, -1));
 
         jLabel8.setText("Status:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
 
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 160, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 152, -1));
 
         jLabel9.setText("Delivery Company:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));

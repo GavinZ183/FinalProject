@@ -175,7 +175,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 120, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 130, -1));
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 70, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 130, 27));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +191,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, 130, -1));
 
         btnSearch.setText("Search");
         btnSearch.setPreferredSize(new java.awt.Dimension(130, 30));
@@ -200,14 +200,14 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 130, 27));
 
         jLabel4.setText("Product:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jLabel2.setText("Product list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 139, 27));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 140, 27));
 
         cartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -235,14 +235,14 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(cartTable);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 808, 147));
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 99, 27));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 270, 140, 27));
 
         jLabel5.setText("Price:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 280, -1, -1));
 
         jLabel3.setText("Shopping cart:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-        add(txtSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 141, 27));
+        add(txtSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 140, 27));
 
         btnDetails.setText("More details");
         btnDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -250,10 +250,10 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnDetailsActionPerformed(evt);
             }
         });
-        add(btnDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        add(btnDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 130, -1));
 
         jLabel6.setText("Supplier:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, -1));
 
         btnAddToCart.setText("Add into cart");
         btnAddToCart.setPreferredSize(new java.awt.Dimension(130, 30));
@@ -262,7 +262,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnAddToCartActionPerformed(evt);
             }
         });
-        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
+        add(btnAddToCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 360, 130, 27));
 
         btnModifyQuantity.setText("Modify Quantity");
         btnModifyQuantity.addActionListener(new java.awt.event.ActionListener() {
@@ -270,9 +270,9 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnModifyQuantityActionPerformed(evt);
             }
         });
-        add(btnModifyQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, -1));
-        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 56, -1));
-        add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 56, -1));
+        add(btnModifyQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 590, -1, -1));
+        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 56, -1));
+        add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, 56, -1));
 
         btnCommit.setText("Commit");
         btnCommit.setPreferredSize(new java.awt.Dimension(130, 30));
@@ -281,7 +281,7 @@ public class PurchaseProductJPanel extends javax.swing.JPanel {
                 btnCommitActionPerformed(evt);
             }
         });
-        add(btnCommit, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 590, -1, -1));
+        add(btnCommit, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 590, 130, 27));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/024-货物查询.png"))); // NOI18N
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 100, 70));

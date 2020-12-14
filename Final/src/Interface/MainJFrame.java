@@ -33,7 +33,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public int height = Toolkit.getDefaultToolkit().getScreenSize().height;
     // 定义窗体的宽高
     public int windowsWedth = 1020;
-    public int windowsHeight = 770;
+    public int windowsHeight = 780;
     //logo
     BufferedImage image;
 

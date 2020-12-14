@@ -143,7 +143,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnAcceptActionPerformed(evt);
             }
         });
-        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 394, 108, -1));
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 420, 160, -1));
 
         btnRefuse.setText("Refuse");
         btnRefuse.addActionListener(new java.awt.event.ActionListener() {
@@ -151,13 +151,13 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnRefuseActionPerformed(evt);
             }
         });
-        add(btnRefuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 435, 108, -1));
+        add(btnRefuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 460, 160, -1));
 
         jStatus.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jStatus.setText("\"status\"");
         add(jStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 285, -1, -1));
 
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 334, 92, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 334, 92, -1));
 
         btnView.setText("View Details");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 394, 108, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 420, 160, -1));
 
         btnFinish.setText("Finish");
         btnFinish.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +173,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnFinishActionPerformed(evt);
             }
         });
-        add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 435, 108, -1));
+        add(btnFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 460, 160, -1));
 
         btnChange.setText("Change my status");
         btnChange.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class ConfirmDeliveryOrderJPanel extends javax.swing.JPanel {
                 btnChangeActionPerformed(evt);
             }
         });
-        add(btnChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 333, 139, -1));
+        add(btnChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 333, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel4.setText("My status:");

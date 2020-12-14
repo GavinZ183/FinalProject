@@ -103,7 +103,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtSeller.setEnabled(false);
-        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 192, 139, -1));
+        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 192, 300, -1));
 
         jLabel6.setText("Seller:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 197, -1, -1));
@@ -112,10 +112,10 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 109, -1, -1));
 
         txtGood.setEnabled(false);
-        add(txtGood, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 104, 139, -1));
+        add(txtGood, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 104, 300, -1));
 
         txtPrice.setEnabled(false);
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 148, 139, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 148, 300, -1));
 
         jLabel5.setText("Price:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 153, -1, -1));
@@ -136,19 +136,19 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 241, -1, -1));
 
         txtPosition.setEnabled(false);
-        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 236, 142, -1));
+        add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 236, 300, -1));
 
         jLabel8.setText("Inventory:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 285, -1, -1));
 
         txtInventory.setEnabled(false);
-        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 280, 142, -1));
+        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 280, 300, -1));
 
         jLabel2.setText("Comments:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         jLabel9.setText("Image:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         lblImage.setText("jLabel3");
         add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 250, 200));
@@ -190,7 +190,7 @@ public class ViewDetailsJPanel extends javax.swing.JPanel {
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(411, 329, -1, -1));
 
         txtDescrip.setEnabled(false);
-        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 324, 310, -1));
+        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 324, 300, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

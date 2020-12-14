@@ -134,8 +134,8 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 339, 161, -1));
-        add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 339, 141, -1));
+        add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 380, 185, -1));
+        add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 339, 141, 24));
 
         jLabel4.setText("Goods:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 306, -1, -1));
@@ -150,12 +150,12 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
             }
         });
         add(btnChooseDeliveryDriver, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 437, 185, -1));
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 301, 141, -1));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 301, 141, 24));
 
         jLabel7.setText("Buyer Position:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
-        add(txtBuyerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 140, -1));
-        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 140, -1));
+        add(txtBuyerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 140, 24));
+        add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 140, 24));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -185,10 +185,10 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 768, 147));
 
         jLabel8.setText("Status:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         jComboBox1.setEnabled(false);
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 437, 157, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 437, 157, 24));
 
         btnFreshTable.setText("Fresh table");
         btnFreshTable.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +196,7 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
                 btnFreshTableActionPerformed(evt);
             }
         });
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 90, 185, -1));
 
         jLabel9.setText("Delivery Driver:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 441, -1, -1));
@@ -208,17 +208,17 @@ public class ManageExpressOrderJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, -1, -1));
-        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 380, 141, -1));
+        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 380, 141, 24));
 
         jLabel10.setText("Seller:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 385, -1, -1));
 
         jLabel11.setText("Seller Position:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
-        add(txtSellerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, -1));
+        add(txtSellerPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 140, 24));
 
         jComboBox2.setEnabled(false);
-        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 515, 169, -1));
+        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 515, 157, 24));
 
         btnChooseDeliveryMan.setText("Choose Delivery Man");
         btnChooseDeliveryMan.addActionListener(new java.awt.event.ActionListener() {

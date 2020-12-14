@@ -107,7 +107,7 @@ public class ConnectServiceJPanel extends javax.swing.JPanel {
                 btnSendActionPerformed(evt);
             }
         });
-        add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(596, 396, -1, -1));
+        add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/客服 (1).png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 120, 100));

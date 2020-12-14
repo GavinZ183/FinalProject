@@ -99,7 +99,7 @@ public class MessageJPanel extends javax.swing.JPanel {
                 btnSendActionPerformed(evt);
             }
         });
-        add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, -1, -1));
+        add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 405, -1, -1));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class MessageJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 485, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/问号1.png"))); // NOI18N
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 120, 100));

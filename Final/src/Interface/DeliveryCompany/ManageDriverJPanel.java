@@ -163,7 +163,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, -1, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 100, 30));
 
         jLabel12.setText("Position:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 542, -1, -1));
@@ -187,7 +187,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 550, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 586, 100, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 438, -1, -1));
@@ -232,7 +232,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 288, -1, -1));
 
         btnFreshTable.setText("Fresh table");
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel8.setText("Update Driver:");
@@ -247,7 +247,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 100, 30));
 
         btnUpdate.setText("Update");
         btnUpdate.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -258,7 +258,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Driver");
@@ -277,7 +277,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 537, 169, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 537, 166, 27));
         add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 380, 134, 27));
 
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -285,7 +285,7 @@ public class ManageDriverJPanel extends javax.swing.JPanel {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 380, 169, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 380, 166, 27));
         add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 537, 134, 27));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/015-运输.png"))); // NOI18N

@@ -126,10 +126,10 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Goods Price Screen");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 360, -1));
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, 27));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 150, 24));
 
         jLabel5.setText("Sales price:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 109, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 100, -1));
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class ManageGoodPriceJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 96, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 100, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg2-1.png"))); // NOI18N
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 590, 430));

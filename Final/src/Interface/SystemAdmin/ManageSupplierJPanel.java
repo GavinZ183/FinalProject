@@ -131,7 +131,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                 txtPasswordKeyReleased(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 410, 140, 27));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 410, 169, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -222,12 +222,12 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                 txtPassword1KeyReleased(evt);
             }
         });
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 551, 134, 27));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 551, 169, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 556, -1, -1));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 503, 139, 27));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 358, 137, 27));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 503, 169, 27));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 358, 169, 27));
 
         txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -278,7 +278,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 110, 20));
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 110, 20));
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 580, 110, 20));
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 110, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 503, 110, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

@@ -162,7 +162,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 100, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 100, 30));
 
         jLabel12.setText("Position:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 524, -1, -1));
@@ -186,7 +186,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, -1, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 100, 30));
 
         jLabel6.setText("Password:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 420, -1, -1));
@@ -231,7 +231,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         btnFreshTable.setText("Fresh table");
-        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, -1, -1));
+        add(btnFreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel8.setText("Update Delivery Man:");
@@ -246,7 +246,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 100, 30));
 
         btnUpdate.setText("Update");
         btnUpdate.setMaximumSize(new java.awt.Dimension(100, 30));
@@ -257,7 +257,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, -1, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("宋体", 1, 24)); // NOI18N
         jLabel1.setText("Manage Delivery Man");
@@ -276,7 +276,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 519, 169, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 519, 166, 27));
         add(txtPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 134, 27));
 
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -284,7 +284,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 169, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 363, 166, 27));
         add(txtPosition1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, 134, 27));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/006-快递员.png"))); // NOI18N

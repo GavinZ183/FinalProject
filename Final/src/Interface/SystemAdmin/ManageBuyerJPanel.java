@@ -162,27 +162,27 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
                 txtPassword1KeyReleased(evt);
             }
         });
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 568, 134, 27));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 568, 170, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 573, -1, -1));
-        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 568, 172, 27));
-        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 418, 172, 27));
+        add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 568, 170, 27));
+        add(txtTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 418, 170, 27));
 
         txtUsername1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 520, 175, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 520, 170, 27));
 
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 366, 175, 27));
-        add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 520, 134, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 366, 170, 27));
+        add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 520, 170, 27));
 
         jLabel7.setText("Telephone:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 423, -1, -1));
@@ -213,7 +213,7 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
                 txtPasswordKeyReleased(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 418, 134, 27));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 418, 170, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(100, 30));
@@ -268,7 +268,7 @@ public class ManageBuyerJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Buyer list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 62, -1, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 366, 134, 27));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 366, 170, 27));
 
         jLabel4.setText("Address:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 371, -1, -1));

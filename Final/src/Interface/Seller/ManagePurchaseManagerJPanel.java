@@ -131,7 +131,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 495, 163, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 495, 166, 27));
         add(txtTelephone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 543, 166, 27));
 
         jLabel10.setText("Password:");
@@ -268,7 +268,7 @@ public class ManagePurchaseManagerJPanel extends javax.swing.JPanel {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 339, 163, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 339, 166, 27));
         add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 495, 146, 27));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N

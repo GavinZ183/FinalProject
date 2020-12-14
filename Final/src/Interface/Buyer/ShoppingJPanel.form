@@ -218,7 +218,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="14" y="332" width="-1" height="-1"/>
+          <AbsoluteConstraints x="14" y="332" width="130" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -270,7 +270,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="14" y="567" width="-1" height="-1"/>
+          <AbsoluteConstraints x="14" y="567" width="130" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -283,7 +283,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="14" y="612" width="-1" height="-1"/>
+          <AbsoluteConstraints x="14" y="612" width="130" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -300,14 +300,14 @@
     <Component class="javax.swing.JTextField" name="txtGood">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="104" y="250" width="139" height="27"/>
+          <AbsoluteConstraints x="104" y="250" width="140" height="27"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPrice">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="369" y="250" width="99" height="27"/>
+          <AbsoluteConstraints x="369" y="250" width="140" height="27"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -324,7 +324,7 @@
     <Component class="javax.swing.JTextField" name="txtSeller">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="623" y="250" width="141" height="27"/>
+          <AbsoluteConstraints x="623" y="250" width="140" height="27"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -347,14 +347,14 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="362" y="567" width="-1" height="-1"/>
+          <AbsoluteConstraints x="340" y="567" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JSpinner" name="jSpinner2">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="273" y="568" width="56" height="-1"/>
+          <AbsoluteConstraints x="515" y="570" width="56" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

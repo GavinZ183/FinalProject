@@ -81,7 +81,7 @@ public class ManageSellerInformationJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 96, -1));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 96, -1));
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class ManageSellerInformationJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 96, -1));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 280, 96, -1));
         add(txtBuyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 184, -1));
 
         btnBack.setText("< back");

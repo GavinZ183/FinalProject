@@ -77,11 +77,11 @@ im=im.getScaledInstance(250, 200, Image.SCALE_SMOOTH);
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
         txtProduct.setEnabled(false);
-        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 142, -1));
+        add(txtProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 230, -1));
         add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 250, 200));
 
         txtPrice.setEnabled(false);
-        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 142, -1));
+        add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 230, -1));
 
         jLabel5.setText("Price:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
@@ -94,16 +94,16 @@ im=im.getScaledInstance(250, 200, Image.SCALE_SMOOTH);
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
 
         txtSeller.setEnabled(false);
-        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 142, -1));
+        add(txtSeller, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 230, -1));
 
         txtInventory.setEnabled(false);
-        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 142, -1));
+        add(txtInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 230, -1));
 
         jLabel6.setText("Seller:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
 
         jLabel4.setText("Product:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
 
         btnBack.setText("< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ im=im.getScaledInstance(250, 200, Image.SCALE_SMOOTH);
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
 
         txtDescrip.setEnabled(false);
-        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 310, -1));
+        add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

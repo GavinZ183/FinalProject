@@ -147,7 +147,7 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Express Company list:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 88, -1, -1));
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 402, 110, 27));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 402, 150, 27));
 
         jLabel4.setText("Name:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 405, -1, -1));
@@ -182,7 +182,7 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 txtPassword1KeyReleased(evt);
             }
         });
-        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 599, 110, 27));
+        add(txtPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 599, 150, 27));
 
         jLabel10.setText("Password:");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 602, -1, -1));
@@ -192,15 +192,15 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 552, 169, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 552, 150, 27));
 
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 402, 169, 27));
-        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 552, 110, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 402, 150, 27));
+        add(txtName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 552, 150, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 405, -1, -1));
@@ -225,7 +225,7 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
                 txtPasswordKeyReleased(evt);
             }
         });
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 452, 110, 27));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 452, 150, 27));
 
         btnCreate.setText("Create");
         btnCreate.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -268,10 +268,10 @@ public class ManageDeliveryCompanyJPanel extends javax.swing.JPanel {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 11, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 120, 20));
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 120, 20));
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, 120, 20));
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, 120, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 402, 120, 20));
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 452, 120, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 552, 120, 20));
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 600, 120, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

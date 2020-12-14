@@ -129,7 +129,7 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
                 txtUsername1KeyReleased(evt);
             }
         });
-        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 517, 169, 27));
+        add(txtUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 517, 166, 27));
 
         jLabel5.setText("Username:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 368, -1, -1));
@@ -183,7 +183,7 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
                 txtUsernameKeyReleased(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 363, 169, 27));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 363, 166, 27));
 
         txtPassword1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -223,7 +223,7 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 100, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 565, 100, -1));
 
         jLabel8.setFont(new java.awt.Font("宋体", 1, 18)); // NOI18N
         jLabel8.setText("Update Sales Manager:");
@@ -272,10 +272,10 @@ public class ManageSalesManagerJPanel extends javax.swing.JPanel {
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/023-货物查询.png"))); // NOI18N
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 70, 70));
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 80, 20));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 365, 80, 20));
         add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 80, 20));
         add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 80, 20));
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 80, 20));
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 80, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
